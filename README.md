@@ -1,33 +1,113 @@
-# admin-core
+# Admin Core
 
-This template should help get you started developing with Vue 3 in Vite.
+基于 Vue 3 + TypeScript + Vite 的管理系统核心项目。
 
-## Recommended IDE Setup
+## 代码规范
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+本项目基于 vue-vben-admin 的代码规范配置，包含：
 
-## Type Support for `.vue` Imports in TS
+### ESLint 配置
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- 基于 TypeScript 和 Vue 3 的最佳实践
+- 支持 Vue SFC (Single File Components)
+- 集成 Prettier 格式化
+- 导入排序和优化
 
-## Customize configuration
+### Prettier 配置
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- 单引号
+- 分号结尾
+- 尾随逗号
+- 行宽 80 字符
+- 自动换行优化
 
-## Project Setup
+## 开发命令
 
-```sh
+```bash
+# 安装依赖
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# 启动开发服务器
 npm run dev
+
+# 构建生产版本
+npm run build
+
+# 类型检查
+npm run type-check
+
+# 代码检查
+npm run lint:check
+
+# 代码检查并自动修复
+npm run lint
+
+# 代码格式化检查
+npm run format:check
+
+# 代码格式化
+npm run format
 ```
 
-### Type-Check, Compile and Minify for Production
+## VSCode 集成
 
-```sh
-npm run build
+项目已配置 VSCode 设置：
+
+- 保存时自动格式化
+- ESLint 自动修复
+- 推荐的扩展插件
+
+推荐安装的扩展：
+
+- Prettier - Code formatter
+- ESLint
+- Vue Language Features (Volar)
+- TypeScript Vue Plugin
+- Tailwind CSS IntelliSense
+
+## 配置文件说明
+
+- `eslint.config.mjs` - ESLint 配置
+- `.prettierrc.mjs` - Prettier 配置
+- `.prettierignore` - Prettier 忽略文件
+- `.vscode/settings.json` - VSCode 编辑器设置
+- `.vscode/extensions.json` - VSCode 推荐扩展
+
+## 代码规范说明
+
+### Vue 组件规范
+
+- 组件名使用 PascalCase
+- Props 使用 camelCase
+- 事件名使用 kebab-case
+- 模板中组件使用 PascalCase
+- 文件顺序：script -> template -> style
+
+### TypeScript 规范
+
+- 优先使用 type 而非 interface（可配置）
+- 允许 any 类型（开发阶段）
+- 未使用的变量以 `_` 开头
+- 严格的空值检查
+
+### 导入规范
+
+- 自动排序导入语句
+- 按类型分组（内置 -> 外部 -> 内部 -> 相对）
+- 字母序排列
+
+## 项目结构
+
+```
+admin-core/
+├── .vscode/              # VSCode 配置
+├── src/                  # 源代码
+│   ├── App.vue          # 根组件
+│   └── main.ts          # 入口文件
+├── .prettierrc.mjs      # Prettier 配置
+├── .prettierignore      # Prettier 忽略文件
+├── eslint.config.mjs    # ESLint 配置
+├── package.json         # 项目配置
+├── tsconfig.json        # TypeScript 配置
+└── vite.config.ts       # Vite 配置
 ```

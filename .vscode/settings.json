@@ -1,0 +1,247 @@
+{
+  // workbench 工作台相关配置
+  "workbench.list.smoothScrolling": true, // 启用工作台列表的平滑滚动效果，提升用户体验
+  "workbench.startupEditor": "newUntitledFile", // VS Code 启动时打开新的未命名文件，而不是欢迎页面
+  "workbench.tree.indent": 10, // 设置文件资源管理器树形结构的缩进像素为 10，增强层级可读性
+  "workbench.editor.highlightModifiedTabs": true, // 高亮显示已修改但未保存的标签页，便于识别未保存文件
+  "workbench.editor.closeOnFileDelete": true, // 当文件被删除时自动关闭对应的编辑器标签页
+  "workbench.editor.limit.enabled": true, // 启用编辑器标签页数量限制功能，防止打开过多标签页影响性能
+  "workbench.editor.limit.perEditorGroup": true, // 对每个编辑器组单独应用标签页数量限制
+  "workbench.editor.limit.value": 15, // 设置每个编辑器组最多同时打开 15 个标签页
+  "workbench.editor.enablePreview": false, // 关闭预览模式，打开即固定
+  // editor 编辑器相关配置
+  "editor.tabSize": 2, // 设置 Tab 键缩进为 2 个空格，符合前端代码规范
+  "editor.detectIndentation": false, // 禁用自动检测缩进，强制使用 tabSize 设置的缩进
+  "editor.cursorBlinking": "expand", // 设置光标闪烁动画为扩展效果，提供更好的视觉反馈
+  "editor.largeFileOptimizations": true, // 启用大文件优化，提高打开大文件时的性能
+  "editor.accessibilitySupport": "off", // 关闭辅助功能支持，减少不必要的性能开销
+  "editor.cursorSmoothCaretAnimation": "on", // 启用光标移动的平滑动画效果
+  "editor.guides.bracketPairs": "active", // 只在活动括号对上显示引导线，便于匹配括号
+  "editor.inlineSuggest.enabled": true, // 启用内联建议功能，如 GitHub Copilot 的代码建议
+  "editor.suggestSelection": "recentlyUsedByPrefix", // 智能选择建议，优先选择最近使用过的匹配前缀的建议
+  "editor.acceptSuggestionOnEnter": "smart", // 智能回车接受建议，只在明确意图时接受
+  "editor.suggest.snippetsPreventQuickSuggestions": false, // 允许代码片段和快速建议同时显示
+  "editor.stickyScroll.enabled": true, // 启用粘性滚动，显示当前代码块的上下文信息
+  "editor.hover.sticky": true, // 启用粘性悬停提示，鼠标移开后提示框保持显示
+  "editor.suggest.insertMode": "replace", // 建议插入模式为替换，而不是插入
+  "editor.bracketPairColorization.enabled": true, // 启用括号对颜色化，不同层级的括号显示不同颜色
+  "editor.autoClosingBrackets": "beforeWhitespace", // 在空白字符前自动闭合括号
+  "editor.autoClosingDelete": "always", // 删除开括号时总是自动删除对应的闭括号
+  "editor.autoClosingOvertype": "always", // 输入闭括号时总是覆盖已存在的闭括号
+  "editor.autoClosingQuotes": "beforeWhitespace", // 在空白字符前自动闭合引号
+  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?", // 定义单词分隔符，用于双击选择单词和其他文本操作,
+  "editor.codeActionsOnSave": {
+    // 保存文件时执行的代码操作配置
+    "source.fixAll.eslint": "explicit", // 显式启用保存时修复所有 ESLint 错误，需要用户确认
+    "source.fixAll.stylelint": "explicit", // 显式启用保存时修复所有 Stylelint 错误，需要用户确认
+    "source.organizeImports": "never" // 禁用保存时自动整理导入语句，避免与其他工具冲突
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认代码格式化工具为 Prettier
+  "[html]": {
+    // HTML 文件特定配置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // HTML 文件使用 Prettier 格式化
+  },
+  "[css]": {
+    // CSS 文件特定配置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // CSS 文件使用 Prettier 格式化
+  },
+  "[scss]": {
+    // SCSS 文件特定配置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // SCSS 文件使用 Prettier 格式化
+  },
+  "[javascript]": {
+    // JavaScript 文件特定配置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // JavaScript 文件使用 Prettier 格式化
+  },
+  "[typescript]": {
+    // TypeScript 文件特定配置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // TypeScript 文件使用 Prettier 格式化
+  },
+  "[json]": {
+    // JSON 文件特定配置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // JSON 文件使用 Prettier 格式化
+  },
+  "[markdown]": {
+    // Markdown 文件特定配置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Markdown 文件使用 Prettier 格式化
+  },
+  "[jsonc]": {
+    // JSONC（带注释的JSON）文件特定配置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // JSONC 文件使用 Prettier 格式化
+  },
+  "[vue]": {
+    // Vue 文件特定配置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Vue 文件使用 Prettier 格式化
+  },
+  // extensions 扩展相关配置
+  "extensions.ignoreRecommendations": false, // 忽略 VS Code 的扩展推荐，避免干扰
+  // terminal 终端相关配置
+  "terminal.integrated.cursorBlinking": true, // 启用集成终端中的光标闪烁效果
+  "terminal.integrated.persistentSessionReviveProcess": "never", // 从不恢复持久化终端会话进程，每次重启都是新会话
+  "terminal.integrated.tabs.enabled": true, // 启用终端标签页功能，方便管理多个终端
+  "terminal.integrated.scrollback": 10000, // 设置终端滚动缓冲区为 10000 行，保留更多历史输出
+  "terminal.integrated.stickyScroll.enabled": true, // 启用终端粘性滚动功能
+  // files 文件相关配置
+  "files.eol": "\n", // 设置文件行尾符为 LF（\n），确保跨平台兼容性
+  "files.insertFinalNewline": true, // 保存文件时在末尾插入换行符，符合 POSIX 标准
+  "files.simpleDialog.enable": true, // 启用简化的文件对话框，提供更简洁的用户界面
+  "files.associations": {
+    // 文件类型关联配置，指定文件扩展名对应的语言模式
+    "*.ejs": "html", // EJS 模板文件按 HTML 语法高亮
+    "*.art": "html", // Art 模板文件按 HTML 语法高亮
+    "**/tsconfig.json": "jsonc", // tsconfig.json 文件按 JSONC 格式处理（支持注释）
+    "*.json": "jsonc", // 默认 JSON 文件按 JSONC 格式处理（支持注释）
+    "package.json": "json", // package.json 文件按标准 JSON 格式处理（不支持注释）
+    "*.svg": "html"
+  },
+  "files.exclude": {
+    // 从文件资源管理器中隐藏指定的文件和文件夹
+    "**/.eslintcache": true, // 隐藏 ESLint 缓存文件，这些是临时文件不需要显示
+    "**/bower_components": true, // 隐藏 Bower 依赖目录，类似 node_modules
+    "**/.turbo": true, // 隐藏 Turbo 构建工具的缓存目录
+    "**/.idea": true, // 隐藏 IntelliJ IDEA 配置目录
+    "**/.vitepress": true, // 隐藏 VitePress 构建输出目录
+    "**/tmp": true, // 隐藏临时文件目录
+    "**/.git": true, // 隐藏 Git 版本控制目录
+    "**/.svn": true, // 隐藏 SVN 版本控制目录
+    "**/.hg": true, // 隐藏 Mercurial 版本控制目录
+    "**/CVS": true, // 隐藏 CVS 版本控制目录
+    "**/.stylelintcache": true, // 隐藏 Stylelint 缓存文件
+    "**/.DS_Store": true, // 隐藏 macOS 系统生成的 .DS_Store 文件
+    "**/vite.config.mts.*": true, // 隐藏 Vite 配置文件的临时文件
+    "**/tea.yaml": true // 隐藏 Tea 包管理器配置文件
+  },
+  "files.watcherExclude": {
+    // 从文件监视器中排除指定的文件和文件夹，提高性能
+    "**/.git/objects/**": true, // 排除 Git 对象目录，避免监视大量 Git 内部文件
+    "**/.git/subtree-cache/**": true, // 排除 Git 子树缓存目录
+    "**/.vscode/**": true, // 排除 VS Code 配置目录
+    "**/node_modules/**": true, // 排除 Node.js 依赖目录，避免监视大量依赖文件
+    "**/tmp/**": true, // 排除临时文件目录
+    "**/bower_components/**": true, // 排除 Bower 依赖目录
+    "**/dist/**": true, // 排除构建输出目录
+    "**/yarn.lock": true // 排除 Yarn 锁定文件，这些文件变化频繁但不需要实时监视
+  },
+  "typescript.tsserver.exclude": [
+    // TypeScript 语言服务排除的目录，提高 TS 服务性能
+    "**/node_modules",
+    "**/dist",
+    "**/.turbo"
+  ],
+  "search.exclude": {
+    // 从搜索结果中排除指定的文件和文件夹
+    "**/node_modules": true, // 排除 Node.js 依赖目录，避免搜索大量第三方代码
+    "**/*.log": true, // 排除日志文件，通常不需要搜索
+    "**/*.log*": true, // 排除所有日志相关文件（如 .log.1, .log.old 等）
+    "**/bower_components": true, // 排除 Bower 依赖目录
+    "**/dist": true, // 排除构建输出目录
+    "**/elehukouben": true, // 排除特定项目目录
+    "**/.git": true, // 排除 Git 版本控制目录
+    "**/.github": true, // 排除 GitHub 配置目录
+    "**/.gitignore": true, // 排除 Git 忽略文件
+    "**/.svn": true, // 排除 SVN 版本控制目录
+    "**/.DS_Store": true, // 排除 macOS 系统文件
+    "**/.vitepress/cache": true, // 排除 VitePress 缓存目录
+    "**/.idea": true, // 排除 IntelliJ IDEA 配置目录
+    "**/.vscode": false, // 不排除 VS Code 配置目录，允许搜索编辑器配置
+    "**/.yarn": true, // 排除 Yarn 缓存目录
+    "**/tmp": true, // 排除临时文件目录
+    "*.xml": true, // 排除 XML 文件
+    "out": true, // 排除输出目录
+    "dist": true, // 排除分发目录
+    "node_modules": true, // 排除根目录的 node_modules
+    "CHANGELOG.md": true, // 排除变更日志文件
+    "**/pnpm-lock.yaml": true, // 排除 pnpm 锁定文件
+    "**/yarn.lock": true // 排除 Yarn 锁定文件
+  },
+  "debug.onTaskErrors": "debugAnyway", // 即使任务出现错误也继续调试，便于排查问题
+  "diffEditor.ignoreTrimWhitespace": false, // 差异编辑器不忽略空白字符的差异，保持精确对比
+  "npm.packageManager": "pnpm", // 指定使用 pnpm 作为 npm 包管理器
+  "css.validate": false, // 禁用内置的 CSS 验证，避免与 Stylelint 冲突
+  "less.validate": false, // 禁用内置的 Less 验证，避免与 Stylelint 冲突
+  "scss.validate": false, // 禁用内置的 SCSS 验证，避免与 Stylelint 冲突
+
+  // extension 扩展相关配置
+  "emmet.showSuggestionsAsSnippets": true, // 将 Emmet 建议显示为代码片段，便于选择和使用
+  "emmet.triggerExpansionOnTab": false, // 禁用 Tab 键触发 Emmet
+  "errorLens.enabledDiagnosticLevels": [
+    // 启用 ErrorLens 扩展的警告和错误级别诊断显示
+    "warning",
+    "error"
+  ],
+  "errorLens.excludeBySource": [
+    // ErrorLens 排除的诊断源，避免显示某些类型的错误
+    "cSpell",
+    "Grammarly",
+    "eslint"
+  ],
+  "stylelint.enable": true, // 启用 Stylelint 扩展
+  "stylelint.packageManager": "pnpm", // Stylelint 使用 pnpm 包管理器
+  "stylelint.validate": [
+    // Stylelint 验证的文件类型
+    "css",
+    "less",
+    "postcss",
+    "scss",
+    "vue"
+  ],
+  "stylelint.customSyntax": "postcss-html", // Stylelint 使用自定义语法解析器处理 HTML 中的 CSS
+  "stylelint.snippet": [
+    // Stylelint 支持代码片段的文件类型
+    "css",
+    "less",
+    "postcss",
+    "scss",
+    "vue"
+  ],
+  "typescript.inlayHints.enumMemberValues.enabled": true, // 启用 TypeScript 枚举成员值的内联提示
+  "typescript.preferences.preferTypeOnlyAutoImports": true, // TypeScript 优先使用仅类型的自动导入
+  "typescript.preferences.includePackageJsonAutoImports": "on", // 包含 package.json 中的自动导入建议
+  "eslint.validate": [
+    // ESLint 验证的文件类型列表
+
+    "javascript", // JavaScript 文件
+    "typescript", // TypeScript 文件
+    "javascriptreact", // JavaScript React 文件（JSX）
+    "typescriptreact", // TypeScript React 文件（TSX）
+    "vue", // Vue 文件
+    "html", // HTML 文件
+    "markdown", // Markdown 文件
+    "json", // JSON 文件
+    "jsonc", // JSONC 文件（带注释的 JSON）
+    "json5" // JSON5 文件
+  ],
+  "cssVariables.lookupFiles": [
+    // CSS 变量查找文件路径，用于 CSS 变量提示
+    "src/style"
+  ],
+  "i18n-ally.localesPaths": [
+    // i18n Ally 国际化文件目录配置
+    "src/language/packages"
+  ],
+  "i18n-ally.pathMatcher": "{locale}/{namespace}.{ext}", // i18n 文件路径匹配模式
+  "i18n-ally.enabledParsers": ["json"], // 启用的 i18n 文件解析器，仅支持 JSON 格式
+  "i18n-ally.sourceLanguage": "en", // 设置源语言为英语
+  "i18n-ally.displayLanguage": "zh-CN", // 设置显示语言为中文简体
+  "i18n-ally.enabledFrameworks": ["vue", "react"], // 支持的框架：Vue 和 React
+  "i18n-ally.keystyle": "nested", // 键名风格为嵌套结构
+  "i18n-ally.sortKeys": true, // 启用键名排序
+  "i18n-ally.namespace": true, // 启用命名空间功能
+  "commentTranslate.hover.enabled": false, // 禁用注释翻译扩展的悬停翻译功能
+  "commentTranslate.multiLineMerge": true, // 启用注释翻译的多行合并功能
+  "vue.server.hybridMode": true, // 启用 Vue 语言服务的混合模式
+  "typescript.tsdk": "node_modules/typescript/lib", // 指定 TypeScript SDK 路径
+  "oxc.enable": false, // 禁用 OXC 扩展（一个高性能的 JavaScript/TypeScript 工具链）
+  "cSpell.words": [
+    // Code Spell Checker 扩展的自定义单词列表
+    "archiver", // 档案工具库
+    "axios", // HTTP 客户端库
+    "dotenv", // 环境变量加载库
+    "isequal", // 对象深度比较库
+    "jspm", // JavaScript 包管理器
+    "napi", // Node.js API 的缩写
+    "nolebase", // 可能是一个项目名或库名
+    "rollup", // JavaScript 模块打包器
+    "vitest" // 单元测试框架
+  ]
+}
