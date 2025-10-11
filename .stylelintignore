@@ -1,0 +1,39 @@
+# 依赖和构建产物
+node_modules/
+dist/
+build/
+.vite/
+coverage/
+__tests__
+
+# 配置文件
+*.config.*
+*.d.ts
+.env*
+
+# 图片和其他资源文件
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.svg
+**/*.ico
+**/*.webp
+**/*.avif
+**/*.woff
+**/*.woff2
+**/*.eot
+**/*.ttf
+**/*.otf
+
+# 文档和说明文件
+**/*.txt
+LICENSE*
+CHANGELOG*
+
+# IDE 和版本控制
+.vscode/
+.idea/
+.git/
+.DS_Store
+Thumbs.db

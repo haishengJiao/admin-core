@@ -160,7 +160,6 @@
   "css.validate": false, // 禁用内置的 CSS 验证，避免与 Stylelint 冲突
   "less.validate": false, // 禁用内置的 Less 验证，避免与 Stylelint 冲突
   "scss.validate": false, // 禁用内置的 SCSS 验证，避免与 Stylelint 冲突
-
   // extension 扩展相关配置
   "emmet.showSuggestionsAsSnippets": true, // 将 Emmet 建议显示为代码片段，便于选择和使用
   "emmet.triggerExpansionOnTab": false, // 禁用 Tab 键触发 Emmet
@@ -180,15 +179,16 @@
   "stylelint.validate": [
     // Stylelint 验证的文件类型
     "css",
+    "html",
     "less",
     "postcss",
     "scss",
     "vue"
   ],
-  "stylelint.customSyntax": "postcss-html", // Stylelint 使用自定义语法解析器处理 HTML 中的 CSS
   "stylelint.snippet": [
     // Stylelint 支持代码片段的文件类型
     "css",
+    "html",
     "less",
     "postcss",
     "scss",
@@ -199,7 +199,6 @@
   "typescript.preferences.includePackageJsonAutoImports": "on", // 包含 package.json 中的自动导入建议
   "eslint.validate": [
     // ESLint 验证的文件类型列表
-
     "javascript", // JavaScript 文件
     "typescript", // TypeScript 文件
     "javascriptreact", // JavaScript React 文件（JSX）
@@ -213,7 +212,7 @@
   ],
   "cssVariables.lookupFiles": [
     // CSS 变量查找文件路径，用于 CSS 变量提示
-    "src/style"
+    "src/styles"
   ],
   "i18n-ally.localesPaths": [
     // i18n Ally 国际化文件目录配置

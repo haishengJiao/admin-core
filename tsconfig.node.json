@@ -15,6 +15,7 @@
     "playwright.config.*",
     ".prettierrc.mjs",
     "eslint.config.*",
-    "scripts/**/*"
+    "scripts/**/*",
+    "stylelint.config.*"
   ]
 }
