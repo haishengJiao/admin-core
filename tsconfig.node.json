@@ -16,6 +16,7 @@
     ".prettierrc.mjs",
     "eslint.config.*",
     "scripts/**/*",
-    "stylelint.config.*"
+    "stylelint.config.*",
+    "commitlint.config.*"
   ]
 }
