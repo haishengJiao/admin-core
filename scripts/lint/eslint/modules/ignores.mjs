@@ -102,5 +102,7 @@ export const ignores = {
     '**/LICENSE*', // 忽略许可证文件
     '**/README*.md', // 忽略说明文档文件
     '**/*.md', // 忽略所有Markdown文件
+
+    '**/.husky/**',
   ],
 };

@@ -45,15 +45,15 @@ pre-commit:
   parallel: true
   commands:
     lint-eslint:
-      run: npx eslint {staged_files} --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts
+      run: npx eslint {staged_files} --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --cache
       glob: '*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}'
 
     lint-style:
-      run: npx stylelint {staged_files}
+      run: npx stylelint --cache {staged_files}
       glob: '*.{css,scss,html,vue}'
 
     lint-format:
-      run: npx prettier --write {staged_files}
+      run: npx prettier --check --ignore-unknown --cache {staged_files}
       glob: '*'
 
     type-check:

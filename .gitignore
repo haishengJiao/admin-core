@@ -16,6 +16,8 @@ coverage
 .stylelintcache
 yarn.lock
 package-lock.json
+.husky
+.eslintcache
 
 /cypress/videos/
 /cypress/screenshots/

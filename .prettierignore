@@ -101,3 +101,5 @@ Thumbs.db
 CHANGELOG*.md
 LICENSE*
 README*.md
+
+.husky
