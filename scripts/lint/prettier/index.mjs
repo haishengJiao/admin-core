@@ -1,3 +1,4 @@
+/** @type {import('prettier').Options} */
 export default {
   endOfLine: 'auto', // 行尾符号：auto表示保持原有的行尾符号（CRLF/LF），避免跨平台换行符冲突
 

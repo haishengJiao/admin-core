@@ -1,3 +1,4 @@
+/** @type {import('stylelint').Config} */
 export default {
   extends: ['stylelint-config-standard', 'stylelint-config-recess-order'], // 继承标准配置和CSS属性排序配置
   ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts', '**/*.json', '**/*.md'], // 忽略非样式文件，避免误检查
