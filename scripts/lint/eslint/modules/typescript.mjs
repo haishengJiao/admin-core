@@ -12,7 +12,7 @@ export const typescript = {
       ecmaFeatures: {
         jsx: true, // 启用JSX语法支持
       },
-      project: ['./tsconfig.json', './tsconfig.*.json'], // TypeScript项目配置文件路径
+      project: ['./scripts/tsconfig/tsconfig.json', './scripts/tsconfig/tsconfig.*.json'], // TypeScript项目配置文件路径
       createDefaultProgram: false, // 不启用 createDefaultProgram（避免性能问题和误报）
       extraFileExtensions: ['.vue'], // 额外解析的文件扩展名（例如 .vue）
       jsxPragma: 'React', // JSX pragma（兼容旧的 JSX 编译器设置）

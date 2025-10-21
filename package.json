@@ -7,7 +7,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "build": "vite build",
-    "type-check": "vue-tsc --build",
+    "type-check": "vue-tsc --build scripts/tsconfig/tsconfig.json",
     "eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --cache",
     "eslint:check": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --cache",
     "style": "stylelint \"**/*.{css,scss,vue,html}\" --fix --cache",
