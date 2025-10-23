@@ -17,6 +17,7 @@
     "../../eslint.config.*",
     "../../scripts/**/*",
     "../../stylelint.config.*",
-    "../../commitlint.config.*"
+    "../../commitlint.config.*",
+    "../../cspell.config.*"
   ]
 }

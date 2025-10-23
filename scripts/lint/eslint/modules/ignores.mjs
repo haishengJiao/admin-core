@@ -104,5 +104,6 @@ export const ignores = {
     '**/*.md', // 忽略所有Markdown文件
 
     '**/.husky/**',
+    '**/..cspellcache',
   ],
 };

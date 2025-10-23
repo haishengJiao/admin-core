@@ -103,3 +103,4 @@ LICENSE*
 README*.md
 
 .husky
+.cspellcache

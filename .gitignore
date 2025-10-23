@@ -18,6 +18,7 @@ yarn.lock
 package-lock.json
 .husky
 .eslintcache
+.cspellcache
 
 /cypress/videos/
 /cypress/screenshots/
