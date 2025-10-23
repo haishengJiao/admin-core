@@ -1,37 +1,3 @@
-<script setup lang="ts">
-// 故意添加未使用的导入和变量来测试规则
-import { formatDate, debounce } from './utils'; // 未使用的导入
-import { ref, reactive, computed, watch } from 'vue'; // watch未使用
-
-import type { User } from './utils'; // 未使用的类型
-
-// 未使用的变量
-const unusedVariable = 'I am not used anywhere';
-const _intentionallyUnused = 'This starts with _ so it should be ignored';
-const a: any = '';
-if (a == 123) {
-}
-
-// 定义响应式数据
-const count = ref(0);
-const user = reactive({
-  name: 'Admin',
-  role: 'administrator',
-});
-
-// 计算属性
-const doubleCount = computed(() => count.value * 2);
-
-// 方法
-const increment = () => {
-  count.value++;
-};
-
-const updateUser = (newName: string) => {
-  user.name = newName;
-};
-</script>
-
 <template>
   <div class="app-container">
     <header class="app-header">
@@ -44,20 +10,7 @@ const updateUser = (newName: string) => {
         <h2>计数器示例</h2>
         <p>当前计数: {{ count }}</p>
         <p>双倍计数: {{ doubleCount }}</p>
-        <button
-          asd="iuy"
-          asda="asd123"
-          asdasdasdasd="123"
-          asdfghj="123"
-          asdg="123"
-          class="asdasdasdasdasdasd 12312 asd asd"
-          ghjkl="123"
-          sik="123"
-          type="button"
-          @click="increment"
-        >
-          123
-        </button>
+        <button sik="123" type="button" @click="increment">123</button>
       </section>
 
       <section class="user-section">
@@ -78,22 +31,44 @@ const updateUser = (newName: string) => {
   </div>
 </template>
 
-<style scoped>
+<script setup lang="ts">
+import { ref, reactive, computed } from 'vue';
+
+const count = ref(0);
+const user = reactive({
+  name: 'Admin',
+  role: 'administrator',
+});
+
+// 计算属性
+const doubleCount = computed(() => count.value * 2);
+
+// 方法
+const increment = () => {
+  count.value++;
+};
+
+const updateUser = (newName: string) => {
+  user.name = newName;
+};
+</script>
+
+<style scoped lang="scss">
 .app-container {
   max-width: 800px;
-  margin: 0 auto;
   padding: 20px;
+  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .app-header {
-  text-align: center;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .app-header h1 {
-  color: #2c3e50;
   margin-bottom: 10px;
+  color: #2c3e50;
 }
 
 .app-content {
@@ -105,25 +80,25 @@ const updateUser = (newName: string) => {
 .counter-section,
 .user-section {
   padding: 20px;
+  background-color: #f8f9fa;
   border: 1px solid #e1e5e9;
   border-radius: 8px;
-  background-color: #f8f9fa;
 }
 
 .counter-section h2,
 .user-section h2 {
-  color: #495057;
   margin-bottom: 15px;
+  color: #495057;
 }
 
 button {
-  background-color: #007bff;
-  color: white;
-  border: none;
   padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
   margin-top: 10px;
+  color: white;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
 }
 
 button:hover {
@@ -131,10 +106,10 @@ button:hover {
 }
 
 .app-footer {
-  text-align: center;
-  color: #6c757d;
-  border-top: 1px solid #dee2e6;
   padding-top: 20px;
+  color: #6c757d;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
 }
 
 .app-footer a {
