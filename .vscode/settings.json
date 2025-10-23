@@ -227,6 +227,18 @@
   "i18n-ally.keystyle": "nested", // 键名风格为嵌套结构
   "i18n-ally.sortKeys": true, // 启用键名排序
   "i18n-ally.namespace": true, // 启用命名空间功能
+  "explorer.fileNesting.enabled": true, // 启用文件嵌套功能，让相关文件可以折叠到主文件下
+  "explorer.fileNesting.expand": false, // 默认折叠嵌套文件，需要手动点击箭头才能展开
+  "explorer.fileNesting.patterns": {
+    "*.ts": "$(capture).test.ts, $(capture).test.tsx, $(capture).spec.ts, $(capture).spec.tsx, $(capture).d.ts", // 将TypeScript文件的测试文件和类型定义文件折叠到主ts文件下
+    "*.tsx": "$(capture).test.ts, $(capture).test.tsx, $(capture).spec.ts, $(capture).spec.tsx,$(capture).d.ts", // 将TSX文件的测试文件折叠到主tsx文件下
+    "*.env": "$(capture).env.*", // 将所有环境变量配置文件折叠到主env文件下
+    "README.md": "README*,CHANGELOG*,LICENSE,CNAME", // 将项目文档相关文件折叠到README.md下
+    "package.json": "package-lock.json,package.tsbuildinfo,pnpm-lock.yaml,pnpm-workspace.yaml,.npmrc,.nvmrc,.browserslistrc,.node-version,.tazerc.json", // 将包管理器和构建工具配置文件折叠到package.json下
+    "eslint.config.mjs": ".eslintignore,.prettierignore,.stylelintignore,commitlint.config.mjs,.prettierrc.*,stylelint.config.*,.lintstagedrc.mjs,cspell.config.mjs,lefthook.yml", // 将代码质量检查和Git Hook工具配置折叠到ESLint配置下
+    "tailwind.config.mjs": "postcss.*", // 将PostCSS配置折叠到Tailwind CSS配置下
+    ".gitignore": ".gitattributes,.gitmodules,.gitmessage,.git-blame*,.git*" // 将Git版本控制相关配置文件折叠到.gitignore下
+  },
   "commentTranslate.hover.enabled": false, // 禁用注释翻译扩展的悬停翻译功能
   "commentTranslate.multiLineMerge": true, // 启用注释翻译的多行合并功能
   "vue.server.hybridMode": true, // 启用 Vue 语言服务的混合模式
