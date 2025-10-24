@@ -36,6 +36,7 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitejs/plugin-vue-jsx": "^5.0.1",
     "@vue/tsconfig": "^0.7.0",
+    "code-inspector-plugin": "^1.2.10",
     "commitlint-plugin-function-rules": "^4.1.0",
     "cspell": "^9.2.1",
     "cz-git": "^1.12.0",
