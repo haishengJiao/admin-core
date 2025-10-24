@@ -2,23 +2,15 @@
   <div class="app-container">
     <header class="app-header">
       <h1>Admin Core System</h1>
+      <nav class="navigation">
+        <router-link to="/">首页</router-link>
+        <router-link to="/about">关于</router-link>
+      </nav>
       <p>欢迎使用管理系统核心模块</p>
     </header>
 
     <main class="app-content">
-      <section class="counter-section">
-        <h2>计数器示例</h2>
-        <p>当前计数: {{ count }}</p>
-        <p>双倍计数: {{ doubleCount }}</p>
-        <button sik="123" type="button" @click="increment">123</button>
-      </section>
-
-      <section class="user-section">
-        <h2>用户信息</h2>
-        <p>用户名: {{ user.name }}</p>
-        <p>角色: {{ user.role }}</p>
-        <button type="button" @click="updateUser('新管理员')">更新用户名</button>
-      </section>
+      <router-view />
     </main>
 
     <footer class="app-footer">
@@ -32,25 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue';
-
-const count = ref(0);
-const user = reactive({
-  name: 'Admin',
-  role: 'administrator',
-});
-
-// 计算属性
-const doubleCount = computed(() => count.value * 2);
-
-// 方法
-const increment = () => {
-  count.value++;
-};
-
-const updateUser = (newName: string) => {
-  user.name = newName;
-};
+// App 组件逻辑
 </script>
 
 <style scoped lang="scss">
@@ -69,6 +43,23 @@ const updateUser = (newName: string) => {
 .app-header h1 {
   margin-bottom: 10px;
   color: #2c3e50;
+}
+
+.navigation {
+  margin: 20px 0;
+}
+
+.navigation a {
+  padding: 8px 16px;
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+.navigation a.router-link-active {
+  background-color: #0056b3;
 }
 
 .app-content {

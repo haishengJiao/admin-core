@@ -7,7 +7,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "build": "vite build",
-    "type-check": "vue-tsc --build scripts/tsconfig/tsconfig.json",
+    "type-check": "vue-tsc --build",
     "eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --cache",
     "eslint:check": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --cache",
     "style": "stylelint \"**/*.{css,scss,vue,html}\" --fix --cache",
@@ -20,7 +20,8 @@
     "commit": "czg"
   },
   "dependencies": {
-    "vue": "^3.5.22"
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",

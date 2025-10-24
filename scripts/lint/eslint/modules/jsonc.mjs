@@ -43,7 +43,7 @@ export const jsonc = [
   },
   {
     // 针对TypeScript配置文件的特殊规则
-    files: ['**/scripts/tsconfig/tsconfig.json', '**/scripts/tsconfig/tsconfig.*.json'], // 匹配所有TypeScript配置文件
+    files: ['**/tsconfig.json', '**/scripts/tsconfig/tsconfig.*.json'], // 匹配所有TypeScript配置文件
     rules: {
       // 强制JSON对象键名排序，保持配置文件的一致性和可维护性
       'jsonc/sort-keys': [
