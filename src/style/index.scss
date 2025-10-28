@@ -1,0 +1,8 @@
+@use './modules/flex/index' as flex;
+@use './modules/reset/index' as reset;
+
+:root {
+  --primary-color: #4caf50;
+  --secondary-color: #ff9800;
+  --font-family: 'Helvetica Neue', arial, sans-serif;
+}

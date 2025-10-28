@@ -33,6 +33,7 @@
   padding: 20px;
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-color);
 }
 
 .app-header {

@@ -211,10 +211,8 @@
     "jsonc", // JSONC 文件（带注释的 JSON）
     "json5" // JSON5 文件
   ],
-  "cssVariables.lookupFiles": [
-    // CSS 变量查找文件路径，用于 CSS 变量提示
-    "src/styles"
-  ],
+  "cssVariables.lookupFiles": ["src/style/**/*"], // CSS 变量查找文件路径，用于 CSS 变量提示
+  "html-css-class-completion.includeGlobPattern": "src/style/*", // HTML CSS 类名补全的包含路径模式
   "i18n-ally.localesPaths": [
     // i18n Ally 国际化文件目录配置
     "src/language/packages"

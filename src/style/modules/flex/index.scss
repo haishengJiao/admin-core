@@ -1,0 +1,180 @@
+.display-flex {
+  display: flex;
+}
+
+.display-inline-flex {
+  display: inline-flex;
+}
+
+.display-row {
+  flex-direction: row;
+}
+
+.display-column {
+  flex-direction: column;
+}
+
+.display-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.display-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-align-start {
+  align-items: flex-start;
+}
+
+.flex-align-end {
+  align-items: flex-end;
+}
+
+.flex-align-stretch {
+  align-items: stretch;
+}
+
+.flex-align-baseline {
+  align-items: baseline;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-justify-start {
+  justify-content: flex-start;
+}
+
+.flex-justify-end {
+  justify-content: flex-end;
+}
+
+.flex-justify-between {
+  justify-content: space-between;
+}
+
+.flex-justify-around {
+  justify-content: space-around;
+}
+
+.flex-justify-evenly {
+  justify-content: space-evenly;
+}
+
+.flex-1 {
+  flex: 1;
+  flex-grow: 1;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+  flex-grow: 1;
+}
+
+.flex-none {
+  flex: none;
+  flex-grow: 0;
+}
+
+.flex-grow-0 {
+  flex-grow: 0;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.flex-shrink-1 {
+  flex-shrink: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.flex-align-content-center {
+  align-content: center;
+}
+
+.flex-align-content-start {
+  align-content: flex-start;
+}
+
+.flex-align-content-end {
+  align-content: flex-end;
+}
+
+.flex-align-content-between {
+  align-content: space-between;
+}
+
+.flex-align-content-around {
+  align-content: space-around;
+}
+
+.flex-align-content-stretch {
+  align-content: stretch;
+}
+
+.flex-self-auto {
+  align-self: auto;
+}
+
+.flex-self-start {
+  align-self: flex-start;
+}
+
+.flex-self-end {
+  align-self: flex-end;
+}
+
+.flex-self-center {
+  align-self: center;
+}
+
+.flex-self-stretch {
+  align-self: stretch;
+}
+
+.flex-self-baseline {
+  align-self: baseline;
+}
+
+.flex-order-first {
+  order: -1;
+}
+
+.flex-order-last {
+  order: 999;
+}
+
+.flex-order-none {
+  order: 0;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between-center {
+  align-items: center;
+  justify-content: space-between;
+}
