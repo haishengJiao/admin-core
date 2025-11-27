@@ -104,3 +104,5 @@ README*.md
 
 .husky
 .cspellcache
+auto-imports.d.ts
+components.d.ts

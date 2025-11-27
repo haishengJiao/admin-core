@@ -8,6 +8,9 @@
       </nav>
       {{ $t('login.login') }}
       {{ $t('example.example') }}
+      <el-button @click="handleDefault">Default</el-button>
+      <el-button size="large" type="primary">Primary</el-button>
+      <el-icon><i-ep-plus /></el-icon>
       <p>欢迎使用管理系统核心模块</p>
     </header>
 
@@ -27,6 +30,11 @@
 
 <script setup lang="ts">
 // App 组件逻辑
+
+const handleDefault = () => {
+  // ElLoading();
+  ElMessageBox.alert('Hello World');
+};
 </script>
 
 <style scoped lang="scss">
@@ -83,20 +91,6 @@
 .user-section h2 {
   margin-bottom: 15px;
   color: #495057;
-}
-
-button {
-  padding: 8px 16px;
-  margin-top: 10px;
-  color: white;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 
 .app-footer {

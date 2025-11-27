@@ -105,5 +105,8 @@ export const ignores = {
 
     '**/.husky/**',
     '**/..cspellcache',
+
+    '**/auto-imports.d.ts',
+    '**/components.d.ts',
   ],
 };

@@ -19,6 +19,8 @@ package-lock.json
 .husky
 .eslintcache
 .cspellcache
+auto-imports.d.ts
+components.d.ts
 
 /cypress/videos/
 /cypress/screenshots/
