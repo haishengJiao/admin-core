@@ -1,6 +1,6 @@
 import { createPinia } from 'pinia';
 
-export { useCountStore, useUserStore } from './modules';
+export * from './modules';
 
 const store = createPinia();
 
