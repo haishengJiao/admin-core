@@ -6,6 +6,8 @@
         <router-link to="/">首页</router-link>
         <router-link to="/about">关于</router-link>
       </nav>
+      {{ $t('login.login') }}
+      {{ $t('example.example') }}
       <p>欢迎使用管理系统核心模块</p>
     </header>
 

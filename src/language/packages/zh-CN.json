@@ -1,0 +1,15 @@
+{
+  "example": {
+    "example": "示例",
+    "slide-verify": "滑动验证",
+    "slider-validation": "滑块校验"
+  },
+  "workplace": {
+    "workplace": "工作台"
+  },
+  "login": {
+    "login": "登录",
+    "enter-username": "请输入用户名",
+    "enter-password": "请输入密码"
+  }
+}

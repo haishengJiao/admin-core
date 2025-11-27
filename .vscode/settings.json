@@ -213,18 +213,16 @@
   ],
   "cssVariables.lookupFiles": ["src/style/**/*"], // CSS 变量查找文件路径，用于 CSS 变量提示
   "html-css-class-completion.includeGlobPattern": "src/style/*", // HTML CSS 类名补全的包含路径模式
-  "i18n-ally.localesPaths": [
-    // i18n Ally 国际化文件目录配置
-    "src/language/packages"
-  ],
-  "i18n-ally.pathMatcher": "{locale}/{namespace}.{ext}", // i18n 文件路径匹配模式
+  "i18n-ally.localesPaths": ["src/language/packages"], // i18n Ally 国际化文件目录配置
+  // "i18n-ally.pathMatcher": "{locale}/{namespace}.{ext}", // i18n 文件路径匹配模式
   "i18n-ally.enabledParsers": ["json"], // 启用的 i18n 文件解析器，仅支持 JSON 格式
-  "i18n-ally.sourceLanguage": "en", // 设置源语言为英语
+  "i18n-ally.sourceLanguage": "zh-CN", // 设置源语言为英语
   "i18n-ally.displayLanguage": "zh-CN", // 设置显示语言为中文简体
   "i18n-ally.enabledFrameworks": ["vue", "react"], // 支持的框架：Vue 和 React
   "i18n-ally.keystyle": "nested", // 键名风格为嵌套结构
   "i18n-ally.sortKeys": true, // 启用键名排序
   "i18n-ally.namespace": true, // 启用命名空间功能
+  "i18n-ally.encoding": "utf-8", // 设置文件编码为 UTF-8
   "explorer.fileNesting.enabled": true, // 启用文件嵌套功能，让相关文件可以折叠到主文件下
   "explorer.fileNesting.expand": false, // 默认折叠嵌套文件，需要手动点击箭头才能展开
   "explorer.fileNesting.patterns": {
@@ -253,5 +251,6 @@
     "nolebase", // 可能是一个项目名或库名
     "rollup", // JavaScript 模块打包器
     "vitest" // 单元测试框架
-  ]
+  ],
+  "vue-i18n.i18nPaths": ""
 }
