@@ -17,6 +17,9 @@ interface ImportMetaEnv {
 
   /** 预览服务端口 */
   readonly VITE_PREVIEW_PORT: string;
+
+  /** 是否注入应用加载动画 */
+  readonly VITE_INJECT_APP_LOADING: true;
 }
 
 interface ImportMeta {

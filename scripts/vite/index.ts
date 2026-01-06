@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   return {
     envDir: './env',
     base: env.VITE_BASE,
-    plugins,
+    plugins: plugins(env),
     resolve,
     server: server(env),
     preview: preview(env),

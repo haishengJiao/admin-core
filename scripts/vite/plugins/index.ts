@@ -8,29 +8,34 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
+import injectAppLoadingPlugin from './modules/inject-app-loading';
+
 import type { UserConfig } from 'vite';
 
-export default [
-  vue(),
-  vueJsx(),
-  vueDevTools(),
-  AutoImport({
-    resolvers: [ElementPlusResolver()],
-  }),
-  Components({
-    resolvers: [
-      ElementPlusResolver(),
-      IconsResolver({
-        // prefix: 'i',  前缀默认是 ‘i’
-        // prefix: 'icon',   可以改成其他前缀
-        enabledCollections: ['ep'],
-      }),
-    ],
-  }),
-  Icons({
-    autoInstall: true,
-  }),
-  codeInspectorPlugin({
-    bundler: 'vite',
-  }),
-] satisfies UserConfig['plugins'];
+export default (env: Record<string, string>): UserConfig['plugins'] => {
+  return [
+    vue(),
+    vueJsx(),
+    vueDevTools(),
+    injectAppLoadingPlugin(env),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [
+        ElementPlusResolver(),
+        IconsResolver({
+          // prefix: 'i',  前缀默认是 ‘i’
+          // prefix: 'icon',   可以改成其他前缀
+          enabledCollections: ['ep'],
+        }),
+      ],
+    }),
+    Icons({
+      autoInstall: true,
+    }),
+    codeInspectorPlugin({
+      bundler: 'vite',
+    }),
+  ];
+};
