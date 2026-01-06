@@ -14,10 +14,10 @@ import type { UserConfig } from 'vite';
 
 export default (env: Record<string, string>): UserConfig['plugins'] => {
   return [
+    injectAppLoadingPlugin(env),
     vue(),
     vueJsx(),
     vueDevTools(),
-    injectAppLoadingPlugin(env),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
