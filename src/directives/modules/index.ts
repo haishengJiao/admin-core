@@ -1,1 +1,1 @@
-export * from './no-copy-paste';
+export * from './disabled-clipboard';

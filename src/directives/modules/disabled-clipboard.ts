@@ -1,26 +1,26 @@
-import { DisableClipboardArgEnum, DisableClipboardModifiersEnum } from '../types';
+import { DisabledClipboardArgEnum, DisabledClipboardModifiersEnum } from '../types';
 
-import type { DisableClipboardDirective, DisableClipboardValue, DisableClipboardModifiersWithoutAll } from '../types';
+import type { DisabledClipboardDirective, DisabledClipboardValue, DisabledClipboardModifiersWithoutAll } from '../types';
 
-const elementHandlersMap = new WeakMap<HTMLElement, Map<DisableClipboardModifiersWithoutAll, (event: ClipboardEvent) => void>>();
+const elementHandlersMap = new WeakMap<HTMLElement, Map<DisabledClipboardModifiersWithoutAll, (event: ClipboardEvent) => void>>();
 
-const shouldPreventAction = (text: string, allowedValues: string[] | undefined, mode: `${DisableClipboardArgEnum}`) => {
+const shouldPreventAction = (text: string, allowedValues: string[] | undefined, mode: `${DisabledClipboardArgEnum}`) => {
   if (!allowedValues || allowedValues.length === 0) return true;
 
   if (!text) return false;
 
-  if (mode === DisableClipboardArgEnum.STRICT) {
+  if (mode === DisabledClipboardArgEnum.STRICT) {
     return !allowedValues.includes(text);
   } else {
     return !allowedValues.some(val => val.includes(text));
   }
 };
-const createEventHandler = (type: DisableClipboardModifiersWithoutAll, value: DisableClipboardValue, mode: `${DisableClipboardArgEnum}`) => {
+const createEventHandler = (type: DisabledClipboardModifiersWithoutAll, value: DisabledClipboardValue, mode: `${DisabledClipboardArgEnum}`) => {
   return (event: ClipboardEvent) => {
     let text = '';
-    if (type === DisableClipboardModifiersEnum.COPY || DisableClipboardModifiersEnum.CUT) {
+    if (type === DisabledClipboardModifiersEnum.COPY || DisabledClipboardModifiersEnum.CUT) {
       text = window.getSelection()?.toString() || '';
-    } else if (type === DisableClipboardModifiersEnum.PASTE) {
+    } else if (type === DisabledClipboardModifiersEnum.PASTE) {
       text = event.clipboardData?.getData('text/plain') || '';
     }
     if (shouldPreventAction(text, value, mode)) {
@@ -29,7 +29,7 @@ const createEventHandler = (type: DisableClipboardModifiersWithoutAll, value: Di
   };
 };
 
-const addEventListener = (el: HTMLElement, type: DisableClipboardModifiersWithoutAll, handler: (event: ClipboardEvent) => void) => {
+const addEventListener = (el: HTMLElement, type: DisabledClipboardModifiersWithoutAll, handler: (event: ClipboardEvent) => void) => {
   el.addEventListener(type, handler);
   if (!elementHandlersMap.has(el)) {
     elementHandlersMap.set(el, new Map());
@@ -38,9 +38,9 @@ const addEventListener = (el: HTMLElement, type: DisableClipboardModifiersWithou
   handlers && handlers.set(type, handler);
 };
 
-export const disableClipboard: DisableClipboardDirective = {
+export const disabledClipboard: DisabledClipboardDirective = {
   mounted(el, { value, modifiers, arg }) {
-    const mode = arg === DisableClipboardArgEnum.LOOSE ? DisableClipboardArgEnum.LOOSE : DisableClipboardArgEnum.STRICT;
+    const mode = arg === DisabledClipboardArgEnum.LOOSE ? DisabledClipboardArgEnum.LOOSE : DisabledClipboardArgEnum.STRICT;
 
     const disableOperations = {
       copy: modifiers.all || modifiers.copy || (!modifiers.copy && !modifiers.cut && !modifiers.paste),
