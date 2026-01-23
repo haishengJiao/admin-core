@@ -16,7 +16,7 @@ import LayoutHeader from './header/index.vue';
 import LayoutMain from './main/index.vue';
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .layout-container {
   width: 100%;
   height: 100%;

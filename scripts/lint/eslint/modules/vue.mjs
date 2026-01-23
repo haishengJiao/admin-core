@@ -53,7 +53,9 @@ export const vue = [
       'vue/block-order': ['error', { order: ['template', 'script', 'style'] }], // Vue块排序规则
       'vue/padding-line-between-blocks': ['error', 'always'], // 代码块之间留有空行
       'vue/component-api-style': ['error', ['script-setup']], //  强制 script 块使用 setup 语法糖
-      'vue/block-lang': ['error', { script: { lang: 'ts' }, style: { lang: 'scss' } }], // 强制 script 块使用 TypeScript，style 块使用 SCSS
+      // 如果启用 scss 建议开启 style 块使用 SCSS
+      // 'vue/block-lang': ['error', { script: { lang: 'ts' }, style: { lang: 'scss' } }], // 强制 script 块使用 TypeScript，style 块使用 SCSS
+      'vue/block-lang': ['error', { script: { lang: 'ts' } }], // 强制 script 块使用 TypeScript
       'vue/component-name-in-template-casing': ['error', 'PascalCase'], // 模板中组件名使用PascalCase
       'vue/component-options-name-casing': ['error', 'PascalCase'], // 组件选项名使用PascalCase
       'vue/custom-event-name-casing': ['error', 'camelCase'], // 自定义事件名使用camelCase

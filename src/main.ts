@@ -6,7 +6,7 @@ import directives from '@/directives';
 import i18n from '@/language';
 import router from '@/router';
 import store from '@/store';
-import '@/style/index.scss';
+import '@/style/index.css';
 
 const init = () => {
   const app = createApp(App);

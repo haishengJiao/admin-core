@@ -7,7 +7,7 @@
 
 <script setup lang="ts"></script>
 
-<style lang="scss" scoped>
+<style scoped>
 .header-container {
   background-color: #8df;
 }

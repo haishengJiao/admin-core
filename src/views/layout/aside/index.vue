@@ -4,7 +4,7 @@
 
 <script setup lang="ts"></script>
 
-<style lang="scss" scoped>
+<style scoped>
 .aside-container {
   width: 220px;
   height: 100%;
