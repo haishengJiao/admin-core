@@ -20,6 +20,9 @@ interface ImportMetaEnv {
 
   /** 是否注入应用加载动画 */
   readonly VITE_INJECT_APP_LOADING: true;
+
+  /** 是否加载vue devtools */
+  readonly VITE_LOAD_VUE_DEVTOOLS: true;
 }
 
 interface ImportMeta {

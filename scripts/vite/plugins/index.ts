@@ -12,12 +12,13 @@ import injectAppLoadingPlugin from './modules/inject-app-loading';
 
 import type { UserConfig } from 'vite';
 
-export default (env: Record<string, string>): UserConfig['plugins'] => {
-  return [
+const getBoolean = (value: string | undefined) => value === 'true';
+
+export default (env: Record<string, string>) => {
+  const plugins: UserConfig['plugins'] = [
     injectAppLoadingPlugin(env),
     vue(),
     vueJsx(),
-    vueDevTools(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
@@ -38,4 +39,10 @@ export default (env: Record<string, string>): UserConfig['plugins'] => {
       bundler: 'vite',
     }),
   ];
+
+  if (getBoolean(env.VITE_LOAD_VUE_DEVTOOLS)) {
+    plugins.push(vueDevTools());
+  }
+
+  return plugins;
 };
