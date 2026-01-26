@@ -68,5 +68,7 @@ export default {
     '.prettierignore',
     '.stylelintignore',
     '.vscode/*',
+    'auto-imports.d.ts',
+    'components.d.ts',
   ],
 };
