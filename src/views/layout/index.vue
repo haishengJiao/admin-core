@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-container display-flex">
+  <div class="flex h-full w-full">
     <el-container>
       <LayoutAside />
       <el-container direction="vertical">
@@ -15,10 +15,3 @@ import LayoutAside from './aside/index.vue';
 import LayoutHeader from './header/index.vue';
 import LayoutMain from './main/index.vue';
 </script>
-
-<style scoped>
-.layout-container {
-  width: 100%;
-  height: 100%;
-}
-</style>

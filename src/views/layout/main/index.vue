@@ -1,5 +1,5 @@
 <template>
-  <el-main class="main-container">
+  <el-main class="overflow-hidden! p-0!">
     <el-scrollbar height="100%" :view-style="viewStyle">
       <router-view />
     </el-scrollbar>
@@ -14,10 +14,3 @@ const viewStyle: CSSProperties = {
   height: '100%',
 };
 </script>
-
-<style lang="scss" scoped>
-.main-container {
-  padding: 0;
-  overflow: hidden;
-}
-</style>

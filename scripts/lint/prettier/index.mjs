@@ -14,8 +14,7 @@ export default {
   ],
 
   // Tailwind CSS插件（如果需要Tailwind CSS支持，请先安装 prettier-plugin-tailwindcss）
-  // plugins: ['prettier-plugin-tailwindcss'],
-
+  plugins: ['prettier-plugin-tailwindcss'],
   printWidth: 160, // 每行最大字符数，超过此长度会自动换行，建议80-120之间
   proseWrap: 'never', // Markdown文档中的文本换行方式：never表示不自动换行，保持原有格式
   semi: true, // 语句末尾是否添加分号，true表示始终添加分号

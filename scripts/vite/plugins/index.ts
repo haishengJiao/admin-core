@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { codeInspectorPlugin } from 'code-inspector-plugin';
@@ -38,6 +39,7 @@ export default (env: Record<string, string>) => {
     codeInspectorPlugin({
       bundler: 'vite',
     }),
+    tailwindcss(),
   ];
 
   if (getBoolean(env.VITE_LOAD_VUE_DEVTOOLS)) {

@@ -89,6 +89,8 @@ export default {
           'variants', // Tailwind CSS变体生成规则
           'responsive', // Tailwind CSS响应式变体规则
           'screen', // Tailwind CSS屏幕断点规则
+          'plugin', // Tailwind CSS插件规则
+          'theme', // Tailwind CSS主题定义规则
         ],
       },
     ],

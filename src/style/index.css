@@ -1,3 +1,4 @@
-@import './modules/flex/index.css';
-@import './modules/reset/index.css';
-@import './modules/common/index.css';
+@import 'tailwindcss';
+@import './modules/tailwindcss//index.css';
+
+@plugin '@tailwindcss/typography';
