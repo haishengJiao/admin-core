@@ -11,6 +11,7 @@
     "Vue.vscode-typescript-vue-plugin", // Vue 官方提供的 TypeScript 插件
     "ms-vscode.vscode-typescript-next", // Microsoft 官方的 TypeScript 每日构建版本
     "Zignd.html-css-class-completion", // HTML 和 CSS 类名自动完成
-    "bradlc.vscode-tailwindcss" // Tailwind CSS
+    "bradlc.vscode-tailwindcss", // Tailwind CSS
+    "mikestead.dotenv" // 支持 dotenv 文件语法
   ]
 }
