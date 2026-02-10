@@ -6,8 +6,8 @@ import resolve from './resolve';
 import server from './server';
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, './env');
-
+  const env = loadEnv(mode, './env') as Record<string, string | undefined>;
+  // const a: ImportMetaEnv = import.meta;
   return {
     envDir: './env',
     base: env.VITE_BASE,

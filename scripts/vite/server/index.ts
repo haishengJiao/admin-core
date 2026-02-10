@@ -1,7 +1,7 @@
 import type { UserConfig } from 'vite';
 
-export default (env: Record<string, string>): UserConfig['server'] => {
+export default (env: Record<string, string | undefined>): UserConfig['server'] => {
   return {
-    port: Number(env.VITE_SERVER_PORT),
+    port: env.VITE_SERVER_PORT ? Number(env.VITE_SERVER_PORT) : 3000,
   };
 };

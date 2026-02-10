@@ -15,7 +15,7 @@ import type { UserConfig } from 'vite';
 
 const getBoolean = (value: string | undefined) => value === 'true';
 
-export default (env: Record<string, string>) => {
+export default (env: Record<string, string | undefined>) => {
   const plugins: UserConfig['plugins'] = [
     injectAppLoadingPlugin(env),
     vue(),
