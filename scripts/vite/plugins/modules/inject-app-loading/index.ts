@@ -1,21 +1,22 @@
 import fs from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import type { PluginOption } from 'vite';
 
 const getBoolean = (value: string | undefined) => value === 'true';
 
-const getAppLoadingHtml = async (filePath: string) => {
-  const appLoadingPath = join(process.cwd(), filePath);
+const getAppLoadingHtml = async () => {
+  const __dirname = fileURLToPath(new URL('.', import.meta.url));
+  const appLoadingPath = join(__dirname, './loading.html');
   return await fs.readFileSync(appLoadingPath, 'utf-8');
 };
 
 /**
  * 插入app-loading
  * @param env 环境变量
- * @param filePath html 文件路径 默认 /public/loading.html
  */
-export default async function injectAppLoadingPlugin(env: Record<string, string>, filePath = '/public/loading.html'): Promise<PluginOption | undefined> {
+export default async function injectAppLoadingPlugin(env: Record<string, string>): Promise<PluginOption | undefined> {
   const virtualModuleId = 'virtual:inject-app-loading';
   const resolvedVirtualModuleId = `\0${virtualModuleId}`;
   return {
@@ -50,7 +51,7 @@ export default async function injectAppLoadingPlugin(env: Record<string, string>
       handler: async (html: string) => {
         if (!getBoolean(env.VITE_INJECT_APP_LOADING)) return;
 
-        const loadingHtml = await getAppLoadingHtml(filePath);
+        const loadingHtml = await getAppLoadingHtml();
         const injectScript = `
           <script data-app-loading="inject-js">
             var theme = localStorage.getItem('theme');
