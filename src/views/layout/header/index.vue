@@ -1,8 +1,8 @@
 <template>
-  <el-header class="bg-[#8df]">
-    <section class="flex items-center">header-section-global</section>
-    <section class="flex items-center">header-section-tabs</section>
-  </el-header>
+  <div class="w-full">
+    <header class="h-12.5 border-b border-[#e4e4e7]">顶栏</header>
+    <section class="h-9.5 border-b border-[#e4e4e7]">标签栏</section>
+  </div>
 </template>
 
 <script setup lang="ts"></script>

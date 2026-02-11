@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-55 bg-[#f5f5f5]">aside-container</div>
+  <aside class="h-full w-56 border-r border-[#e4e4e7]">侧边栏</aside>
 </template>
 
 <script setup lang="ts"></script>
