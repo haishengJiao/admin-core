@@ -142,7 +142,6 @@ export const javascript = {
     'spaced-comment': 'error', // 注释前后的空格规则
     'symbol-description': 'error', // Symbol 应提供描述
     'unicode-bom': ['error', 'never'], // 禁止文件存在 BOM
-    'unused-imports/no-unused-imports': 'error', // 自动删除未使用的导入
     'unused-imports/no-unused-vars': ['error', { args: 'after-used', argsIgnorePattern: '^_', vars: 'all', varsIgnorePattern: '^_' }], // 检测未使用的变量（配合 unused-imports）
     'use-isnan': ['error', { enforceForIndexOf: true, enforceForSwitchCase: true }], // 使用 isNaN 检查 NaN
     'valid-typeof': ['error', { requireStringLiterals: true }], // typeof 比较应与字符串字面量比较
