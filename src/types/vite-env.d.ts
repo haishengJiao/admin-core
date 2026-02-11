@@ -19,10 +19,13 @@ interface ImportMetaEnv {
   readonly VITE_PREVIEW_PORT?: string;
 
   /** 是否注入应用加载动画 */
-  readonly VITE_INJECT_APP_LOADING?: boolean;
+  readonly VITE_INJECT_APP_LOADING?: string;
+
+  /** 是否注入 noscript 标签 */
+  readonly VITE_INJECT_APP_NO_SCRIPT?: string;
 
   /** 是否加载vue devtools */
-  readonly VITE_LOAD_VUE_DEVTOOLS?: boolean;
+  readonly VITE_LOAD_VUE_DEVTOOLS?: string;
 }
 
 interface ImportMeta {

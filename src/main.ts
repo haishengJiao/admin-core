@@ -1,4 +1,5 @@
 import { removeAppLoading } from 'virtual:inject-app-loading';
+import { removeAppNoscript } from 'virtual:inject-app-noscript';
 import { createApp } from 'vue';
 
 import App from '@/App.vue';
@@ -9,6 +10,7 @@ import store from '@/store';
 import '@/style/index.css';
 
 const init = () => {
+  removeAppNoscript();
   const app = createApp(App);
   app.use(i18n);
   app.use(directives);

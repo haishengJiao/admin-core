@@ -1,0 +1,39 @@
+<noscript id="app-noscript">
+  <div class="noscript-content">
+    <img src="/noscript.png" width="300" />
+    <p class="noscript-text">请检查是否允许本网站使用 Javascript 来运行这个应用程序或者换一个浏览器试试吧。</p>
+  </div>
+</noscript>
+
+<style data-app-noscript="inject-css">
+  #app-noscript .noscript-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 29999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f4f7f9;
+  }
+
+  .dark #app-noscript .noscript-content {
+    background-color: #0d0d10;
+  }
+
+  #app-noscript .noscript-text {
+    margin: 0;
+    font-family: auto !important;
+    font-size: 14px;
+    line-height: 1;
+    color: rgb(0 0 0 / 85%);
+  }
+
+  .dark #app-noscript .noscript-text {
+    color: #fff;
+  }
+</style>

@@ -10,6 +10,7 @@ import Components from 'unplugin-vue-components/vite';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
 import injectAppLoadingPlugin from './modules/inject-app-loading';
+import injectAppNoScriptPlugin from './modules/inject-app-noscript';
 
 import type { UserConfig } from 'vite';
 
@@ -18,6 +19,7 @@ const getBoolean = (value: string | undefined) => value === 'true';
 export default (env: Record<string, string | undefined>) => {
   const plugins: UserConfig['plugins'] = [
     injectAppLoadingPlugin(env),
+    injectAppNoScriptPlugin(env),
     vue(),
     vueJsx(),
     AutoImport({
