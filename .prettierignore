@@ -106,4 +106,6 @@ README*.md
 .cspellcache
 auto-imports.d.ts
 components.d.ts
-**/assets/**
+**/assets/images/
+**/assets/iconfont/
+**/assets/fonts/

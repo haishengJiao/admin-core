@@ -91,7 +91,22 @@ const userConfig = {
       2, // level: error
       'always',
       parsed => {
-        const allowedScopes = ['project', 'style', 'lint', 'ci', 'dev', 'deploy', 'other', 'core', 'admin', 'build', 'config', 'docs', 'test', 'release'];
+        const allowedScopes = [
+          'project',
+          'style',
+          'lint',
+          'ci',
+          'dev',
+          'deploy',
+          'other',
+          'core',
+          'admin',
+          'build',
+          'config',
+          'docs',
+          'test',
+          'release',
+        ];
 
         if (!parsed.scope || allowedScopes.includes(parsed.scope)) {
           return [true];
@@ -113,7 +128,25 @@ const userConfig = {
      * type[scope]: [function] description
      * ^^^^
      */
-    'type-enum': [2, 'always', ['feat', 'fix', 'perf', 'style', 'docs', 'test', 'refactor', 'build', 'ci', 'chore', 'revert', 'types', 'release']],
+    'type-enum': [
+      2,
+      'always',
+      [
+        'feat',
+        'fix',
+        'perf',
+        'style',
+        'docs',
+        'test',
+        'refactor',
+        'build',
+        'ci',
+        'chore',
+        'revert',
+        'types',
+        'release',
+      ],
+    ],
   },
 };
 
