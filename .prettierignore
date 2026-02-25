@@ -106,3 +106,4 @@ README*.md
 .cspellcache
 auto-imports.d.ts
 components.d.ts
+**/assets/**

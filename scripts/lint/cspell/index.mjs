@@ -70,5 +70,6 @@ export default {
     '.vscode/*',
     'auto-imports.d.ts',
     'components.d.ts',
+    '**/assets/**',
   ],
 };

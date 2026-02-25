@@ -42,3 +42,4 @@ Thumbs.db
 .cspellcache
 auto-imports.d.ts
 components.d.ts
+**/assets/**

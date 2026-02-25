@@ -108,5 +108,6 @@ export const ignores = {
 
     '**/auto-imports.d.ts',
     '**/components.d.ts',
+    '**/assets/**',
   ],
 };
