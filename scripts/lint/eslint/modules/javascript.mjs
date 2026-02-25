@@ -89,7 +89,11 @@ export const javascript = {
     'no-prototype-builtins': 'error', // 禁止直接调用对象原型的方法
     'no-redeclare': ['error', { builtinGlobals: false }], // 禁止重复声明变量
     'no-regex-spaces': 'error', // 禁止正则中多余空格
-    'no-restricted-globals': ['error', { message: 'Use `globalThis` instead.', name: 'global' }, { message: 'Use `globalThis` instead.', name: 'self' }], // 限制使用特定全局变量并给出替代建议
+    'no-restricted-globals': [
+      'error',
+      { message: 'Use `globalThis` instead.', name: 'global' },
+      { message: 'Use `globalThis` instead.', name: 'self' },
+    ], // 限制使用特定全局变量并给出替代建议
     'no-restricted-properties': [
       'error',
       { message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.', property: '__proto__' },
@@ -98,7 +102,14 @@ export const javascript = {
       { message: 'Use `Object.getOwnPropertyDescriptor` instead.', property: '__lookupGetter__' },
       { message: 'Use `Object.getOwnPropertyDescriptor` instead.', property: '__lookupSetter__' },
     ], // 限制使用特定属性并建议替代方案
-    'no-restricted-syntax': ['error', 'DebuggerStatement', 'LabeledStatement', 'WithStatement', 'TSEnumDeclaration[const=true]', 'TSExportAssignment'], // 限制使用特定语法节点
+    'no-restricted-syntax': [
+      'error',
+      'DebuggerStatement',
+      'LabeledStatement',
+      'WithStatement',
+      'TSEnumDeclaration[const=true]',
+      'TSExportAssignment',
+    ], // 限制使用特定语法节点
     'no-self-assign': ['error', { props: true }], // 禁止将变量赋值给自己
     'no-self-compare': 'error', // 禁止自己和自己比较
     'no-sequences': 'error', // 禁止逗号操作符
@@ -142,7 +153,10 @@ export const javascript = {
     'spaced-comment': 'error', // 注释前后的空格规则
     'symbol-description': 'error', // Symbol 应提供描述
     'unicode-bom': ['error', 'never'], // 禁止文件存在 BOM
-    'unused-imports/no-unused-vars': ['error', { args: 'after-used', argsIgnorePattern: '^_', vars: 'all', varsIgnorePattern: '^_' }], // 检测未使用的变量（配合 unused-imports）
+    'unused-imports/no-unused-vars': [
+      'error',
+      { args: 'after-used', argsIgnorePattern: '^_', vars: 'all', varsIgnorePattern: '^_' },
+    ], // 检测未使用的变量（配合 unused-imports）
     'use-isnan': ['error', { enforceForIndexOf: true, enforceForSwitchCase: true }], // 使用 isNaN 检查 NaN
     'valid-typeof': ['error', { requireStringLiterals: true }], // typeof 比较应与字符串字面量比较
     'vars-on-top': 'error', // var 声明应在作用域顶部

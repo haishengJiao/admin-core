@@ -1,5 +1,10 @@
 <template>
-  <svg aria-hidden="true" v-bind="$attrs" class="overflow-hidden fill-current stroke-current align-text-top" :style="svgStyle">
+  <svg
+    aria-hidden="true"
+    v-bind="$attrs"
+    class="overflow-hidden fill-current stroke-current align-text-top"
+    :style="svgStyle"
+  >
     <use :fill="color" :href="symbolId" />
   </svg>
 </template>

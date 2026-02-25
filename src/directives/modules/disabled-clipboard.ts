@@ -1,10 +1,21 @@
 import { DisabledClipboardArgEnum, DisabledClipboardModifiersEnum } from '../types';
 
-import type { DisabledClipboardDirective, DisabledClipboardValue, DisabledClipboardModifiersWithoutAll } from '../types';
+import type {
+  DisabledClipboardDirective,
+  DisabledClipboardValue,
+  DisabledClipboardModifiersWithoutAll,
+} from '../types';
 
-const elementHandlersMap = new WeakMap<HTMLElement, Map<DisabledClipboardModifiersWithoutAll, (event: ClipboardEvent) => void>>();
+const elementHandlersMap = new WeakMap<
+  HTMLElement,
+  Map<DisabledClipboardModifiersWithoutAll, (event: ClipboardEvent) => void>
+>();
 
-const shouldPreventAction = (text: string, allowedValues: string[] | undefined, mode: `${DisabledClipboardArgEnum}`) => {
+const shouldPreventAction = (
+  text: string,
+  allowedValues: string[] | undefined,
+  mode: `${DisabledClipboardArgEnum}`,
+) => {
   if (!allowedValues || allowedValues.length === 0) return true;
 
   if (!text) return false;
@@ -15,7 +26,11 @@ const shouldPreventAction = (text: string, allowedValues: string[] | undefined, 
     return !allowedValues.some(val => val.includes(text));
   }
 };
-const createEventHandler = (type: DisabledClipboardModifiersWithoutAll, value: DisabledClipboardValue, mode: `${DisabledClipboardArgEnum}`) => {
+const createEventHandler = (
+  type: DisabledClipboardModifiersWithoutAll,
+  value: DisabledClipboardValue,
+  mode: `${DisabledClipboardArgEnum}`,
+) => {
   return (event: ClipboardEvent) => {
     let text = '';
     if (type === DisabledClipboardModifiersEnum.COPY || DisabledClipboardModifiersEnum.CUT) {
@@ -29,7 +44,11 @@ const createEventHandler = (type: DisabledClipboardModifiersWithoutAll, value: D
   };
 };
 
-const addEventListener = (el: HTMLElement, type: DisabledClipboardModifiersWithoutAll, handler: (event: ClipboardEvent) => void) => {
+const addEventListener = (
+  el: HTMLElement,
+  type: DisabledClipboardModifiersWithoutAll,
+  handler: (event: ClipboardEvent) => void,
+) => {
   el.addEventListener(type, handler);
   if (!elementHandlersMap.has(el)) {
     elementHandlersMap.set(el, new Map());
@@ -40,7 +59,8 @@ const addEventListener = (el: HTMLElement, type: DisabledClipboardModifiersWitho
 
 export const disabledClipboard: DisabledClipboardDirective = {
   mounted(el, { value, modifiers, arg }) {
-    const mode = arg === DisabledClipboardArgEnum.LOOSE ? DisabledClipboardArgEnum.LOOSE : DisabledClipboardArgEnum.STRICT;
+    const mode =
+      arg === DisabledClipboardArgEnum.LOOSE ? DisabledClipboardArgEnum.LOOSE : DisabledClipboardArgEnum.STRICT;
 
     const disableOperations = {
       copy: modifiers.all || modifiers.copy || (!modifiers.copy && !modifiers.cut && !modifiers.paste),

@@ -16,7 +16,9 @@ const getAppLoadingHtml = async () => {
  * 插入app-loading
  * @param env 环境变量
  */
-export default async function injectAppLoadingPlugin(env: Record<string, string | undefined>): Promise<PluginOption | undefined> {
+export default async function injectAppLoadingPlugin(
+  env: Record<string, string | undefined>,
+): Promise<PluginOption | undefined> {
   const virtualModuleId = 'virtual:inject-app-loading';
   const resolvedVirtualModuleId = `\0${virtualModuleId}`;
   return {

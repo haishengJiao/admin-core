@@ -16,7 +16,9 @@ const getNoscriptHtml = async () => {
  * 插入noscript标签
  * @param env 环境变量
  */
-export default async function injectNoscriptPlugin(env: Record<string, string | undefined>): Promise<PluginOption | undefined> {
+export default async function injectNoscriptPlugin(
+  env: Record<string, string | undefined>,
+): Promise<PluginOption | undefined> {
   const virtualModuleId = 'virtual:inject-app-noscript';
   const resolvedVirtualModuleId = `\0${virtualModuleId}`;
   return {

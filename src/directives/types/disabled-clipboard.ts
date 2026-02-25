@@ -81,4 +81,9 @@ export type DisabledClipboardArg = `${DisabledClipboardArgEnum}`;
  * @see {@link DisabledClipboardModifiers} 了解修饰符的详细说明
  * @see {@link DisabledClipboardArg} 了解参数的详细说明
  */
-export type DisabledClipboardDirective = Directive<DisabledClipboardHostElement, DisabledClipboardValue, DisabledClipboardModifiers, DisabledClipboardArg>;
+export type DisabledClipboardDirective = Directive<
+  DisabledClipboardHostElement,
+  DisabledClipboardValue,
+  DisabledClipboardModifiers,
+  DisabledClipboardArg
+>;
