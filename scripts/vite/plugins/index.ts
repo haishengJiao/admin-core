@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -7,6 +9,7 @@ import IconsResolver from 'unplugin-icons/resolver';
 import Icons from 'unplugin-icons/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
 import injectAppLoadingPlugin from './modules/inject-app-loading';
@@ -37,6 +40,10 @@ export default (env: Record<string, string | undefined>) => {
     }),
     Icons({
       autoInstall: true,
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+      symbolId: 'svg-[dir]-[name]',
     }),
     codeInspectorPlugin({
       bundler: 'vite',

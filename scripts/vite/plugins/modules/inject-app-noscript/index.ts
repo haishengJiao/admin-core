@@ -29,7 +29,6 @@ export default async function injectNoscriptPlugin(env: Record<string, string | 
         return {
           code: `
             export function removeAppNoscript() {
-              console.log('removeAppNoscript');
               const noscriptElement = document.querySelector('#app-noscript');
               if (noscriptElement) {
                 noscriptElement.remove();

@@ -1,0 +1,37 @@
+{
+  "id": "4726795",
+  "name": "admin-core",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "26274763",
+      "name": "亮色",
+      "font_class": "liangse",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "4354240",
+      "name": "表单组件-输入框",
+      "font_class": "pin-input",
+      "unicode": "eb94",
+      "unicode_decimal": 60308
+    },
+    {
+      "icon_id": "40152310",
+      "name": "导弹火箭",
+      "font_class": "a-daodanhuojian",
+      "unicode": "e8a9",
+      "unicode_decimal": 59561
+    },
+    {
+      "icon_id": "9478563",
+      "name": "工作台",
+      "font_class": "gongzuotai",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    }
+  ]
+}
