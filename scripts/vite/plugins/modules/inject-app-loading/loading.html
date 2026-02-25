@@ -32,6 +32,7 @@
 
   #app-loading .loader {
     position: relative;
+    box-sizing: content-box !important;
     width: 48px;
     height: 48px;
   }
@@ -40,7 +41,7 @@
     position: absolute;
     top: 0;
     left: 50%;
-    box-sizing: content-box;
+    box-sizing: content-box !important;
     width: 0;
     height: 24px;
     content: '';
@@ -54,6 +55,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    box-sizing: content-box !important;
     width: 48px;
     height: 24px;
     content: '';
@@ -62,10 +64,12 @@
   }
 
   #app-loading .loading-text {
+    box-sizing: border-box !important;
     margin-top: 66px;
     font-family: auto !important;
     font-size: 28px;
     font-weight: 600;
+    line-height: normal !important;
     color: rgb(0 0 0 / 85%);
   }
 
