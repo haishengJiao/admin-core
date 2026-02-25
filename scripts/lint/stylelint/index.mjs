@@ -91,6 +91,7 @@ export default {
           'screen', // Tailwind CSS屏幕断点规则
           'plugin', // Tailwind CSS插件规则
           'theme', // Tailwind CSS主题定义规则
+          'reference', // Tailwind CSS引用规则
         ],
       },
     ],
