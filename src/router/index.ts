@@ -14,6 +14,10 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/views/layout/404/index.vue'),
+  },
 ];
 
 const router = createRouter({

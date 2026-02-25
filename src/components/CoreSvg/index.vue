@@ -1,5 +1,5 @@
 <template>
-  <svg aria-hidden="true" v-bind="$attrs" class="h-[1em] w-[1em] overflow-hidden fill-current stroke-current align-text-top">
+  <svg aria-hidden="true" v-bind="$attrs" class="overflow-hidden fill-current stroke-current align-text-top" :style="svgStyle">
     <use :fill="color" :href="symbolId" />
   </svg>
 </template>
@@ -10,6 +10,7 @@ import { computed } from 'vue';
 type Props = {
   name: string;
   color?: string;
+  size?: string;
 };
 
 defineOptions({
@@ -18,6 +19,13 @@ defineOptions({
 
 const props = withDefaults(defineProps<Props>(), {
   color: '#333',
+  size: '1em',
 });
+
 const symbolId = computed(() => `#svg-${props.name}`);
+
+const svgStyle = computed(() => ({
+  width: props.size,
+  height: props.size,
+}));
 </script>
