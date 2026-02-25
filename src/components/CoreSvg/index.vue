@@ -23,7 +23,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<Props>(), {
-  color: '#333',
+  color: 'currentcolor',
   size: '1em',
 });
 
