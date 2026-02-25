@@ -1,8 +1,11 @@
 <template>
   <div class="w-full">
-    <header class="h-12.5 border-b border-[#e4e4e7]">顶栏</header>
-    <section class="h-9.5 border-b border-[#e4e4e7]">标签栏</section>
+    <HeaderBar />
+    <TabBar />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeaderBar from './components/HeaderBar/index.vue';
+import TabBar from './components/TabBar/index.vue';
+</script>
