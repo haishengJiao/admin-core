@@ -3,8 +3,8 @@
     <div class="flex flex-col items-center justify-center">
       <CoreSvg name="layout-404" size="360" />
       <div class="mb-10 text-center">
-        <h1 class="mb-4 text-3xl font-semibold tracking-wide text-gray-800">哎呀！未找到页面</h1>
-        <p class="text-base leading-relaxed text-gray-500">抱歉，我们无法找到您要找的页面。</p>
+        <h1 class="mb-4 text-3xl font-semibold tracking-wide">哎呀！未找到页面</h1>
+        <p class="text-base leading-relaxed text-[hsl(var(--muted-foreground))]">抱歉，我们无法找到您要找的页面。</p>
       </div>
       <el-button type="primary" @click="goHome">
         <template #icon><i-ep-back /></template>
@@ -23,5 +23,3 @@ const goHome = () => {
   router.push('/');
 };
 </script>
-
-<style lang="scss" scoped></style>

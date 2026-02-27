@@ -92,6 +92,7 @@ export default {
           'plugin', // Tailwind CSS插件规则
           'theme', // Tailwind CSS主题定义规则
           'reference', // Tailwind CSS引用规则
+          'utility', // Tailwind CSS自定义工具类
         ],
       },
     ],

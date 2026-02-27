@@ -1,5 +1,5 @@
 <template>
-  <main class="flex-1 overflow-hidden bg-[#f0f2f5]">
+  <main class="flex-1 overflow-hidden bg-[hsl(var(--background-deep))]">
     <el-scrollbar height="100%" :view-style="viewStyle">
       <router-view />
     </el-scrollbar>

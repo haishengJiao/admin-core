@@ -1,0 +1,10 @@
+:root.dark {
+  --background: 222.34deg 10.43% 12.27%;
+  --background-deep: 220deg 13.06% 9%;
+  --foreground: 0 0% 95%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 216 5% 19%;
+  --accent-foreground: 0 0% 98%;
+  --border: 240 3.7% 22%;
+  --header: 222.34deg 10.43% 12.27%;
+}

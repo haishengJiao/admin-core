@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-[#636366] transition-all duration-150 ease-in-out hover:bg-[#f4f4f5] hover:text-[#3a3a3c]"
+    class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-[hsl(var(--foreground)/.8)] transition-all duration-150 ease-in-out hover:animate-[shrink_0.3s_ease-in-out] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))]"
     @click="handleOpenDrawer"
   >
     <CoreSvg name="preferences-set-set" />
