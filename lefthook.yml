@@ -42,25 +42,25 @@
 #       runner: go run
 
 pre-commit:
-  parallel: true
+  parallel: false
   commands:
     lint-eslint:
-      run: npx eslint {staged_files} --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --cache
+      run: npx eslint {staged_files} --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts
       glob: '*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}'
 
     lint-style:
-      run: npx stylelint --cache {staged_files}
+      run: npx stylelint {staged_files}
       glob: '*.{css,scss,html,vue}'
 
     lint-format:
-      run: npx prettier --check --ignore-unknown --cache {staged_files}
+      run: npx prettier --check --ignore-unknown {staged_files}
       glob: '*'
 
     type-check:
       run: npm run type-check
 
     cspell:
-      run: npx cspell --cache --no-progress --no-must-find-files {staged_files}
+      run: npx cspell --no-progress --no-must-find-files {staged_files}
 
 post-merge:
   commands:
