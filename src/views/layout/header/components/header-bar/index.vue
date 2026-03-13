@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-header border-border flex h-12.5 items-center justify-between border-b px-2">
+  <header class="dark bg-header border-border text-foreground flex h-12.5 items-center justify-between border-b px-2">
     <div>顶栏</div>
     <div class="flex items-center gap-1">
       <PreferencesSet />
