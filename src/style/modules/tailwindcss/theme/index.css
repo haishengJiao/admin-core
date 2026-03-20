@@ -1,0 +1,27 @@
+@theme inline {
+  --color-info: hsl(var(--info));
+  --color-info-foreground: hsl(var(--info-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-danger: hsl(var(--danger));
+  --color-danger-foreground: hsl(var(--danger-foreground));
+  --color-foreground: hsl(var(--foreground));
+  --color-background: hsl(var(--background));
+  --color-background-deep: hsl(var(--background-deep));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-hover: hsl(var(--accent-hover));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-heavy: hsl(var(--heavy));
+  --color-heavy-f: hsl(var(--heavy-foreground));
+  --color-border: hsl(var(--border));
+  --color-header: hsl(var(--header));
+  --color-sidebar: hsl(var(--sidebar));
+  --text-base: var(--font-size-base);
+  --radius-base: var(--radius);
+}

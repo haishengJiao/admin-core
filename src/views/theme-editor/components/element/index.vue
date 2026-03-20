@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto my-1 w-8/12">
+  <div class="mx-auto my-2 h-full w-8/12">
     <Button />
     <Link />
     <Text />
@@ -35,7 +35,6 @@
     <Tree />
     <Statistic />
     <Segmented />
-    <Affix />
     <Anchor />
     <Backtop />
     <Breadcrumb />
@@ -105,7 +104,6 @@ import Switch from './components/form/switch/index.vue';
 import TimePicker from './components/form/time-picker/index.vue';
 import Transfer from './components/form/transfer/index.vue';
 import Upload from './components/form/upload/index.vue';
-import Affix from './components/navigation/affix/index.vue';
 import Anchor from './components/navigation/anchor/index.vue';
 import Backtop from './components/navigation/backtop/index.vue';
 import Breadcrumb from './components/navigation/breadcrumb/index.vue';

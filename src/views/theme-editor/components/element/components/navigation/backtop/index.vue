@@ -6,6 +6,6 @@
       </div>
     </template>
     Scroll down to see the bottom-right button.
-    <el-backtop :bottom="100" :right="100" target=".main-scrollbar-wrap" />
+    <el-backtop :bottom="100" :right="100" target=".theme-editor-scrollbar-wrap" />
   </el-card>
 </template>

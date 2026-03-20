@@ -30,6 +30,11 @@
       <el-button round type="danger">Danger</el-button>
     </div>
     <div class="mt-1 flex flex-wrap gap-2">
+      <el-button size="large">Large</el-button>
+      <el-button>Default</el-button>
+      <el-button size="small">Small</el-button>
+    </div>
+    <div class="mt-1 flex flex-wrap gap-2">
       <el-button circle>
         <template #icon><i-ep-search /></template>
       </el-button>

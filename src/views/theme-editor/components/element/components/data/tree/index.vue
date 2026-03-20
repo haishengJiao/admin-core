@@ -18,8 +18,9 @@
 </template>
 
 <script lang="ts" setup>
-import type Node from 'element-plus/es/components/tree/src/model/node';
-import type { AllowDropType } from 'element-plus/es/components/tree/src/tree.type';
+import type { AllowDropType, RenderContentContext } from 'element-plus';
+
+type Node = RenderContentContext['node'];
 
 const allowDrop = (_draggingNode: Node, dropNode: Node, type: AllowDropType) => {
   if (dropNode.data.label === 'Level two 3-1') {
@@ -28,6 +29,7 @@ const allowDrop = (_draggingNode: Node, dropNode: Node, type: AllowDropType) => 
     return true;
   }
 };
+
 const allowDrag = (draggingNode: Node) => {
   return !draggingNode.data.label.includes('Level three 3-1-1');
 };

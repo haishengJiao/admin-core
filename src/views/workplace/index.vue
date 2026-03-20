@@ -1,15 +1,11 @@
 <template>
-  <div>
-    style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949" 报错
+  <div class="h-full">
     <br />
-    已声明“draggingNode”，但从未读取其值。 不提示
+    theme-editor 高度
 
     <br />
-    <!-- <el-anchor-link href="#基础用法">
-基础用法 </el-anchor-link> -->
-
+    监听切换主题模式时的处理主题编辑器
     <br />
-    el-affix 不生效
   </div>
 </template>
 

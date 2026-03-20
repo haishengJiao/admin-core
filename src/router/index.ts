@@ -13,8 +13,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/workplace/index.vue'),
       },
       {
-        path: 'element-components',
-        component: () => import('@/views/element-components/index.vue'),
+        path: 'theme-editor',
+        component: () => import('@/views/theme-editor/index.vue'),
       },
     ],
   },

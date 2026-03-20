@@ -6,8 +6,12 @@
       </div>
     </template>
     <div class="flex flex-wrap gap-2">
-      <el-input v-model="input" class="w-60!" placeholder="Please input" />
-      <el-input v-model="input" class="w-60!" disabled placeholder="Please input" />
+      <div>
+        <el-input v-model="input" class="w-60!" placeholder="Please input" size="large" />
+      </div>
+      <div>
+        <el-input v-model="input" class="w-60!" disabled placeholder="Please input" />
+      </div>
       <form>
         <el-input v-model="input" class="w-60!" placeholder="Please input password" show-password type="password" />
       </form>

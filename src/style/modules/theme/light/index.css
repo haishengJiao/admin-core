@@ -1,0 +1,29 @@
+:root {
+  --info: 0 0% 55%;
+  --info-foreground: 0 0% 98%;
+  --primary: 212 100% 45%;
+  --primary-foreground: 0 0% 98%;
+  --success: 144 57% 58%;
+  --success-foreground: 0 0% 98%;
+  --warning: 42 84% 61%;
+  --warning-foreground: 0 0% 98%;
+  --danger: 348 100% 61%;
+  --danger-foreground: 0 0% 98%;
+  --foreground: 222 84% 5%;
+  --background: 0 0% 100%;
+  --background-deep: 216 20.11% 95.47%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 5% 96%;
+  --accent-hover: 200deg 10% 90%;
+  --accent-foreground: 240 6% 10%;
+  --heavy: 192deg 9.43% 89.61%;
+  --heavy-foreground: var(--accent-foreground);
+  --border: 240 5.9% 90%;
+  --header: 0 0% 100%;
+  --sidebar: 0 0% 100%;
+  --radius: 0.5rem;
+  --font-size-base: 14px;
+
+  color-scheme: light;
+}

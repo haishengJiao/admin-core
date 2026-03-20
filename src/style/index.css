@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import './modules/tailwindcss/index.css';
 @import './modules/animate/index.css';
-@import './modules/theme//index.css';
+@import './modules/theme/index.css';
+@import './modules/element/index.css';
 
 @plugin '@tailwindcss/typography';
