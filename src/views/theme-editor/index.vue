@@ -2,13 +2,6 @@
   <div class="flex h-full flex-col px-5">
     <el-card class="mt-5">
       <div class="flex items-center justify-end">
-        <div class="flex items-center">
-          <span class="mr-2">主题模式:</span>
-          <el-radio-group v-model="themeMode" @change="handleThemeModeChange">
-            <el-radio-button value="light">亮色模式</el-radio-button>
-            <el-radio-button value="dark">暗黑模式</el-radio-button>
-          </el-radio-group>
-        </div>
         <div class="ml-3 flex items-center">
           <el-switch v-model="autoColorCalc" />
           <div class="ml-2 flex items-center">
@@ -229,6 +222,7 @@ import { DataItemType } from './types/index';
 import type { CssVarItem, DataItem } from './types/index';
 import type { Ref } from 'vue';
 
+import { useThemeStore } from '@/store';
 import { mixColor } from '@/utils/colors';
 import { downloadCssFile } from '@/utils/file';
 
@@ -236,7 +230,7 @@ const ElementPlusComponents = defineAsyncComponent({
   loader: () => import('./components/element/index.vue'),
 });
 
-type ThemeMode = 'light' | 'dark';
+const theme = useThemeStore();
 
 const data = ref<DataItem[]>([
   { label: '颜色', type: DataItemType.COLORS, data: colors },
@@ -249,7 +243,6 @@ const colorsComputed = computed(() => {
 });
 const autoColorCalc = ref(true);
 const activeNames = ref('');
-const themeMode = ref<ThemeMode>((localStorage.getItem('theme') as ThemeMode) || 'light');
 const elementPlusComponentsRef = useTemplateRef('elementPlusComponents');
 const modifyCssVar: Ref<Record<string, string>> = ref({});
 
@@ -276,14 +269,14 @@ const handleRecomputeColor = (property: string, value: string, isDelete: boolean
 
     if (light) {
       const level = Number(light[1]) / 10;
-      if (themeMode.value === 'light') {
+      if (theme.isLight) {
         computedColor = mixColor('#ffffff', value, level);
       } else {
         computedColor = mixColor('#141414', value, level);
       }
     } else if (dark) {
       const level = Number(dark[1]) / 10;
-      if (themeMode.value === 'light') {
+      if (theme.isLight) {
         computedColor = mixColor('#000000', value, level);
       } else {
         computedColor = mixColor('#ffffff', value, level);
@@ -309,13 +302,13 @@ const handleUpdateCssVar = (row: CssVarItem, isDelete: boolean = false) => {
 
 const handleSizeChange = (row: CssVarItem) => {
   if (row.value === null) {
-    row.value = themeMode.value === 'light' ? row.originValue : row.darkOriginValue;
+    row.value = theme.isLight ? row.originValue : row.darkOriginValue;
   }
   handleUpdateCssVar(row);
 };
 
 const handleReset = (row: CssVarItem) => {
-  row.value = themeMode.value === 'light' ? row.originValue : row.darkOriginValue;
+  row.value = theme.isLight ? row.originValue : row.darkOriginValue;
   handleUpdateCssVar(row, true);
 };
 
@@ -351,10 +344,10 @@ const handleDownloadAll = () => {
 };
 
 const handleDownload = (cssContent: string) => {
-  const selector = themeMode.value === 'light' ? ':root:root {\n' : ':root:root.dark {\n';
+  const selector = theme.isLight ? ':root:root {\n' : ':root:root.dark {\n';
   cssContent = selector + cssContent;
   cssContent += '}\n';
-  const filename = themeMode.value === 'light' ? 'element-plus-light.css' : 'element-plus-dark.css';
+  const filename = theme.isLight ? 'element-plus-light.css' : 'element-plus-dark.css';
   downloadCssFile(cssContent, filename);
 };
 
@@ -368,13 +361,8 @@ const handleAllReset = () => {
   });
 };
 
-const handleThemeModeChange = () => {
-  localStorage.setItem('theme', themeMode.value);
-  document.documentElement.classList.toggle('dark', themeMode.value === 'dark');
-};
-
 watch(
-  () => themeMode.value,
+  () => theme.effectiveTheme,
   () => {
     requestAnimationFrame(() => {
       handleGetRootStyles();

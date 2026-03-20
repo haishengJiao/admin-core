@@ -6,16 +6,16 @@
     <CoreSvg
       class="absolute rotate-0 opacity-0 [transition:rotate_1.6s_cubic-bezier(0.5,1.5,0.75,1.25),opacity_0.6s_cubic-bezier(0.25,0,0.3,1)]"
       :class="{
-        'opacity-100!': isDark,
-        'rotate-90!': isDark,
+        'opacity-100!': theme.isDark,
+        'rotate-90!': theme.isDark,
       }"
       name="preferences-set-light-theme"
     />
     <CoreSvg
       class="absolute rotate-[72] opacity-0 [transition:rotate_1.6s_cubic-bezier(0.25,0,0.2,1),opacity_0.6s_cubic-bezier(0.25,0,0.3,1)]"
       :class="{
-        'opacity-100!': !isDark,
-        'rotate-0!': !isDark,
+        'opacity-100!': !theme.isDark,
+        'rotate-0!': !theme.isDark,
       }"
       name="preferences-set-dark-theme"
     />
@@ -23,9 +23,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, nextTick } from 'vue';
+import { nextTick } from 'vue';
 
-const isDark = ref(localStorage.getItem('theme') === 'dark' || false);
+import { useThemeStore } from '@/store';
+
+const theme = useThemeStore();
 
 const handleChangeTheme = async (e: MouseEvent) => {
   const isAppearanceTransition =
@@ -52,12 +54,12 @@ const handleChangeTheme = async (e: MouseEvent) => {
     const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`];
     const animate = document.documentElement.animate(
       {
-        clipPath: isDark.value ? [...clipPath].reverse() : clipPath,
+        clipPath: theme.isDark ? [...clipPath].reverse() : clipPath,
       },
       {
         duration: 450,
         easing: 'ease-in',
-        pseudoElement: isDark.value ? '::view-transition-old(root)' : '::view-transition-new(root)',
+        pseudoElement: theme.isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
       },
     );
     animate.onfinish = () => {
@@ -67,12 +69,6 @@ const handleChangeTheme = async (e: MouseEvent) => {
 };
 
 const handleSetTheme = () => {
-  isDark.value = !isDark.value;
-  document.documentElement.classList.toggle('dark', isDark.value);
-  localStorage.setItem('theme', isDark.value ? 'dark' : 'light');
+  theme.setMode(theme.isDark ? 'light' : 'dark');
 };
-
-onMounted(() => {
-  document.documentElement.classList.toggle('dark', isDark.value);
-});
 </script>
