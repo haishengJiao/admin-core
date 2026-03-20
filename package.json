@@ -17,7 +17,8 @@
     "cspell": "cspell lint . --cache --no-progress",
     "lint": "run-p type-check eslint style format cspell",
     "lint:check": "run-p type-check eslint:check style:check format:check cspell",
-    "commit": "czg"
+    "commit": "czg",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@ctrl/tinycolor": "^4.2.0",
@@ -84,6 +85,8 @@
     "vue-tsc": "^3.0.4"
   },
   "engines": {
-    "node": "^20.19.0 || >=22.12.0"
-  }
+    "node": "^20.19.0 || >=22.12.0",
+    "pnpm": ">=10.0.0"
+  },
+  "packageManager": "pnpm@10.28.2"
 }
