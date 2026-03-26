@@ -6,18 +6,18 @@
     <CoreSvg
       class="absolute rotate-0 opacity-0 [transition:rotate_1.6s_cubic-bezier(0.5,1.5,0.75,1.25),opacity_0.6s_cubic-bezier(0.25,0,0.3,1)]"
       :class="{
-        'opacity-100!': theme.isDark,
-        'rotate-90!': theme.isDark,
+        'opacity-100!': isDark,
+        'rotate-90!': isDark,
       }"
-      name="preferences-set-light-theme"
+      name="preferences-light-theme"
     />
     <CoreSvg
       class="absolute rotate-[72] opacity-0 [transition:rotate_1.6s_cubic-bezier(0.25,0,0.2,1),opacity_0.6s_cubic-bezier(0.25,0,0.3,1)]"
       :class="{
-        'opacity-100!': !theme.isDark,
-        'rotate-0!': !theme.isDark,
+        'opacity-100!': !isDark,
+        'rotate-0!': !isDark,
       }"
-      name="preferences-set-dark-theme"
+      name="preferences-dark-theme"
     />
   </div>
 </template>
@@ -25,9 +25,11 @@
 <script setup lang="ts">
 import { nextTick } from 'vue';
 
-import { useThemeStore } from '@/store';
+import type { ThemeMode } from '@/store/modules/preferences/types';
+import type { ThemeToggleProps } from '@/views/preferences/types';
 
-const theme = useThemeStore();
+const { isDark = false } = defineProps<ThemeToggleProps>();
+const modelValue = defineModel<ThemeMode>({ default: 'system' });
 
 const handleChangeTheme = async (e: MouseEvent) => {
   const isAppearanceTransition =
@@ -54,12 +56,12 @@ const handleChangeTheme = async (e: MouseEvent) => {
     const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`];
     const animate = document.documentElement.animate(
       {
-        clipPath: theme.isDark ? [...clipPath].reverse() : clipPath,
+        clipPath: isDark ? [...clipPath].reverse() : clipPath,
       },
       {
         duration: 450,
         easing: 'ease-in',
-        pseudoElement: theme.isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
+        pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
       },
     );
     animate.onfinish = () => {
@@ -69,6 +71,6 @@ const handleChangeTheme = async (e: MouseEvent) => {
 };
 
 const handleSetTheme = () => {
-  theme.setMode(theme.isDark ? 'light' : 'dark');
+  modelValue.value = isDark ? 'light' : 'dark';
 };
 </script>

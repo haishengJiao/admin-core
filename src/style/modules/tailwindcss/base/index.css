@@ -5,11 +5,19 @@
 
   html,
   body {
-    @apply h-full w-full text-base;
+    @apply h-full w-full overflow-hidden text-base;
   }
 
   html {
-    @apply text-foreground bg-background;
+    @apply text-foreground bg-background font-base;
+  }
+
+  html.gray-mode {
+    @apply grayscale;
+  }
+
+  html.weak-mode {
+    @apply invert;
   }
 
   ::view-transition-new(root),

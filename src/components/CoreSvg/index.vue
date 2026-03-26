@@ -2,7 +2,7 @@
   <svg
     aria-hidden="true"
     v-bind="$attrs"
-    class="overflow-hidden fill-current stroke-current align-text-top"
+    class="overflow-hidden fill-current stroke-current align-text-top outline-0"
     :style="svgStyle"
   >
     <use :fill="color" :href="symbolId" />

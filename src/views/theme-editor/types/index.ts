@@ -29,3 +29,15 @@ export interface DataItem {
   type: `${DataItemType}`;
   data: ElCssVarItem[];
 }
+
+export type TableProps = {
+  data: CssVarItem[];
+  backgroundImage: string;
+  groupType: `${DataItemType}`;
+};
+
+export type TableEmits = {
+  updateCssVar: [CssVarItem];
+  reset: [CssVarItem];
+  sizeChange: [CssVarItem];
+};

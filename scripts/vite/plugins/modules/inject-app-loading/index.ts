@@ -56,7 +56,7 @@ export default async function injectAppLoadingPlugin(
         const loadingHtml = await getAppLoadingHtml();
         const injectScript = `
           <script data-app-loading="inject-js">
-            var theme = localStorage.getItem('theme');
+            var theme = localStorage.getItem('THEME');
             document.documentElement.classList.toggle('dark', /dark/.test(theme));
           </script>
         `;

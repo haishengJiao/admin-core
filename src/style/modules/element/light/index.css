@@ -1,4 +1,5 @@
 :root:root {
+  --el-font-family: var(--font-family);
   --el-color-primary: #006be6;
   --el-color-primary-light-3: #4d97ee;
   --el-color-primary-light-5: #80b5f3;

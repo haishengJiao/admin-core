@@ -1,12 +1,12 @@
 import type { Router } from 'vue-router';
 
-import { useThemeStore } from '@/store';
+import { usePreferencesStore } from '@/store';
 
 export default (router: Router) => {
   router.beforeEach((_to, from) => {
     if (!from.name && from.path === '/') {
-      const theme = useThemeStore();
-      theme.init();
+      const preferences = usePreferencesStore();
+      preferences.initTheme();
     }
   });
 };

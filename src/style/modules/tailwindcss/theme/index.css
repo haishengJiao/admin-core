@@ -24,4 +24,5 @@
   --color-sidebar: hsl(var(--sidebar));
   --text-base: var(--font-size-base);
   --radius-base: var(--radius);
+  --font-base: var(--font-family);
 }

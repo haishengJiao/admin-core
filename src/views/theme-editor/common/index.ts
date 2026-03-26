@@ -1,4 +1,4 @@
-import type { ElCssVarItem } from '../types/index';
+import type { ElCssVarItem } from '../types';
 
 const colors: ElCssVarItem[] = [
   {
