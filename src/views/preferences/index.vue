@@ -6,7 +6,7 @@
     <CoreSvg name="preferences-set" />
   </div>
 
-  <el-drawer v-model="drawerVisible" append-to-body class="preferences-drawer" :show-close="false" size="384px">
+  <el-drawer v-model="drawerVisible" append-to-body class="preferences-drawer w-130! max-w-sm" :show-close="false">
     <template #header>
       <DrawerHeader @close="drawerVisible = false" />
     </template>
@@ -40,7 +40,7 @@ const handleOpenDrawer = () => {
 }
 
 .preferences-drawer .outline {
-  @apply rounded-base outline-border relative flex w-full items-center justify-center p-1 text-[20px] outline-1;
+  @apply rounded-base outline-border relative flex w-full items-center justify-center p-1 outline-1;
 }
 
 .preferences-drawer .outline::after {

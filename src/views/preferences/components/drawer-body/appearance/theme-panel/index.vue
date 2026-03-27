@@ -7,9 +7,9 @@
       @click="modelValue = item.value"
     >
       <div class="outline" :class="[modelValue === item.value && 'is-active']">
-        <CoreSvg :name="item.icon" />
+        <CoreSvg class="size-5!" :name="item.icon" />
       </div>
-      <div class="mt-2 text-[12px] leading-4">{{ item.label }}</div>
+      <div class="mt-2 text-xs leading-4">{{ item.label }}</div>
     </div>
   </div>
   <SwitchItem

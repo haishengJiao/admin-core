@@ -10,6 +10,7 @@ export const themeState = (): ThemeState => ({
   systemPrefersDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
   darkHeader: false,
   darkSidebar: false,
+  fontSize: 16,
   grayMode: false,
   weakMode: false,
 });
@@ -51,6 +52,13 @@ const applyAccessibilityModes = (grayMode: boolean, weakMode: boolean) => {
 
 export const themeActions: PreferencesActions<typeof themeGetters> = {
   initTheme() {
+    const colorList = ['primary', 'success', 'warning', 'info', 'danger'];
+    const rootStyles = getComputedStyle(document.documentElement);
+    colorList.forEach(color => {
+      const colorValue = rootStyles.getPropertyValue(`--${color}`);
+      document.documentElement.style.setProperty(`--${color}`, colorValue);
+    });
+
     applyTheme(this.isDark);
     applyAccessibilityModes(this.theme.grayMode, this.theme.weakMode);
 
@@ -61,6 +69,17 @@ export const themeActions: PreferencesActions<typeof themeGetters> = {
         applyTheme(this.isDark);
       }
     });
+
+    document.documentElement.style.setProperty('--font-size-base', `${this.theme.fontSize}px`);
+    watch(
+      () => this.theme.fontSize,
+      (_newVal, oldVal) => {
+        if (!this.theme.fontSize) {
+          this.theme.fontSize = oldVal;
+        }
+        document.documentElement.style.setProperty('--font-size-base', `${this.theme.fontSize}px`);
+      },
+    );
 
     watch(
       () => this.theme.mode,

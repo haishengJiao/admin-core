@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-header border-border text-foreground flex h-12.5 items-center justify-between border-b px-2"
+    class="bg-header border-border text-foreground flex h-[50px] items-center justify-between border-b px-2"
     :class="[preferences.theme.darkHeader && 'dark']"
   >
     <div>顶栏</div>

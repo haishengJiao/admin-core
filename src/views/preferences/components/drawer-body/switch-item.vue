@@ -4,7 +4,7 @@
     :class="[disabled && 'pointer-events-none opacity-50']"
   >
     <div class="flex items-center">
-      <span class="text-[14px]">
+      <span class="text-sm">
         <slot></slot>
       </span>
       <el-tooltip v-if="tip" :content="tip" effect="light" :offset="10">
@@ -12,7 +12,7 @@
       </el-tooltip>
     </div>
     <div class="flex">
-      <el-switch v-model="checked" class="h-auto!" />
+      <el-switch v-model="checked" class="h-auto!" :disabled="disabled" />
     </div>
   </div>
 </template>

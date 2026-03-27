@@ -226,9 +226,7 @@ const handleAllReset = () => {
 watch(
   () => preferences.effectiveTheme,
   () => {
-    requestAnimationFrame(() => {
-      handleGetRootStyles();
-    });
+    handleGetRootStyles();
   },
 );
 

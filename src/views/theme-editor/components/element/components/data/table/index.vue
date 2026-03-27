@@ -20,7 +20,7 @@
             <p class="mb-2">City: {{ props.row.city }}</p>
             <p class="mb-2">Address: {{ props.row.address }}</p>
             <p class="mb-2">Zip: {{ props.row.zip }}</p>
-            <h3 class="mb-2 text-[20px] font-semibold">Family</h3>
+            <h3 class="mb-2 text-xl font-semibold">Family</h3>
             <el-table border :data="props.row.family">
               <el-table-column label="Name" prop="name" />
               <el-table-column label="State" prop="state" />

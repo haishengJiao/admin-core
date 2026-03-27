@@ -12,7 +12,7 @@
           :key="fit"
           class="box-border inline-block w-1/5 border-r border-solid border-(--el-border-color) py-7.5 text-center align-top last:border-r-0"
         >
-          <span class="mb-5 block text-[14px] text-(--el-text-color-secondary)">{{ fit }}</span>
+          <span class="mb-5 block text-sm text-(--el-text-color-secondary)">{{ fit }}</span>
           <el-image class="h-25 w-25" :fit="fit" :src="url" />
         </div>
       </div>
