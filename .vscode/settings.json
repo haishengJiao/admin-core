@@ -195,9 +195,9 @@
     "scss",
     "vue"
   ],
-  "typescript.inlayHints.enumMemberValues.enabled": true, // 启用 TypeScript 枚举成员值的内联提示
-  "typescript.preferences.preferTypeOnlyAutoImports": true, // TypeScript 优先使用仅类型的自动导入
-  "typescript.preferences.includePackageJsonAutoImports": "on", // 包含 package.json 中的自动导入建议
+  "js/ts.inlayHints.enumMemberValues.enabled": true, // 启用 TypeScript 枚举成员值的内联提示
+  "js/ts.preferences.preferTypeOnlyAutoImports": true, // TypeScript 优先使用仅类型的自动导入
+  "js/ts.preferences.includePackageJsonAutoImports": "on", // 包含 package.json 中的自动导入建议
   "eslint.validate": [
     // ESLint 验证的文件类型列表
     "javascript", // JavaScript 文件
@@ -239,7 +239,7 @@
   "commentTranslate.hover.enabled": false, // 禁用注释翻译扩展的悬停翻译功能
   "commentTranslate.multiLineMerge": true, // 启用注释翻译的多行合并功能
   "vue.server.hybridMode": true, // 启用 Vue 语言服务的混合模式
-  "typescript.tsdk": "node_modules/typescript/lib", // 指定 TypeScript SDK 路径
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
   "oxc.enable": false, // 禁用 OXC 扩展（一个高性能的 JavaScript/TypeScript 工具链）
   "cSpell.words": [
     // Code Spell Checker 扩展的自定义单词列表
@@ -252,6 +252,5 @@
     "nolebase", // 可能是一个项目名或库名
     "rollup", // JavaScript 模块打包器
     "vitest" // 单元测试框架
-  ],
-  "vue-i18n.i18nPaths": ""
+  ]
 }
