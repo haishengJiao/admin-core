@@ -1,5 +1,5 @@
 <template>
-  <div class="py-2">
+  <div class="py-4">
     <h3 class="mb-3 font-semibold">{{ title }}</h3>
 
     <slot></slot>

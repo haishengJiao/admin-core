@@ -40,7 +40,7 @@ const handleOpenDrawer = () => {
 }
 
 .preferences-drawer .outline {
-  @apply rounded-base outline-border relative flex w-full items-center justify-center p-1 outline-1;
+  @apply outline-border relative flex w-full items-center justify-center rounded-md p-1 outline-1;
 }
 
 .preferences-drawer .outline::after {

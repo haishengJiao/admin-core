@@ -7,8 +7,10 @@
         v-model:dark-sidebar="preferences.theme.darkSidebar"
       />
     </Block>
+    <Block title="圆角">
+      <Radius v-model="preferences.theme.radius" />
+    </Block>
     <Block title="字体大小">
-      <!-- <FontPanel v-model:font-family="preferences.fontFamily" v-model:font-size="preferences.fontSize" /> -->
       <FontSize v-model="preferences.theme.fontSize" />
     </Block>
     <Block title="其他">
@@ -21,6 +23,7 @@
 import Block from '../block.vue';
 import ColorMode from './color-mode/index.vue';
 import FontSize from './font-size/index.vue';
+import Radius from './radius/index.vue';
 import ThemePanel from './theme-panel/index.vue';
 
 import { usePreferencesStore } from '@/store';

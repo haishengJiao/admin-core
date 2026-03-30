@@ -9,7 +9,7 @@
   }
 
   html {
-    @apply text-foreground bg-background font-base;
+    @apply text-foreground bg-background font-family;
   }
 
   html.gray-mode {

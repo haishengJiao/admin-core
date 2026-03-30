@@ -23,6 +23,14 @@
   --color-header: hsl(var(--header));
   --color-sidebar: hsl(var(--sidebar));
   --text-base: var(--font-size-base);
-  --radius-base: var(--radius);
-  --font-base: var(--font-family);
+  --radius-xs: calc(var(--radius) - 6px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --font-family: var(--font-family);
+  --shadow-float: 0 6px 16px 0 rgb(0 0 0 / 8%), 0 3px 6px -4px rgb(0 0 0 / 12%), 0 9px 28px 8px rgb(0 0 0 / 5%);
 }

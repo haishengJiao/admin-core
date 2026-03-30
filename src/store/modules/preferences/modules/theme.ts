@@ -10,6 +10,7 @@ export const themeState = (): ThemeState => ({
   systemPrefersDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
   darkHeader: false,
   darkSidebar: false,
+  radius: '0.5',
   fontSize: 16,
   grayMode: false,
   weakMode: false,
@@ -78,6 +79,14 @@ export const themeActions: PreferencesActions<typeof themeGetters> = {
           this.theme.fontSize = oldVal;
         }
         document.documentElement.style.setProperty('--font-size-base', `${this.theme.fontSize}px`);
+      },
+    );
+
+    document.documentElement.style.setProperty('--radius', `${this.theme.radius}rem`);
+    watch(
+      () => this.theme.radius,
+      () => {
+        document.documentElement.style.setProperty('--radius', `${this.theme.radius}rem`);
       },
     );
 

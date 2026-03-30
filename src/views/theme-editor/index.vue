@@ -75,7 +75,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, useTemplateRef, watch, computed, defineAsyncComponent } from 'vue';
+import { onMounted, ref, useTemplateRef, computed, defineAsyncComponent } from 'vue';
 
 import { colors, size, styles, other, backgroundImage } from './common';
 import Table from './components/table/index.vue';
@@ -223,35 +223,10 @@ const handleAllReset = () => {
   });
 };
 
-watch(
-  () => preferences.effectiveTheme,
-  () => {
-    handleGetRootStyles();
-  },
-);
-
-const handleGetRootStyles = () => {
-  const rootStyles = getComputedStyle(document.documentElement);
-  data.value.forEach(categoryGroup => {
-    categoryGroup.data.forEach(category => {
-      category.data.forEach(item => {
-        if (item.unit) {
-          item.value = parseFloat(rootStyles.getPropertyValue(item.cssVar));
-        } else {
-          item.value = rootStyles.getPropertyValue(item.cssVar);
-        }
-        requestAnimationFrame(() => {
-          handleSetCssVariable(item.cssVar, item.value + item.unit);
-        });
-      });
-    });
-  });
-};
-
 onMounted(() => {
   const mainScrollbarView = document.querySelector('.main-scrollbar-wrap .el-scrollbar__view') as HTMLElement;
   mainScrollbarView.style.height = '100%';
 
-  handleGetRootStyles();
+  handleAllReset();
 });
 </script>

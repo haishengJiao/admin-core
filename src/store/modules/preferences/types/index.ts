@@ -9,6 +9,7 @@ export interface ThemeState {
   systemPrefersDark: boolean;
   darkHeader: boolean;
   darkSidebar: boolean;
+  radius: string;
   fontSize: number;
   grayMode: boolean;
   weakMode: boolean;
