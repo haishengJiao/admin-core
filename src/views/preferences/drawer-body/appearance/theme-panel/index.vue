@@ -6,7 +6,7 @@
       class="text-text-regular flex cursor-pointer flex-col items-center"
       @click="modelValue = item.value"
     >
-      <div class="outline" :class="[modelValue === item.value && 'is-active']">
+      <div class="py-4! outline" :class="[modelValue === item.value && 'is-active']">
         <CoreSvg class="mx-9! size-5!" :name="item.icon" />
       </div>
       <div class="mt-2 text-xs leading-4">{{ item.label }}</div>

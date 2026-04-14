@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="bg-sidebar border-border text-text-body h-full w-[224px] border-r"
+    class="bg-sidebar border-border text-text-body h-full w-[224px] border-r transition-all duration-300"
     :class="[preferences.theme.darkSidebar && 'dark']"
   >
     侧边栏
