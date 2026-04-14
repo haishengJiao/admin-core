@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-foreground/80 hover:bg-accent hover:text-accent-foreground flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-all duration-150 ease-in-out hover:animate-[shrink_0.3s_ease-in-out]"
+    class="text-text-body/80 hover:bg-fill hover:text-text-heading flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-all duration-150 ease-in-out hover:animate-[shrink_0.3s_ease-in-out]"
     @click="handleOpenDrawer"
   >
     <CoreSvg name="preferences-set" />
@@ -17,8 +17,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import DrawerBody from './components/drawer-body/index.vue';
-import DrawerHeader from './components/drawer-header/index.vue';
+import DrawerBody from './drawer-body/index.vue';
+import DrawerHeader from './drawer-header/index.vue';
 
 const drawerVisible = ref(false);
 
@@ -29,7 +29,7 @@ const handleOpenDrawer = () => {
 
 <style>
 @reference "tailwindcss";
-@reference "@/style/modules/tailwindcss/theme/index.css";
+@reference "@/style/tailwindcss/theme/index.css";
 
 .preferences-drawer .el-drawer__header {
   @apply mb-0 p-0;
@@ -50,7 +50,7 @@ const handleOpenDrawer = () => {
 }
 
 .preferences-drawer .outline.is-active {
-  @apply outline-primary outline-2;
+  @apply outline-primary outline-2 after:hidden;
 }
 
 .preferences-drawer .outline:hover:not(.is-active)::after {

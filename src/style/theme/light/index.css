@@ -1,0 +1,42 @@
+:root {
+  --primary: #006ae4;
+  --success: #57d188;
+  --warning: #efbd48;
+  --danger: #ff3860;
+  --error: #ff3860;
+  --info: #8c8c8c;
+  --bg: #fff;
+  --bg-page: #f1f3f6;
+  --bg-overlay: #fff;
+  --text-heading: #18181b;
+  --text-body: #323639;
+  --text-regular: #71717a;
+  --text-secondary: #909399;
+  --text-placeholder: #a8abb2;
+  --text-disabled: #c0c4cc;
+  --border: #dcdfe6;
+  --border-light: #e4e7ed;
+  --border-lighter: #ebeef5;
+  --border-extra-light: #f2f6fc;
+  --border-dark: #d4d7de;
+  --border-darker: #cdd0d6;
+  --fill: #f0f2f5;
+  --fill-light: #f5f7fa;
+  --fill-lighter: #fafafa;
+  --fill-extra-light: #fafcff;
+  --fill-dark: #ebedf0;
+  --fill-darker: #e6e8eb;
+  --fill-blank: #fff;
+  --overlay: #000c;
+  --overlay-light: #000000b3;
+  --overlay-lighter: #00000080;
+  --mask: #ffffffe6;
+  --mask-extra-light: #ffffff4d;
+  --radius: 0.5rem;
+  --font-family:
+    -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-size-base: 16px;
+
+  color-scheme: light;
+}

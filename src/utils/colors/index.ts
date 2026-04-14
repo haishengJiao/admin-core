@@ -55,7 +55,7 @@ export const toRgb = (str: string): string => {
 };
 
 /**
- * 将颜色转换为 HSL/HSLA 字符串格式
+ * 将颜色转换为 HSL/HSLA 字符串格式（逗号分隔）
  * @param {string} str - 输入的颜色字符串（支持任何合法的颜色格式）
  * @returns {string} HSL/HSLA 颜色字符串，无效颜色返回空字符串
  * @example
@@ -67,6 +67,53 @@ export const toRgb = (str: string): string => {
  */
 export const toHsl = (str: string): string => {
   return processColor(str, color => color.toHslString());
+};
+
+/**
+ * 将颜色转换为 HSL/HSLA 字符串格式（空格分隔，现代 CSS 语法）
+ * @param {string} str - 输入的颜色字符串（支持任何合法的颜色格式）
+ * @returns {string} 空格分隔的 HSL/HSLA 颜色字符串，无效颜色返回空字符串
+ * @example
+ * toHslModern('#ff0000')           // 'hsl(0 100% 50%)'
+ * toHslModern('rgb(255,0,0)')      // 'hsl(0 100% 50%)'
+ * toHslModern('hsla(0,100%,50%,0.5)') // 'hsl(0 100% 50% / 50%)'
+ * toHslModern('red')               // 'hsl(0 100% 50%)'
+ * toHslModern('invalid')           // ''
+ */
+export const toHslModern = (str: string): string => {
+  const { h, s, l, a } = processColor(str, color => color.toHsl());
+  const hue = Math.round(h);
+  const saturation = Math.round(s * 100);
+  const lightness = Math.round(l * 100);
+  if (a < 1) {
+    const alpha = Math.round(a * 100);
+    return `hsl(${hue} ${saturation}% ${lightness}% / ${alpha}%)`;
+  }
+  return `hsl(${hue} ${saturation}% ${lightness}%)`;
+};
+
+/**
+ * 提取 HSL 颜色值（过滤掉 hsl() 部分）
+ * @param {string} str - 输入的颜色字符串（支持任何合法的颜色格式）
+ * @returns {string} 只包含数值部分的字符串，无效颜色返回空字符串
+ * @example
+ * extractHslValues('#ff0000')      // '0 100% 50%'
+ * extractHslValues('hsl(0,100%,50%)') // '0 100% 50%'
+ * extractHslValues('hsl(0 100% 50% / 50%)') // '0 100% 50% / 50%'
+ * extractHslValues('red')          // '0 100% 50%'
+ * extractHslValues('invalid')      // ''
+ */
+export const extractHslValues = (str: string): string => {
+  const { h, s, l, a } = processColor(str, color => color.toHsl());
+  const hue = Math.round(h);
+  const saturation = Math.round(s * 100);
+  const lightness = Math.round(l * 100);
+  let values = `${hue} ${saturation}% ${lightness}%`;
+  if (a < 1) {
+    const alpha = Math.round(a * 100);
+    values = `${values} / ${alpha}%`;
+  }
+  return values;
 };
 
 /**

@@ -7,7 +7,7 @@
           <div class="ml-2 flex items-center">
             <span class="mr-1">自动计算</span>
             <el-tooltip content="设置主色调自动计算辅助色调">
-              <i-ep-question-filled class="text-muted-foreground" />
+              <i-ep-question-filled class="text-text-regular" />
             </el-tooltip>
           </div>
         </div>
@@ -78,8 +78,8 @@
 import { onMounted, ref, useTemplateRef, computed, defineAsyncComponent } from 'vue';
 
 import { colors, size, styles, other, backgroundImage } from './common';
-import Table from './components/table/index.vue';
-import { DataItemType } from './types/index';
+import Table from './table/index.vue';
+import { DataItemType } from './types';
 
 import type { CssVarItem, DataItem } from './types';
 import type { Ref } from 'vue';
@@ -89,7 +89,7 @@ import { mixColor } from '@/utils/colors';
 import { downloadCssFile } from '@/utils/file';
 
 const ElementPlusComponents = defineAsyncComponent({
-  loader: () => import('./components/element/index.vue'),
+  loader: () => import('./element/index.vue'),
 });
 
 const preferences = usePreferencesStore();

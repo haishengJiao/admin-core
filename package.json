@@ -24,6 +24,7 @@
     "@ctrl/tinycolor": "^4.2.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
+    "@vueuse/core": "^14.2.1",
     "element-plus": "^2.11.8",
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.7.1",

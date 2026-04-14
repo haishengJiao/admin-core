@@ -1,6 +1,10 @@
-import * as directives from './modules';
+import { disabledClipboard } from './disabled-clipboard';
 
 import type { App } from 'vue';
+
+const directives = {
+  disabledClipboard,
+};
 
 export default {
   install(app: App) {

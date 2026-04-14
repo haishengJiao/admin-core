@@ -6,6 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import HeaderBar from './components/header-bar/index.vue';
-import TabBar from './components/tab-bar/index.vue';
+import HeaderBar from './header-bar/index.vue';
+import TabBar from './tab-bar/index.vue';
 </script>

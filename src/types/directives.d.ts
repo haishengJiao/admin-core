@@ -1,4 +1,4 @@
-import type { DisabledClipboardDirective } from '@/directives/types/';
+import type { DisabledClipboardDirective } from '@/directives/disabled-clipboard/types';
 
 declare module 'vue' {
   export interface GlobalDirectives {

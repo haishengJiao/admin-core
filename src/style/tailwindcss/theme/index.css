@@ -1,0 +1,52 @@
+@theme {
+  /* stylelint-disable-next-line custom-property-pattern */
+  --color-*: initial;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-error: var(--error);
+  --color-info: var(--info);
+  --color-bg: var(--bg);
+  --color-bg-page: var(--bg-page);
+  --color-bg-overlay: var(--bg-overlay);
+  --color-header: var(--bg);
+  --color-sidebar: var(--bg);
+  --color-text-heading: var(--text-heading);
+  --color-text-body: var(--text-body);
+  --color-text-regular: var(--text-regular);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-placeholder: var(--text-placeholder);
+  --color-text-disabled: var(--text-disabled);
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-border-lighter: var(--border-lighter);
+  --color-border-extra-light: var(--border-extra-light);
+  --color-border-dark: var(--border-dark);
+  --color-border-darker: var(--border-darker);
+  --color-fill: var(--fill);
+  --color-fill-light: var(--fill-light);
+  --color-fill-lighter: var(--fill-lighter);
+  --color-fill-extra-light: var(--fill-extra-light);
+  --color-fill-dark: var(--fill-dark);
+  --color-fill-darker: var(--fill-darker);
+  --color-fill-blank: var(--fill-blank);
+  --color-overlay: var(--overlay);
+  --color-overlay-light: var(--overlay-light);
+  --color-overlay-lighter: var(--overlay-lighter);
+  --color-mask: var(--mask);
+  --color-mask-extra-light: var(--mask-extra-light);
+  --radius-xs: calc(var(--radius) - 6px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  --radius-4xl: calc(var(--radius) + 24px);
+  --font-family: var(--font-family);
+  --text-base: var(--font-size-base);
+}
