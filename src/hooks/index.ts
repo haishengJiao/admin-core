@@ -1,1 +1,1 @@
-export { useElementPlusDesign } from './useElementPlusDesign';
+export * from './useElementPlusDesign';
