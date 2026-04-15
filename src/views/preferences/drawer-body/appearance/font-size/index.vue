@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-2">
-    <el-input-number class="w-[80%]!" :max="22" :min="12" :model-value="modelValue" @change="handleChange">
+    <el-input-number class="w-[80%]!" :max="20" :min="14" :model-value="modelValue" @change="handleChange">
       <template #suffix>
         <span class="text-text-regular text-xs">px</span>
       </template>
