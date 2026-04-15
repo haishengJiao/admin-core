@@ -7,9 +7,6 @@
     </el-input-number>
     <div class="text-text-regular flex items-center text-xs">
       <span>调整全局字体大小，实时预览效果</span>
-      <el-tooltip content="Element Plus 组件不支持" effect="light" :offset="10">
-        <CoreSvg class="ml-1 size-2.5! cursor-help" name="preferences-question" />
-      </el-tooltip>
     </div>
   </div>
 </template>

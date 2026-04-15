@@ -18,6 +18,7 @@
     "../../scripts/**/*",
     "../../stylelint.config.*",
     "../../commitlint.config.*",
-    "../../cspell.config.*"
+    "../../cspell.config.*",
+    "../../postcss.config.*"
   ]
 }

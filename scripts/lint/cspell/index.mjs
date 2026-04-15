@@ -60,6 +60,7 @@ export default {
     'Shenzhen',
     'Rabindranath',
     'axure',
+    'pxtorem',
   ],
   ignorePaths: [
     '**/node_modules/**',
