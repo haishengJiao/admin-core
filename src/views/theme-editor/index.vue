@@ -60,12 +60,17 @@
       </el-col>
       <el-col class="h-full" :span="16">
         <el-card body-class="p-0! h-full flex flex-col" class="h-full">
-          <el-scrollbar height="100%" view-class="w-full min-h-full h-auto" wrap-class="theme-editor-scrollbar-wrap">
+          <el-scrollbar
+            ref="scrollbar"
+            height="100%"
+            view-class="w-full min-h-full h-auto"
+            wrap-class="theme-editor-scrollbar-wrap"
+          >
             <div
               ref="elementPlusComponents"
               class="[--el-border:var(--el-border-width)_var(--el-border-style)_var(--el-border-color)]"
             >
-              <ElementPlusComponents />
+              <ElementPlusComponents :lazy-options="lazyOptions" />
             </div>
           </el-scrollbar>
         </el-card>
@@ -106,6 +111,13 @@ const colorsComputed = computed(() => {
 const autoColorCalc = ref(true);
 const activeNames = ref('');
 const elementPlusComponentsRef = useTemplateRef('elementPlusComponents');
+const scrollbar = useTemplateRef('scrollbar');
+const scrollbarWrapRef = computed(() => {
+  return scrollbar.value?.wrapRef ?? null;
+});
+const lazyOptions = {
+  root: scrollbarWrapRef,
+};
 const modifyCssVar: Ref<Record<string, string>> = ref({});
 
 const updateModifyCssVar = (cssVar: string, value: string, isDelete: boolean = false) => {
