@@ -29,7 +29,7 @@ const handleOpenDrawer = () => {
 
 <style>
 @reference "tailwindcss";
-@reference "@/style/tailwindcss/theme/index.css";
+@reference "@/style/tailwind/theme/index.css";
 
 .preferences-drawer .el-drawer__header {
   @apply mb-0 p-0;
