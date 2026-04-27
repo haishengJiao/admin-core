@@ -1,9 +1,10 @@
 <template>
   <aside
-    class="bg-sidebar border-border text-text-body flex h-full w-[224px] flex-col border-r transition-all duration-300"
+    class="bg-sidebar border-border text-text-body flex h-full flex-col border-r transition-all duration-300"
     :class="[preferences.theme.darkSidebar && 'dark']"
+    style="width: 224px"
   >
-    <div class="h-[50px]"></div>
+    <MenuLogo />
     <div class="flex-1 overflow-hidden py-2">
       <el-scrollbar height="100%">
         <div class="px-2">
@@ -11,12 +12,13 @@
         </div>
       </el-scrollbar>
     </div>
-    <div class="h-[42px]"></div>
+    <div style="width: 42px"></div>
   </aside>
 </template>
 
 <script setup lang="ts">
 import Menu from './menu/index.vue';
+import MenuLogo from './menu-logo/index.vue';
 
 import { usePreferencesStore } from '@/store';
 

@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="defaultActive">
+  <el-menu ref="menuRef" :default-active="defaultActive">
     <template v-for="item in routes" :key="item.path">
       <SubMenu :menu="item" @menu-item-click="onMenuItemClick" />
     </template>
@@ -7,12 +7,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, useTemplateRef, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import SubMenu from './SubMenu.vue';
 
-import type { MenuItemRegistered } from 'element-plus';
+import type { MenuInstance, MenuItemRegistered } from 'element-plus';
 import type { RouteRecordRaw } from 'vue-router';
 
 const route = useRoute();
@@ -29,6 +29,18 @@ const onMenuItemClick = (menu: MenuItemRegistered, _raw: RouteRecordRaw) => {
   activePath.value = menu.index;
   router.push(menu.index);
 };
+
+const menuRef = useTemplateRef<MenuInstance>('menuRef');
+
+watch(
+  () => route,
+  newVal => {
+    menuRef.value?.updateActiveIndex(newVal.path);
+  },
+  {
+    deep: true,
+  },
+);
 </script>
 
 <style scoped>
