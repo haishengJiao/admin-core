@@ -1,7 +1,7 @@
 <template>
   <aside
     class="bg-sidebar border-border text-text-body flex h-full flex-col border-r transition-all duration-300"
-    :class="[preferences.theme.darkSidebar && 'dark']"
+    :class="[theme.darkSidebar && isLight && 'dark']"
     style="width: 224px"
   >
     <MenuLogo />
@@ -17,10 +17,12 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
+
 import Menu from './menu/index.vue';
 import MenuLogo from './menu-logo/index.vue';
 
 import { usePreferencesStore } from '@/store';
 
-const preferences = usePreferencesStore();
+const { theme, isLight } = storeToRefs(usePreferencesStore());
 </script>

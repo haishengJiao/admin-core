@@ -5,6 +5,6 @@ declare module 'vue-router' {
     /**
      * 标题名称
      */
-    title: string;
+    title?: string;
   }
 }

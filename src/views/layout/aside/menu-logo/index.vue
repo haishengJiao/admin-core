@@ -4,17 +4,21 @@
       <div class="shrink-0">
         <img src="@/assets/images/layout/logo.png" width="32" />
       </div>
-      <h1 class="truncate font-semibold" :title="appTitle">{{ appTitle }}</h1>
+      <h1 class="truncate font-semibold" :title="appName">{{ appName }}</h1>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
-const router = useRouter();
+import { usePreferencesStore } from '@/store';
 
-const appTitle = import.meta.env.VITE_APP_TITLE;
+const router = useRouter();
+const preferences = usePreferencesStore();
+
+const appName = computed(() => preferences.general.name);
 
 const handleGoHome = () => {
   router.push('/');

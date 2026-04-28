@@ -3,7 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { useElementPlusDesign } from '@/hooks';
+import { useElementPlusDesign, useDocumentTitle } from '@/hooks';
 
 useElementPlusDesign();
+useDocumentTitle();
 </script>
