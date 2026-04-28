@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import SwitchItem from '../../SwitchItem.vue';
+import SwitchItem from '../SwitchItem.vue';
 
 import type { ThemeMode } from '@/store/preferences/types';
 import type { ThemeListItem } from '@/views/preferences/types';

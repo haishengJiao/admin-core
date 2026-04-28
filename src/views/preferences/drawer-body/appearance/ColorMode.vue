@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-import SwitchItem from '../../SwitchItem.vue';
+import SwitchItem from '../SwitchItem.vue';
 
 const weakMode = defineModel<boolean>('weakMode', { default: false });
 const grayMode = defineModel<boolean>('grayMode', { default: false });

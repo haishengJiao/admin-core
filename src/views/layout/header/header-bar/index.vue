@@ -17,7 +17,7 @@ import { storeToRefs } from 'pinia';
 import { computed } from 'vue';
 
 import { usePreferencesStore } from '@/store';
-import ThemeSwitcher from '@/views/preferences/drawer-body/appearance/theme-toggle/index.vue';
+import ThemeSwitcher from '@/views/preferences/drawer-body/appearance/ThemeToggle.vue';
 import PreferencesSet from '@/views/preferences/index.vue';
 
 const { appearance, isLight, isDark } = storeToRefs(usePreferencesStore());

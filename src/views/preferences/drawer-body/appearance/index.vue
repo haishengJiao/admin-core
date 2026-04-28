@@ -35,12 +35,12 @@
 import { storeToRefs } from 'pinia';
 
 import Block from '../Block.vue';
-import ColorMode from './color-mode/index.vue';
-import FontSize from './font-size/index.vue';
-import PrimaryColor from './primary-color/index.vue';
-import Radius from './radius/index.vue';
-import SecondaryColor from './secondary-color/index.vue';
-import ThemePanel from './theme-panel/index.vue';
+import ColorMode from './ColorMode.vue';
+import FontSize from './FontSize.vue';
+import PrimaryColor from './PrimaryColor.vue';
+import Radius from './Radius.vue';
+import SecondaryColor from './SecondaryColor.vue';
+import ThemePanel from './ThemePanel.vue';
 
 import { usePreferencesStore } from '@/store';
 

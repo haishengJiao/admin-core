@@ -6,14 +6,14 @@
       class="flex cursor-pointer flex-col items-center"
       @click="handleChangeBrand(item)"
     >
-      <ColorSwatch v-model="modelValue" v-model:type="type" :item="item" />
+      <PrimaryColorItem v-model="modelValue" v-model:type="type" :item="item" />
       <div class="text-text-regular my-2 text-xs leading-4">{{ item.name }}</div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import ColorSwatch from './ColorSwatch.vue';
+import PrimaryColorItem from './PrimaryColorItem.vue';
 
 import type { ColorPrimaryType } from '@/store/preferences/types';
 import type { colorPrimaryItem } from '@/views/preferences/types';

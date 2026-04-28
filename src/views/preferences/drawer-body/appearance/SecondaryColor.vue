@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import ColorPickerItem from '../../ColorPickerItem.vue';
+import ColorPickerItem from '../ColorPickerItem.vue';
 
 const success = defineModel<string>('success');
 const warning = defineModel<string>('warning');
