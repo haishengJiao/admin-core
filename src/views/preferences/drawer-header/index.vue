@@ -22,7 +22,7 @@
         @click="handleChangeNavFixed"
       >
         <el-tooltip
-          v-if="!preferences.general.enableStickyPreferencesNavigationBar"
+          v-if="!preferences.app.enableStickyPreferencesNavigationBar"
           content="开启首选项导航栏吸顶效果"
           effect="light"
           :offset="10"
@@ -66,7 +66,7 @@ const handleReset = () => {
 };
 
 const handleChangeNavFixed = () => {
-  preferences.general.enableStickyPreferencesNavigationBar = !preferences.general.enableStickyPreferencesNavigationBar;
+  preferences.app.enableStickyPreferencesNavigationBar = !preferences.app.enableStickyPreferencesNavigationBar;
 };
 
 const handleClose = () => {

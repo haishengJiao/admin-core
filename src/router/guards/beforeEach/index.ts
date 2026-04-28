@@ -8,7 +8,7 @@ export default (router: Router) => {
   router.beforeEach((_to, from) => {
     if (!from.name && from.path === '/') {
       const preferences = usePreferencesStore();
-      preferences.initTheme();
+      preferences.initAppearance();
       removeAppLoading();
     }
   });

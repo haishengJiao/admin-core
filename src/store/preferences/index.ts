@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia';
 
+import { appState } from './app';
+import { appearanceState, appearanceGetters, appearanceActions } from './appearance';
 import { generalState } from './general';
-import { themeState, themeGetters, themeActions } from './theme';
 import { storeId } from './types';
 
 import type { PreferencesState } from './types';
@@ -10,8 +11,9 @@ import { STORAGE_KEYS } from '@/utils/localStorage-keys';
 
 export const basePreferencesState = (): PreferencesState => {
   return {
-    theme: themeState(),
+    appearance: appearanceState(),
     general: generalState(),
+    app: appState(),
   };
 };
 
@@ -22,10 +24,10 @@ export const usePreferencesStore = defineStore(storeId, {
   state: () => basePreferencesState(),
 
   getters: {
-    ...themeGetters,
+    ...appearanceGetters,
   },
 
   actions: {
-    ...themeActions,
+    ...appearanceActions,
   },
 });

@@ -1,10 +1,7 @@
 <template>
   <div class="h-full">
     <el-scrollbar>
-      <div
-        class="bg-bg z-10 w-full p-3"
-        :class="{ 'sticky top-0': preferences.general.enableStickyPreferencesNavigationBar }"
-      >
+      <div class="bg-bg z-10 w-full p-3" :class="{ 'sticky top-0': enableStickyPreferencesNavigationBar }">
         <el-segmented v-model="segmentedValue" block :options="segmentedOptions" />
       </div>
       <div class="p-3 pt-0">
@@ -25,6 +22,7 @@ import Shortcuts from './shortcuts/index.vue';
 import { usePreferencesStore } from '@/store';
 
 const preferences = usePreferencesStore();
+const enableStickyPreferencesNavigationBar = computed(() => preferences.app.enableStickyPreferencesNavigationBar);
 
 const segmentedValue = ref('appearance');
 

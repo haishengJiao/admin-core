@@ -10,8 +10,9 @@ export const useDocumentTitle = () => {
   const title = useTitle();
 
   const computedTitle = computed(() => {
-    const appName = preferences.general.name;
-    if (!preferences.general.dynamicTitle) {
+    const { general } = preferences.general;
+    const appName = preferences.app.name;
+    if (!general.dynamicTitle) {
       return appName;
     }
     const pageTitle = route.meta.title;

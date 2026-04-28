@@ -18,7 +18,7 @@ import { usePreferencesStore } from '@/store';
 const router = useRouter();
 const preferences = usePreferencesStore();
 
-const appName = computed(() => preferences.general.name);
+const appName = computed(() => preferences.app.name);
 
 const handleGoHome = () => {
   router.push('/');

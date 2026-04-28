@@ -68,10 +68,11 @@ export const useElementPlusDesign = () => {
   };
 
   watch(
-    () => preferences.theme,
+    () => preferences.appearance,
     () => {
-      const { isLight, theme } = preferences;
-      const { colorPrimary, colorSuccess, colorWarning, colorDanger, colorError, colorInfo, radius, fontSize } = theme;
+      const { isLight, appearance } = preferences;
+      const { primaryColor, secondaryColor, radius, fontSize } = appearance;
+      const { success, warning, danger, error, info } = secondaryColor;
 
       const rootStyles = getComputedStyle(document.documentElement);
       const getCssVar = (varName: string) => rootStyles.getPropertyValue(varName);
@@ -85,12 +86,12 @@ export const useElementPlusDesign = () => {
       );
 
       const variables: Record<string, string> = {
-        ...generateColorVariants('primary', colorPrimary, isLight),
-        ...generateColorVariants('success', colorSuccess, isLight),
-        ...generateColorVariants('warning', colorWarning, isLight),
-        ...generateColorVariants('danger', colorDanger, isLight),
-        ...generateColorVariants('error', colorError, isLight),
-        ...generateColorVariants('info', colorInfo, isLight),
+        ...generateColorVariants('primary', primaryColor.color, isLight),
+        ...generateColorVariants('success', success, isLight),
+        ...generateColorVariants('warning', warning, isLight),
+        ...generateColorVariants('danger', danger, isLight),
+        ...generateColorVariants('error', error, isLight),
+        ...generateColorVariants('info', info, isLight),
         ...generateFontSizes(fontSize),
         ...mappedVariables,
         '--el-border-radius-base': `${radius}rem`,

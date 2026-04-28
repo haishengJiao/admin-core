@@ -1,7 +1,7 @@
 <template>
   <div>
     <Block title="通用">
-      <General v-model:dynamic-title="general.dynamicTitle" />
+      <General v-model:dynamic-title="general.general.dynamicTitle" />
     </Block>
   </div>
 </template>
