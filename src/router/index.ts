@@ -27,6 +27,7 @@ const routes: RouteRecordRaw[] = [
         meta: {
           title: '主题编辑器',
           icon: '#svg-layout-css',
+          activeIcon: '#svg-layout-active-css',
         },
       },
       {

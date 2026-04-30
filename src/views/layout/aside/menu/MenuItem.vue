@@ -1,6 +1,6 @@
 <template>
-  <el-menu-item :index="menu.path" @click="handleClick">
-    <MenuIcon class="menu-icon" :icon="menu.meta?.icon" />
+  <el-menu-item :index="menu.path">
+    <MenuIcon class="menu-icon" :icon="icon" />
     <span class="truncate">{{ menu.meta?.title }}</span>
   </el-menu-item>
 </template>
@@ -8,21 +8,12 @@
 <script lang="ts" setup>
 import MenuIcon from './MenuIcon.vue';
 
-import type { MenuItemRegistered } from 'element-plus';
-import type { RouteRecordRaw } from 'vue-router';
+import type { RouteMeta, RouteRecordRaw } from 'vue-router';
 
 type Props = {
   menu: RouteRecordRaw;
+  icon: RouteMeta['icon'];
 };
 
-type Emits = {
-  menuItemClick: [MenuItemRegistered, RouteRecordRaw];
-};
-
-const props = defineProps<Props>();
-const emits = defineEmits<Emits>();
-
-const handleClick = (menu: MenuItemRegistered) => {
-  emits('menuItemClick', menu, props.menu);
-};
+defineProps<Props>();
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <el-menu ref="menuRef" :default-active="defaultActive">
+  <el-menu ref="menuRef" :default-active="defaultActive" @select="handleSelect">
     <template v-for="item in routes" :key="item.path">
-      <SubMenu :menu="item" @menu-item-click="onMenuItemClick" />
+      <SubMenu :active-path="activePath" :menu="item" />
     </template>
   </el-menu>
 </template>
@@ -18,16 +18,33 @@ import type { RouteRecordRaw } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
 
+const findActivePath = (path: string, menuList: RouteRecordRaw[] = []): string[] => {
+  for (const item of menuList) {
+    if (item.path === path) {
+      return [item.path];
+    }
+    if (item.children?.length) {
+      const childPath = findActivePath(path, item.children);
+      if (childPath.length) {
+        return [item.path, ...childPath];
+      }
+    }
+  }
+  return [];
+};
+
 const routes = router.options.routes.find(item => item.path === '/')?.children;
 const defaultActive = ref(route.path);
-const activePath = ref(route.path);
+const active = ref(route.path);
+const activePath = ref<MenuItemRegistered['indexPath']>(findActivePath(route.path, routes));
 
-const onMenuItemClick = (menu: MenuItemRegistered, _raw: RouteRecordRaw) => {
-  if (activePath.value === menu.index) {
+const handleSelect: MenuInstance['onSelect'] = (index, indexPath) => {
+  if (active.value === index) {
     return;
   }
-  activePath.value = menu.index;
-  router.push(menu.index);
+  active.value = index;
+  activePath.value = indexPath;
+  router.push(index);
 };
 
 const menuRef = useTemplateRef<MenuInstance>('menuRef');
@@ -36,6 +53,8 @@ watch(
   () => route,
   newVal => {
     menuRef.value?.updateActiveIndex(newVal.path);
+    active.value = newVal.path;
+    activePath.value = findActivePath(route.path, routes);
   },
   {
     deep: true,
