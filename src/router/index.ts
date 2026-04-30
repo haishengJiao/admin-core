@@ -1,8 +1,11 @@
+import { h, markRaw } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 import setupGuards from './guards';
 
 import type { RouteRecordRaw } from 'vue-router';
+
+import CoreSvg from '@/components/CoreSvg/index.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,6 +18,7 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/workplace/index.vue'),
         meta: {
           title: '工作台',
+          icon: 'icon-workbench',
         },
       },
       {
@@ -22,18 +26,21 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/theme-editor/index.vue'),
         meta: {
           title: '主题编辑器',
+          icon: '#svg-layout-css',
         },
       },
       {
         path: '/demos',
         meta: {
           title: '演示',
+          icon: markRaw(h(CoreSvg, { name: 'layout-demo' })),
         },
         children: [
           {
             path: '/demos/badge',
             meta: {
               title: '菜单徽标',
+              icon: '#svg-layout-bullseye',
             },
             children: [
               {
@@ -41,6 +48,7 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('@/views/demos/badge/dot/index.vue'),
                 meta: {
                   title: '点徽标',
+                  icon: '#svg-layout-crosshair',
                 },
               },
               {
@@ -48,6 +56,7 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('@/views/demos/badge/text/index.vue'),
                 meta: {
                   title: '文本徽标',
+                  icon: '#svg-layout-crosshair',
                 },
               },
               {
@@ -55,6 +64,7 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('@/views/demos/badge/color/index.vue'),
                 meta: {
                   title: '颜色徽标',
+                  icon: '#svg-layout-crosshair',
                 },
               },
             ],
@@ -63,6 +73,7 @@ const routes: RouteRecordRaw[] = [
             path: '/demos/outside',
             meta: {
               title: '外部页面',
+              icon: '#svg-layout-external',
             },
             children: [
               {
@@ -70,6 +81,7 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('@/views/demos/outside/inline/index.vue'),
                 meta: {
                   title: '内嵌',
+                  icon: '#svg-layout-frame',
                 },
               },
               {
@@ -77,6 +89,7 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('@/views/demos/outside/link/index.vue'),
                 meta: {
                   title: '外链',
+                  icon: '#svg-layout-link',
                 },
               },
             ],
@@ -87,6 +100,7 @@ const routes: RouteRecordRaw[] = [
         path: '/examples',
         meta: {
           title: '示例',
+          icon: '#svg-layout-example',
         },
         children: [
           {

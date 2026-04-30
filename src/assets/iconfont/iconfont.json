@@ -8,7 +8,7 @@
     {
       "icon_id": "26274763",
       "name": "亮色",
-      "font_class": "liangse",
+      "font_class": "light",
       "unicode": "e600",
       "unicode_decimal": 58880
     },
@@ -22,14 +22,14 @@
     {
       "icon_id": "40152310",
       "name": "导弹火箭",
-      "font_class": "a-daodanhuojian",
+      "font_class": "a-missile-rocket",
       "unicode": "e8a9",
       "unicode_decimal": 59561
     },
     {
       "icon_id": "9478563",
       "name": "工作台",
-      "font_class": "gongzuotai",
+      "font_class": "workbench",
       "unicode": "e606",
       "unicode_decimal": 58886
     }

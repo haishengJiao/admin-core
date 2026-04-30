@@ -1,7 +1,8 @@
 <template>
   <el-sub-menu v-if="menu.children?.length" :index="menu.path">
     <template #title>
-      <span>{{ menu.meta?.title }}</span>
+      <MenuIcon class="menu-icon" :icon="menu.meta?.icon" />
+      <span class="truncate">{{ menu.meta?.title }}</span>
     </template>
     <template v-for="sub in menu.children" :key="sub.path">
       <SubMenu :menu="sub" @menu-item-click="onMenuItemClick" />
@@ -11,6 +12,7 @@
 </template>
 
 <script lang="ts" setup>
+import MenuIcon from './MenuIcon.vue';
 import MenuItem from './MenuItem.vue';
 
 import type { MenuItemRegistered } from 'element-plus';

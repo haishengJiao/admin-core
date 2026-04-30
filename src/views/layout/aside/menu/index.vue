@@ -57,10 +57,6 @@ watch(
   @apply border-r-0! transition-colors! duration-300!;
 }
 
-#d9e9fb :deep(.el-menu) {
-  @apply transition-colors! duration-300!;
-}
-
 .el-menu :deep(.el-menu-item),
 .el-menu :deep(.el-sub-menu__title) {
   @apply rounded-lg transition-colors! duration-300! hover:bg-(--el-color-primary-light-9);
@@ -70,9 +66,28 @@ watch(
   @apply bg-(--el-color-primary-light-8);
 }
 
+.el-menu :deep(.el-sub-menu.is-active) > .el-sub-menu__title {
+  @apply text-primary;
+}
+
 .el-menu :deep(.el-sub-menu),
 .el-menu :deep(.el-menu-item),
 .el-menu :deep(.el-sub-menu__title) {
   @apply mb-0.5;
+}
+
+.el-menu :deep(.el-menu-item) .menu-icon,
+.el-menu :deep(.el-sub-menu__title) .menu-icon {
+  @apply mr-2 flex h-4 w-4 shrink-0 items-center text-base transition-transform duration-250;
+}
+
+.el-menu :deep(.el-menu-item):hover,
+.el-menu :deep(.el-sub-menu__title):hover {
+  @apply text-primary;
+}
+
+.el-menu :deep(.el-menu-item):hover .menu-icon,
+.el-menu :deep(.el-sub-menu__title):hover .menu-icon {
+  @apply scale-120;
 }
 </style>

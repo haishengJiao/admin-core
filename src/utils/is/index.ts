@@ -1,26 +1,36 @@
+import { httpRegex } from '../regexp';
+
 /**
- * 比较两个对象是否相等
+ * 检查给定的值是否是一个字符串
  *
- * @param {unknown} firstObj - 第一个要比较的对象
- * @param {unknown} secondObj - 第二个要比较的对象
- * @returns {boolean} 如果两个对象深度相等，返回 true；否则返回 false
+ * @param {unknown} val - 需要检查的值
+ * @returns {boolean} 如果值是一个字符串，返回 true；否则返回 false
  */
-export const isEqual = (firstObj: unknown, secondObj: unknown) => {
-  if (firstObj === secondObj) return true;
-  if (typeof firstObj !== 'object' || firstObj === null || typeof secondObj !== 'object' || secondObj === null) {
-    return false;
-  }
-  const firstObjKeys = Object.keys(firstObj);
-  const secondObjKeys = Object.keys(secondObj);
-  if (firstObjKeys.length !== secondObjKeys.length) {
-    return false;
-  }
-  const obj1 = firstObj as Record<string, unknown>;
-  const obj2 = secondObj as Record<string, unknown>;
-  for (const key of firstObjKeys) {
-    if (!secondObjKeys.includes(key) || !isEqual(obj1[key], obj2[key])) {
-      return false;
-    }
-  }
-  return true;
+export const isString = (val: unknown): boolean => typeof val === 'string';
+
+/**
+ * 检查给定的值是否是一个函数
+ *
+ * @param {unknown} val - 需要检查的值
+ * @returns {boolean} 如果值是一个函数，返回 true；否则返回 false
+ */
+export const isFunction = (val: unknown): boolean => typeof val === 'function';
+
+/**
+ * 检查给定的值是否是一个对象
+ *
+ * @param {unknown} val - 需要检查的值
+ * @returns {boolean} 如果值不为 null 且是一个对象，返回 true；否则返回 false
+ */
+export const isObject = (val: unknown): boolean => val !== null && typeof val === 'object';
+
+/**
+ * 检查给定的字符串是否是一个有效的 HTTP 或 HTTPS URL
+ *
+ * @param {unknown} url - 需要检查的 URL 字符串，默认为 undefined
+ * @returns {boolean} 如果 URL 是有效的 HTTP 或 HTTPS 地址，返回 true；否则返回 false
+ */
+export const isHttpUrl = (url: unknown) => {
+  if (!isString(url)) return false;
+  return httpRegex.test(url as string);
 };
