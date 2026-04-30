@@ -79,11 +79,30 @@ const routes: RouteRecordRaw[] = [
             children: [
               {
                 path: '/demos/outside/inline',
-                component: () => import('@/views/demos/outside/inline/index.vue'),
                 meta: {
                   title: '内嵌',
                   icon: '#svg-layout-frame',
                 },
+                children: [
+                  {
+                    path: '/demos/outside/inline/VueUse',
+                    component: () => import('@/views/layout/iframe/index.vue'),
+                    meta: {
+                      title: 'VueUse',
+                      icon: 'https://vueuse.org/favicon.svg',
+                      iframeSrc: 'https://vueuse.org/',
+                    },
+                  },
+                  {
+                    path: '/demos/outside/inline/vite',
+                    component: () => import('@/views/layout/iframe/index.vue'),
+                    meta: {
+                      title: 'vite',
+                      icon: 'https://v7.vite.dev/logo-without-border.svg',
+                      iframeSrc: 'https://v7.vite.dev/',
+                    },
+                  },
+                ],
               },
               {
                 path: '/demos/outside/link',

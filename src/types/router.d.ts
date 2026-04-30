@@ -25,5 +25,9 @@ declare module 'vue-router' {
      * - 字体图标：以 icon- 开头的 CSS 类名，如 'icon-workbench'（使用 <i> 标签渲染）
      */
     activeIcon?: Component | string;
+    /**
+     * 内嵌页面的 iframe 地址
+     */
+    iframeSrc?: string;
   }
 }

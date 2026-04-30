@@ -1,6 +1,10 @@
 <template>
   <main class="bg-bg-page flex-1 overflow-hidden transition-all duration-300">
+    <template v-if="route.meta.iframeSrc">
+      <IFrameView :key="route.path" :src="route.meta.iframeSrc" />
+    </template>
     <el-scrollbar
+      v-else
       ref="mainScrollbar"
       height="100%"
       :view-style="viewStyle"
@@ -15,11 +19,16 @@
 
 <script setup lang="ts">
 import { provide, useTemplateRef, watchEffect } from 'vue';
+import { useRoute } from 'vue-router';
+
+import IFrameView from '../iframe/index.vue';
 
 import type { ScrollbarInstance } from 'element-plus';
 import type { CSSProperties } from 'vue';
 
 import { SCROLLBAR_KEY } from '@/types/injection-keys';
+
+const route = useRoute();
 
 const viewStyle: CSSProperties = {
   width: '100%',
