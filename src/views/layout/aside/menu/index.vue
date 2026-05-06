@@ -34,20 +34,24 @@ const findActivePath = (path: string, menuList: RouteRecordRaw[] = []): string[]
 };
 
 const routes = router.options.routes.find(item => item.path === '/')?.children;
+const allRoutes = ref(router.getRoutes());
 const defaultActive = ref(route.path);
 const active = ref(route.path);
 const activePath = ref<MenuItemRegistered['indexPath']>(findActivePath(route.path, routes));
-
-const handleSelect: MenuInstance['onSelect'] = (index, indexPath) => {
-  if (active.value === index) {
-    return;
-  }
-  active.value = index;
-  activePath.value = indexPath;
-  router.push(index);
-};
-
 const menuRef = useTemplateRef<MenuInstance>('menuRef');
+
+const handleSelect: MenuInstance['onSelect'] = index => {
+  if (active.value === index) return;
+  const targetRoute = allRoutes.value.find(item => item.path === index);
+  if (!targetRoute) return;
+  const { link } = targetRoute.meta;
+  if (link) {
+    menuRef.value?.updateActiveIndex(active.value);
+    window.open(link, '_blank');
+  } else {
+    router.push(index);
+  }
+};
 
 watch(
   () => route,

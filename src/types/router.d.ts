@@ -29,5 +29,9 @@ declare module 'vue-router' {
      * 内嵌页面的 iframe 地址
      */
     iframeSrc?: string;
+    /**
+     * 外链地址
+     */
+    link?: string;
   }
 }

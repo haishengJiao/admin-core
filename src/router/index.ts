@@ -106,11 +106,30 @@ const routes: RouteRecordRaw[] = [
               },
               {
                 path: '/demos/outside/link',
-                component: () => import('@/views/demos/outside/link/index.vue'),
                 meta: {
                   title: '外链',
                   icon: '#svg-layout-link',
                 },
+                children: [
+                  {
+                    path: '/demos/outside/link/vue',
+                    component: () => import('@/views/layout/iframe/index.vue'),
+                    meta: {
+                      title: 'Vue',
+                      icon: 'https://cn.vuejs.org/logo.svg',
+                      link: 'https://cn.vuejs.org/',
+                    },
+                  },
+                  {
+                    path: '/demos/outside/link/tailwindcss',
+                    component: () => import('@/views/layout/iframe/index.vue'),
+                    meta: {
+                      title: 'Tailwind CSS',
+                      icon: 'https://tailwindcss.com/favicons/favicon.ico?v=4',
+                      link: 'https://tailwindcss.com/',
+                    },
+                  },
+                ],
               },
             ],
           },
