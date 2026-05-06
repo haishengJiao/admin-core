@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 import { appState } from './app';
 import { appearanceState, appearanceGetters, appearanceActions } from './appearance';
 import { generalState } from './general';
+import { layoutState } from './layout';
 import { storeId } from './types';
 
 import type { PreferencesState } from './types';
@@ -12,6 +13,7 @@ import { STORAGE_KEYS } from '@/utils/localStorage-keys';
 export const basePreferencesState = (): PreferencesState => {
   return {
     appearance: appearanceState(),
+    layout: layoutState(),
     general: generalState(),
     app: appState(),
   };

@@ -1,5 +1,5 @@
 <template>
-  <el-menu ref="menuRef" :default-active="defaultActive" @select="handleSelect">
+  <el-menu ref="menuRef" :default-active="defaultActive" :unique-opened="accordion" @select="handleSelect">
     <template v-for="item in routes" :key="item.path">
       <SubMenu :active-path="activePath" :menu="item" />
     </template>
@@ -7,7 +7,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, useTemplateRef, watch } from 'vue';
+import { storeToRefs } from 'pinia';
+import { computed, ref, useTemplateRef, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import SubMenu from './SubMenu.vue';
@@ -15,8 +16,13 @@ import SubMenu from './SubMenu.vue';
 import type { MenuInstance, MenuItemRegistered } from 'element-plus';
 import type { RouteRecordRaw } from 'vue-router';
 
+import { usePreferencesStore } from '@/store';
+
 const route = useRoute();
 const router = useRouter();
+const { layout } = storeToRefs(usePreferencesStore());
+
+const accordion = computed(() => layout.value.navigation.accordion);
 
 const findActivePath = (path: string, menuList: RouteRecordRaw[] = []): string[] => {
   for (const item of menuList) {

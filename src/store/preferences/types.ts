@@ -63,6 +63,13 @@ type AppearanceActions = {
   initAppearance(): void;
 };
 
+export interface LayoutState {
+  navigation: {
+    // 是否开启侧边导航菜单手风琴模式
+    accordion: boolean;
+  };
+}
+
 export interface GeneralState {
   general: {
     /** 是否开启动态标题 */
@@ -79,6 +86,7 @@ export interface AppState {
 
 export interface PreferencesState {
   appearance: AppearanceState;
+  layout: LayoutState;
   general: GeneralState;
   app: AppState;
 }
