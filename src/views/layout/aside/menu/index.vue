@@ -50,10 +50,13 @@ const handleSelect: MenuInstance['onSelect'] = index => {
   if (active.value === index) return;
   const targetRoute = allRoutes.value.find(item => item.path === index);
   if (!targetRoute) return;
-  const { link } = targetRoute.meta;
+  const { link, openInNewWindow } = targetRoute.meta;
   if (link) {
     menuRef.value?.updateActiveIndex(active.value);
     window.open(link, '_blank');
+  } else if (openInNewWindow) {
+    menuRef.value?.updateActiveIndex(active.value);
+    window.open(index, '_blank');
   } else {
     router.push(index);
   }

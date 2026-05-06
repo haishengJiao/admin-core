@@ -33,5 +33,9 @@ declare module 'vue-router' {
      * 外链地址
      */
     link?: string;
+    /**
+     * 新窗口打开页面
+     */
+    openInNewWindow?: boolean;
   }
 }

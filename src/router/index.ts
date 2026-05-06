@@ -100,6 +100,7 @@ const routes: RouteRecordRaw[] = [
                       title: 'vite',
                       icon: 'https://v7.vite.dev/logo-without-border.svg',
                       iframeSrc: 'https://v7.vite.dev/',
+                      openInNewWindow: true,
                     },
                   },
                 ],
