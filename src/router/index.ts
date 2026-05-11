@@ -10,11 +10,13 @@ import { $t } from '@/locales';
 
 const routes: RouteRecordRaw[] = [
   {
+    name: 'Root',
     path: '/',
     component: () => import('@/views/layout/index.vue'),
     redirect: '/workplace',
     children: [
       {
+        name: 'Workplace',
         path: '/workplace',
         component: () => import('@/views/workplace/index.vue'),
         meta: {
@@ -23,6 +25,7 @@ const routes: RouteRecordRaw[] = [
         },
       },
       {
+        name: 'ThemeEditor',
         path: '/theme-editor',
         component: () => import('@/views/theme-editor/index.vue'),
         meta: {
@@ -32,6 +35,7 @@ const routes: RouteRecordRaw[] = [
         },
       },
       {
+        name: 'Demos',
         path: '/demos',
         meta: {
           title: $t('menu.demos'),
@@ -39,6 +43,7 @@ const routes: RouteRecordRaw[] = [
         },
         children: [
           {
+            name: 'BadgeDemos',
             path: '/demos/badge',
             meta: {
               title: $t('menu.menuBadge'),
@@ -46,6 +51,7 @@ const routes: RouteRecordRaw[] = [
             },
             children: [
               {
+                name: 'BadgeDotDemo',
                 path: '/demos/badge/dot',
                 component: () => import('@/views/demos/badge/dot/index.vue'),
                 meta: {
@@ -54,6 +60,7 @@ const routes: RouteRecordRaw[] = [
                 },
               },
               {
+                name: 'BadgeTextDemo',
                 path: '/demos/badge/text',
                 component: () => import('@/views/demos/badge/text/index.vue'),
                 meta: {
@@ -62,6 +69,7 @@ const routes: RouteRecordRaw[] = [
                 },
               },
               {
+                name: 'BadgeColorDemo',
                 path: '/demos/badge/color',
                 component: () => import('@/views/demos/badge/color/index.vue'),
                 meta: {
@@ -72,6 +80,7 @@ const routes: RouteRecordRaw[] = [
             ],
           },
           {
+            name: 'OutsideDemos',
             path: '/demos/outside',
             meta: {
               title: $t('menu.external'),
@@ -79,6 +88,7 @@ const routes: RouteRecordRaw[] = [
             },
             children: [
               {
+                name: 'InlineDemos',
                 path: '/demos/outside/inline',
                 meta: {
                   title: $t('menu.inline'),
@@ -86,6 +96,7 @@ const routes: RouteRecordRaw[] = [
                 },
                 children: [
                   {
+                    name: 'VueUseDemo',
                     path: '/demos/outside/inline/VueUse',
                     component: () => import('@/views/layout/iframe/index.vue'),
                     meta: {
@@ -95,6 +106,7 @@ const routes: RouteRecordRaw[] = [
                     },
                   },
                   {
+                    name: 'ViteDemo',
                     path: '/demos/outside/inline/vite',
                     component: () => import('@/views/layout/iframe/index.vue'),
                     meta: {
@@ -107,6 +119,7 @@ const routes: RouteRecordRaw[] = [
                 ],
               },
               {
+                name: 'LinkDemos',
                 path: '/demos/outside/link',
                 meta: {
                   title: $t('menu.outlink'),
@@ -114,6 +127,7 @@ const routes: RouteRecordRaw[] = [
                 },
                 children: [
                   {
+                    name: 'VueDocumentDemo',
                     path: '/demos/outside/link/vue',
                     component: () => import('@/views/layout/iframe/index.vue'),
                     meta: {
@@ -123,6 +137,7 @@ const routes: RouteRecordRaw[] = [
                     },
                   },
                   {
+                    name: 'TailwindcssDemo',
                     path: '/demos/outside/link/tailwindcss',
                     component: () => import('@/views/layout/iframe/index.vue'),
                     meta: {
@@ -138,6 +153,7 @@ const routes: RouteRecordRaw[] = [
         ],
       },
       {
+        name: 'Examples',
         path: '/examples',
         meta: {
           title: $t('menu.examples'),
@@ -145,6 +161,7 @@ const routes: RouteRecordRaw[] = [
         },
         children: [
           {
+            name: 'Button',
             path: '/examples/button',
             component: () => import('@/views/examples/button/index.vue'),
             meta: {
@@ -152,6 +169,7 @@ const routes: RouteRecordRaw[] = [
             },
           },
           {
+            name: 'Input',
             path: '/examples/input',
             component: () => import('@/views/examples/input/index.vue'),
             meta: {
@@ -163,10 +181,12 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    name: 'Login',
     path: '/login',
     component: () => import('@/views/login/index.vue'),
   },
   {
+    name: 'NotFound',
     path: '/:pathMatch(.*)*',
     component: () => import('@/views/layout/404/index.vue'),
   },
