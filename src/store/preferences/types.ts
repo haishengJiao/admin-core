@@ -78,6 +78,10 @@ export interface GeneralState {
     /** 是否开启动态标题 */
     dynamicTitle: boolean;
   };
+  animation: {
+    /** 是否开启页面切换进度条 */
+    progress: boolean;
+  };
 }
 
 export interface AppState {

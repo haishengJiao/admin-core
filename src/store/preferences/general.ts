@@ -5,4 +5,7 @@ export const generalState = (): GeneralState => ({
     locale: 'zh-CN',
     dynamicTitle: true,
   },
+  animation: {
+    progress: true,
+  },
 });

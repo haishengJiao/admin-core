@@ -55,6 +55,10 @@
   "general": {
     "title": "通用",
     "language": "語言",
-    "dynamicTitle": "動態標題"
+    "dynamicTitle": "動態標題",
+    "animation": {
+      "title": "動畫",
+      "progress": "頁面切換進度條"
+    }
   }
 }

@@ -55,6 +55,10 @@
   "general": {
     "title": "General",
     "language": "Language",
-    "dynamicTitle": "Dynamic Title"
+    "dynamicTitle": "Dynamic Title",
+    "animation": {
+      "title": "Animation",
+      "progress": "Page Progress"
+    }
   }
 }

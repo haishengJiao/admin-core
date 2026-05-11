@@ -180,3 +180,4 @@ const router = createRouter({
 setupGuards(router);
 
 export default router;
+export * from './nprogress';
