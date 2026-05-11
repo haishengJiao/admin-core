@@ -12,7 +12,8 @@
 </template>
 
 <script lang="ts" setup>
-import { markRaw, reactive, ref, computed } from 'vue';
+import { markRaw, ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import Appearance from './appearance/index.vue';
 import General from './general/index.vue';
@@ -21,35 +22,38 @@ import Shortcuts from './shortcuts/index.vue';
 
 import { usePreferencesStore } from '@/store';
 
+const { t } = useI18n();
 const preferences = usePreferencesStore();
 const enableStickyPreferencesNavigationBar = computed(() => preferences.app.enableStickyPreferencesNavigationBar);
 
 const segmentedValue = ref('appearance');
 
-const segmentedOptions = reactive([
-  {
-    label: '外观',
-    value: 'appearance',
-    component: markRaw(Appearance),
-  },
-  {
-    label: '布局',
-    value: 'layout',
-    component: markRaw(Layout),
-  },
-  {
-    label: '快捷键',
-    value: 'shortcuts',
-    component: markRaw(Shortcuts),
-  },
-  {
-    label: '通用',
-    value: 'preferences',
-    component: markRaw(General),
-  },
-]);
+const segmentedOptions = computed(() => {
+  return [
+    {
+      label: t('preferences.appearance.title'),
+      value: 'appearance',
+      component: markRaw(Appearance),
+    },
+    {
+      label: t('preferences.layout.title'),
+      value: 'layout',
+      component: markRaw(Layout),
+    },
+    {
+      label: t('preferences.shortcutKeys.title'),
+      value: 'shortcuts',
+      component: markRaw(Shortcuts),
+    },
+    {
+      label: t('preferences.general.title'),
+      value: 'general',
+      component: markRaw(General),
+    },
+  ];
+});
 
 const component = computed(() => {
-  return segmentedOptions.find(item => item.value === segmentedValue.value)?.component;
+  return segmentedOptions.value.find(item => item.value === segmentedValue.value)?.component;
 });
 </script>

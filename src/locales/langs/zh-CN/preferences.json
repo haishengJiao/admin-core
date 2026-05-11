@@ -1,0 +1,60 @@
+{
+  "title": "偏好设置",
+  "subtitle": "自定义偏好设置 & 实时预览",
+  "resetTip": "数据有变化，点击可进行重置",
+  "enableStickyPreferencesNavigationBar": "开启首选项导航栏吸顶效果",
+  "disableStickyPreferencesNavigationBar": "关闭首选项导航栏吸顶效果",
+  "appearance": {
+    "title": "外观",
+    "theme": "主题",
+    "light": "浅色",
+    "dark": "深色",
+    "followSystem": "跟随系统",
+    "darkSidebar": "深色侧边栏",
+    "darkSidebarTip": "当主题为浅色，布局不为水平菜单或不为内容全屏时可开启",
+    "darkHeader": "深色顶栏",
+    "darkHeaderTip": "当主题为浅色，布局不为内容全屏时可开启",
+    "primaryColor": {
+      "title": "主色",
+      "default": "默认",
+      "violet": "紫罗兰",
+      "pink": "樱花粉",
+      "yellow": "柠檬黄",
+      "skyBlue": "天蓝色",
+      "green": "浅绿色",
+      "zinc": "锌色灰",
+      "deepGreen": "深绿色",
+      "deepBlue": "深蓝色",
+      "orange": "橙黄色",
+      "rose": "玫瑰红",
+      "custom": "自定义"
+    },
+    "secondaryColor": "辅助色",
+    "successColor": "成功色",
+    "warningColor": "警告色",
+    "dangerColor": "危险色",
+    "errorColor": "错误色",
+    "infoColor": "信息色",
+    "radius": "圆角",
+    "fontSize": "字体大小",
+    "fontSizeTip": "调整全局字体大小，实时预览效果",
+    "other": "其它",
+    "weakMode": "色弱模式",
+    "grayMode": "灰色模式"
+  },
+  "layout": {
+    "title": "布局",
+    "navigationMenu": {
+      "title": "导航菜单",
+      "accordion": "侧边导航菜单手风琴模式"
+    }
+  },
+  "shortcutKeys": {
+    "title": "快捷键"
+  },
+  "general": {
+    "title": "通用",
+    "language": "语言",
+    "dynamicTitle": "动态标题"
+  }
+}

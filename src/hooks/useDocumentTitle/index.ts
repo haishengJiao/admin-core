@@ -1,11 +1,12 @@
 import { useTitle } from '@vueuse/core';
 import { computed, watchEffect } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 
+import { $t } from '@/locales';
 import { usePreferencesStore } from '@/store';
 
 export const useDocumentTitle = () => {
-  const route = useRoute();
+  const router = useRouter();
   const preferences = usePreferencesStore();
   const title = useTitle();
 
@@ -15,8 +16,8 @@ export const useDocumentTitle = () => {
     if (!general.dynamicTitle) {
       return appName;
     }
-    const pageTitle = route.meta.title;
-    return (pageTitle ? `${pageTitle} - ` : '') + appName;
+    const pageTitle = router.currentRoute.value.meta.title;
+    return (pageTitle ? `${$t(pageTitle)} - ` : '') + appName;
   });
 
   watchEffect(() => {

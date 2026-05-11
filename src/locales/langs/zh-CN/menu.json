@@ -1,0 +1,13 @@
+{
+  "workspace": "工作台",
+  "themeEditor": "主题编辑器",
+  "demos": "演示",
+  "menuBadge": "菜单徽标",
+  "dotBadge": "点徽标",
+  "textBadge": "文本徽标",
+  "colorBadge": "颜色徽标",
+  "external": "外部页面",
+  "inline": "内嵌",
+  "outlink": "外链",
+  "examples": "示例"
+}

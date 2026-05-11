@@ -1,16 +1,16 @@
 <template>
   <div>
-    <Block title="主题">
+    <Block :title="$t('preferences.appearance.theme')">
       <ThemePanel
         v-model="appearance.theme.mode"
         v-model:dark-header="appearance.theme.darkHeader"
         v-model:dark-sidebar="appearance.theme.darkSidebar"
       />
     </Block>
-    <Block title="主色">
+    <Block :title="$t('preferences.appearance.primaryColor.title')">
       <PrimaryColor v-model="appearance.primaryColor.color" v-model:type="appearance.primaryColor.type" />
     </Block>
-    <Block title="辅助色">
+    <Block :title="$t('preferences.appearance.secondaryColor')">
       <SecondaryColor
         v-model:danger="appearance.secondaryColor.danger"
         v-model:error="appearance.secondaryColor.error"
@@ -19,13 +19,13 @@
         v-model:warning="appearance.secondaryColor.warning"
       />
     </Block>
-    <Block title="圆角">
+    <Block :title="$t('preferences.appearance.radius')">
       <Radius v-model="appearance.radius" />
     </Block>
-    <Block title="字体大小">
+    <Block :title="$t('preferences.appearance.fontSize')">
       <FontSize v-model="appearance.fontSize" />
     </Block>
-    <Block title="其他">
+    <Block :title="$t('preferences.appearance.other')">
       <ColorMode v-model:gray-mode="appearance.other.grayMode" v-model:weak-mode="appearance.other.weakMode" />
     </Block>
   </div>

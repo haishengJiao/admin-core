@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Block title="导航菜单">
+    <Block :title="$t('preferences.layout.navigationMenu.title')">
       <Navigation v-model:accordion="layout.navigation.accordion" />
     </Block>
   </div>

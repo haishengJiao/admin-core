@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Block title="通用">
-      <General v-model:dynamic-title="general.general.dynamicTitle" />
+    <Block :title="$t('preferences.general.title')">
+      <General v-model:dynamic-title="general.general.dynamicTitle" v-model:locale="general.general.locale" />
     </Block>
   </div>
 </template>

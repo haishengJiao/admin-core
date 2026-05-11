@@ -16,28 +16,36 @@
     v-model="darkSidebar"
     class="mt-4"
     :disabled="modelValue === 'dark'"
-    tip="当主题为浅色，布局不为水平菜单或不为内容全屏时可开启"
+    :tip="$t('preferences.appearance.darkSidebarTip')"
   >
-    深色侧边栏
+    {{ $t('preferences.appearance.darkSidebar') }}
   </SwitchItem>
-  <SwitchItem v-model="darkHeader" :disabled="modelValue === 'dark'" tip="当主题为浅色，布局不为内容全屏时可开启">
-    深色顶栏
+  <SwitchItem v-model="darkHeader" :disabled="modelValue === 'dark'" :tip="$t('preferences.appearance.darkHeaderTip')">
+    {{ $t('preferences.appearance.darkHeader') }}
   </SwitchItem>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+
 import SwitchItem from '../SwitchItem.vue';
 
 import type { ThemeMode } from '@/store/preferences/types';
 import type { ThemeListItem } from '@/views/preferences/types';
+import type { ComputedRef } from 'vue';
 
 const modelValue = defineModel<ThemeMode>({ default: 'system' });
 const darkSidebar = defineModel<boolean>('darkSidebar', { default: false });
 const darkHeader = defineModel<boolean>('darkHeader', { default: false });
 
-const themeList: ThemeListItem[] = [
-  { label: '浅色', value: 'light', icon: 'preferences-light-theme' },
-  { label: '深色', value: 'dark', icon: 'preferences-dark-theme' },
-  { label: '跟随系统', value: 'system', icon: 'preferences-system-theme' },
-];
+const { t } = useI18n();
+
+const themeList: ComputedRef<ThemeListItem[]> = computed(() => {
+  return [
+    { label: t('preferences.appearance.light'), value: 'light', icon: 'preferences-light-theme' },
+    { label: t('preferences.appearance.dark'), value: 'dark', icon: 'preferences-dark-theme' },
+    { label: t('preferences.appearance.followSystem'), value: 'system', icon: 'preferences-system-theme' },
+  ];
+});
 </script>

@@ -1,3 +1,4 @@
+import type { Locale } from '@/locales';
 import type { _GettersTree, Store } from 'pinia';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
@@ -72,6 +73,8 @@ export interface LayoutState {
 
 export interface GeneralState {
   general: {
+    /** 语言 */
+    locale: Locale;
     /** 是否开启动态标题 */
     dynamicTitle: boolean;
   };

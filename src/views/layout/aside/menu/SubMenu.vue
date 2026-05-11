@@ -2,7 +2,7 @@
   <el-sub-menu v-if="menu.children?.length" :index="menu.path">
     <template #title>
       <MenuIcon class="menu-icon" :icon="icon" />
-      <span class="truncate">{{ menu.meta?.title }}</span>
+      <span class="truncate leading-6">{{ menu.meta?.title }}</span>
     </template>
     <template v-for="sub in menu.children" :key="sub.path">
       <SubMenu :active-path="activePath" :menu="sub" />

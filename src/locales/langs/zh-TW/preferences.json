@@ -1,0 +1,60 @@
+{
+  "title": "偏好設定",
+  "subtitle": "自定義偏好設定 & 實時預覽",
+  "resetTip": "數據有變化，點擊可進行重置",
+  "enableStickyPreferencesNavigationBar": "開啟首選項導航欄吸頂效果",
+  "disableStickyPreferencesNavigationBar": "關閉首選項導航欄吸頂效果",
+  "appearance": {
+    "title": "外觀",
+    "theme": "主題",
+    "light": "淺色",
+    "dark": "深色",
+    "followSystem": "跟隨系統",
+    "darkSidebar": "深色側邊欄",
+    "darkSidebarTip": "當主題為淺色，佈局不為水平選單或不為內容全屏時可開啟",
+    "darkHeader": "深色頂欄",
+    "darkHeaderTip": "當主題為淺色，佈局不為內容全屏時可開啟",
+    "primaryColor": {
+      "title": "主色",
+      "default": "預設",
+      "violet": "紫羅蘭",
+      "pink": "櫻花粉",
+      "yellow": "檸檬黃",
+      "skyBlue": "天藍色",
+      "green": "淺綠色",
+      "zinc": "鋅色灰",
+      "deepGreen": "深綠色",
+      "deepBlue": "深藍色",
+      "orange": "橙黃色",
+      "rose": "玫瑰紅",
+      "custom": "自定義"
+    },
+    "secondaryColor": "輔助色",
+    "successColor": "成功色",
+    "warningColor": "警告色",
+    "dangerColor": "危險色",
+    "errorColor": "錯誤色",
+    "infoColor": "資訊色",
+    "radius": "圓角",
+    "fontSize": "字體大小",
+    "fontSizeTip": "調整全局字體大小，實時預覽效果",
+    "other": "其它",
+    "weakMode": "色弱模式",
+    "grayMode": "灰色模式"
+  },
+  "layout": {
+    "title": "佈局",
+    "navigationMenu": {
+      "title": "導航選單",
+      "accordion": "側邊導航選單手風琴模式"
+    }
+  },
+  "shortcutKeys": {
+    "title": "快捷鍵"
+  },
+  "general": {
+    "title": "通用",
+    "language": "語言",
+    "dynamicTitle": "動態標題"
+  }
+}

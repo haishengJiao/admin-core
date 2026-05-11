@@ -16,6 +16,7 @@ import SubMenu from './SubMenu.vue';
 import type { MenuInstance, MenuItemRegistered } from 'element-plus';
 import type { RouteRecordRaw } from 'vue-router';
 
+import { $t } from '@/locales';
 import { usePreferencesStore } from '@/store';
 
 const route = useRoute();
@@ -39,11 +40,31 @@ const findActivePath = (path: string, menuList: RouteRecordRaw[] = []): string[]
   return [];
 };
 
-const routes = router.options.routes.find(item => item.path === '/')?.children;
+function translateRoutes(routes: RouteRecordRaw[]): RouteRecordRaw[] {
+  return routes.map(route => {
+    const newRoute = { ...route };
+    const { meta, children } = newRoute;
+    if (meta?.title) {
+      const title = meta.title ? $t(meta.title) : '';
+      newRoute.meta = { ...meta, title };
+    }
+    if (children?.length) {
+      newRoute.children = translateRoutes(children);
+    }
+    return newRoute;
+  });
+}
+
+const generateMenus = computed(() => {
+  const menus = router.getRoutes().find(item => item.path === '/')?.children ?? [];
+  return translateRoutes(menus);
+});
+
+const routes = generateMenus;
 const allRoutes = ref(router.getRoutes());
 const defaultActive = ref(route.path);
 const active = ref(route.path);
-const activePath = ref<MenuItemRegistered['indexPath']>(findActivePath(route.path, routes));
+const activePath = ref<MenuItemRegistered['indexPath']>(findActivePath(route.path, routes.value));
 const menuRef = useTemplateRef<MenuInstance>('menuRef');
 
 const handleSelect: MenuInstance['onSelect'] = index => {
@@ -67,7 +88,7 @@ watch(
   newVal => {
     menuRef.value?.updateActiveIndex(newVal.path);
     active.value = newVal.path;
-    activePath.value = findActivePath(route.path, routes);
+    activePath.value = findActivePath(route.path, routes.value);
   },
   {
     deep: true,

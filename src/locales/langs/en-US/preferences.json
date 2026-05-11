@@ -1,0 +1,60 @@
+{
+  "title": "Preferences",
+  "subtitle": "Customize Preferences & Preview in Real Time",
+  "resetTip": "Data has changed, click to reset",
+  "enableStickyPreferencesNavigationBar": "Enable sticky preferences navigation bar",
+  "disableStickyPreferencesNavigationBar": "Disable sticky preferences navigation bar",
+  "appearance": {
+    "title": "Appearance",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "followSystem": "Follow System",
+    "darkSidebar": "Semi Dark Sidebar",
+    "darkSidebarTip": "It can be enabled when the theme is light, and the layout is neither 'Horizontal' nor 'Full Content'.",
+    "darkHeader": "Semi Dark Header",
+    "darkHeaderTip": "Available when theme is light and layout is not fullscreen content",
+    "primaryColor": {
+      "title": "Primary Color",
+      "default": "Default",
+      "violet": "Violet",
+      "pink": "Pink",
+      "yellow": "Yellow",
+      "skyBlue": "Sky Blue",
+      "green": "Green",
+      "zinc": "Zinc",
+      "deepGreen": "Deep Green",
+      "deepBlue": "Deep Blue",
+      "orange": "Orange",
+      "rose": "Rose",
+      "custom": "Custom"
+    },
+    "secondaryColor": "Secondary Color",
+    "successColor": "Success Color",
+    "warningColor": "Warning Color",
+    "dangerColor": "Danger Color",
+    "errorColor": "Error Color",
+    "infoColor": "Info Color",
+    "radius": "Radius",
+    "fontSize": "Font Size",
+    "fontSizeTip": "Adjust global font size with real-time preview",
+    "other": "Other",
+    "weakMode": "Weak Mode",
+    "grayMode": "Gray Mode"
+  },
+  "layout": {
+    "title": "Layout",
+    "navigationMenu": {
+      "title": "Navigation Menu",
+      "accordion": "Sidebar Accordion Menu"
+    }
+  },
+  "shortcutKeys": {
+    "title": "Shortcut Keys"
+  },
+  "general": {
+    "title": "General",
+    "language": "Language",
+    "dynamicTitle": "Dynamic Title"
+  }
+}

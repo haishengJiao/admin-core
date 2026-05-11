@@ -4,10 +4,11 @@
     :class="{ dark: darkHeader && isLight }"
     style="height: 50px"
   >
-    <div>顶栏</div>
+    <div></div>
     <div class="flex items-center gap-1">
       <PreferencesSet />
       <ThemeSwitcher v-model="appearance.theme.mode" :is-dark="isDark" />
+      <LanguagePopover v-model="general.general.locale" />
     </div>
   </header>
 </template>
@@ -18,9 +19,10 @@ import { computed } from 'vue';
 
 import { usePreferencesStore } from '@/store';
 import ThemeSwitcher from '@/views/preferences/drawer-body/appearance/ThemeToggle.vue';
+import LanguagePopover from '@/views/preferences/drawer-body/general/LanguagePopover.vue';
 import PreferencesSet from '@/views/preferences/index.vue';
 
-const { appearance, isLight, isDark } = storeToRefs(usePreferencesStore());
+const { appearance, isLight, isDark, general } = storeToRefs(usePreferencesStore());
 
 const darkHeader = computed(() => appearance.value.theme.darkHeader);
 </script>

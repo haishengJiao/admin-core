@@ -13,6 +13,19 @@ export type SwitchItemProps = {
   disabled?: boolean;
 };
 
+export type SelectOptions = {
+  value: string;
+  label: string;
+  disabled?: boolean;
+};
+
+export type SelectItemProps = {
+  tip?: string;
+  disabled?: boolean;
+  placeholder?: string;
+  items?: SelectOptions[];
+};
+
 export type ColorPickerItemProps = {
   tip?: string;
   disabled?: boolean;

@@ -60,13 +60,13 @@ export const appearanceGetters = {
   },
 } satisfies _GettersTree<PreferencesState>;
 
-const applyTheme = (isDark: boolean) => {
-  document.documentElement.classList.toggle('dark', isDark);
-  localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
-};
-
 export const appearanceActions: PreferencesActions<typeof appearanceGetters> = {
   initAppearance() {
+    const applyTheme = (isDark: boolean) => {
+      document.documentElement.classList.toggle('dark', isDark);
+      localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+    };
+
     const radiusVar = useCssVar('--radius');
     const fontSizeVar = useCssVar('--font-size-base');
     const primaryVar = useCssVar('--primary');

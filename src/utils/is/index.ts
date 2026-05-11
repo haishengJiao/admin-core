@@ -1,4 +1,4 @@
-import { httpRegex } from '../regexp';
+import { HTTP_REGEXP } from '../regexp';
 
 /**
  * 检查给定的值是否是一个字符串
@@ -32,5 +32,5 @@ export const isObject = (val: unknown): boolean => val !== null && typeof val ==
  */
 export const isHttpUrl = (url: unknown) => {
   if (!isString(url)) return false;
-  return httpRegex.test(url as string);
+  return HTTP_REGEXP.test(url as string);
 };

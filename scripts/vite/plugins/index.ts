@@ -1,5 +1,6 @@
 import path from 'node:path';
 
+import viteVueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -49,6 +50,11 @@ export default (env: Record<string, string | undefined>) => {
       bundler: 'vite',
     }),
     tailwindcss(),
+    viteVueI18nPlugin({
+      compositionOnly: true,
+      fullInstall: true,
+      runtimeOnly: true,
+    }),
   ];
 
   if (getBoolean(env.VITE_LOAD_VUE_DEVTOOLS)) {

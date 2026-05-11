@@ -1,9 +1,19 @@
 <template>
-  <ColorPickerItem v-model="success" :predefine="successPredefine">成功色</ColorPickerItem>
-  <ColorPickerItem v-model="warning" :predefine="warningPredefine">警告色</ColorPickerItem>
-  <ColorPickerItem v-model="danger" :predefine="dangerPredefine">危险色</ColorPickerItem>
-  <ColorPickerItem v-model="error" :predefine="errorPredefine">错误色</ColorPickerItem>
-  <ColorPickerItem v-model="info" :predefine="infoPredefine">信息色</ColorPickerItem>
+  <ColorPickerItem v-model="success" :predefine="successPredefine">
+    {{ $t('preferences.appearance.successColor') }}
+  </ColorPickerItem>
+  <ColorPickerItem v-model="warning" :predefine="warningPredefine">
+    {{ $t('preferences.appearance.warningColor') }}
+  </ColorPickerItem>
+  <ColorPickerItem v-model="danger" :predefine="dangerPredefine">
+    {{ $t('preferences.appearance.dangerColor') }}
+  </ColorPickerItem>
+  <ColorPickerItem v-model="error" :predefine="errorPredefine">
+    {{ $t('preferences.appearance.errorColor') }}
+  </ColorPickerItem>
+  <ColorPickerItem v-model="info" :predefine="infoPredefine">
+    {{ $t('preferences.appearance.infoColor') }}
+  </ColorPickerItem>
 </template>
 
 <script lang="ts" setup>

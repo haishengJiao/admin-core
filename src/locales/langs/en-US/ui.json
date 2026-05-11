@@ -1,0 +1,8 @@
+{
+  "fallback": {
+    "componentNotFound": "Oops! Component Not Found",
+    "componentNotFoundDesc": "Sorry, we cannot find the component you are looking for.",
+    "pageNotFound": "Oops! Page Not Found",
+    "pageNotFoundDesc": "Sorry, we couldn't find the page you were looking for."
+  }
+}

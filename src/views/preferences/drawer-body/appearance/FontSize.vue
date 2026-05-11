@@ -6,7 +6,7 @@
       </template>
     </el-input-number>
     <div class="text-text-regular flex items-center text-xs">
-      <span>调整全局字体大小，实时预览效果</span>
+      <span>{{ $t('preferences.appearance.fontSizeTip') }}</span>
     </div>
   </div>
 </template>

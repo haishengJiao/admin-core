@@ -3,8 +3,8 @@
   <div v-else-if="loadFailed">
     <slot name="error">
       <div class="bg-bg my-2 p-6 text-center transition-all duration-300">
-        <div class="mb-4 text-3xl font-semibold tracking-wide">哎呀！未找到组件</div>
-        <p class="text-text-regular text-base">抱歉，我们无法找到您要找的组件。</p>
+        <div class="mb-4 text-3xl font-semibold tracking-wide">{{ $t('ui.fallback.componentNotFound') }}</div>
+        <p class="text-text-regular text-base">{{ $t('ui.fallback.componentNotFoundDesc') }}</p>
       </div>
     </slot>
   </div>

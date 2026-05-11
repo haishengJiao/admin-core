@@ -1,6 +1,6 @@
 <template>
-  <SwitchItem v-model="weakMode">色弱模式</SwitchItem>
-  <SwitchItem v-model="grayMode">灰色模式</SwitchItem>
+  <SwitchItem v-model="weakMode">{{ $t('preferences.appearance.weakMode') }}</SwitchItem>
+  <SwitchItem v-model="grayMode">{{ $t('preferences.appearance.grayMode') }}</SwitchItem>
 </template>
 
 <script lang="ts" setup>

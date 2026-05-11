@@ -1,5 +1,5 @@
 <template>
-  <SwitchItem v-model="accordion">侧边导航菜单手风琴模式</SwitchItem>
+  <SwitchItem v-model="accordion">{{ $t('preferences.layout.navigationMenu.accordion') }}</SwitchItem>
 </template>
 
 <script lang="ts" setup>

@@ -1,8 +1,10 @@
 <template>
   <div class="border-border flex items-center justify-between border-b px-4 py-3">
     <div class="flex items-end">
-      <span class="text-text-body font-medium">偏好设置</span>
-      <span class="text-text-regular ml-1 text-xs">自定义偏好设置 & 实时预览</span>
+      <span class="text-text-body font-medium">{{ $t('preferences.title') }}</span>
+      <span class="text-text-regular ml-1 max-w-38 truncate text-xs" :title="$t('preferences.subtitle')">
+        {{ $t('preferences.subtitle') }}
+      </span>
     </div>
     <div class="flex items-center gap-1">
       <div
@@ -11,7 +13,7 @@
         @click="handleReset"
       >
         <CoreSvg v-if="!isDirty" name="preferences-reset" />
-        <el-tooltip v-else content="数据有变化，点击可进行重置" effect="light" :offset="10">
+        <el-tooltip v-else :content="$t('preferences.resetTip')" effect="light" :offset="10">
           <el-badge class="flex! h-full w-full! items-center justify-center" is-dot :offset="[-4, 4]" type="primary">
             <CoreSvg name="preferences-reset" />
           </el-badge>
@@ -23,13 +25,18 @@
       >
         <el-tooltip
           v-if="!preferences.app.enableStickyPreferencesNavigationBar"
-          content="开启首选项导航栏吸顶效果"
+          :content="$t('preferences.enableStickyPreferencesNavigationBar')"
           effect="light"
           :offset="10"
         >
           <CoreSvg name="preferences-pin" />
         </el-tooltip>
-        <el-tooltip v-else content="关闭首选项导航栏吸顶效果" effect="light" :offset="10">
+        <el-tooltip
+          v-else
+          :content="$t('preferences.disableStickyPreferencesNavigationBar')"
+          effect="light"
+          :offset="10"
+        >
           <CoreSvg name="preferences-unpin" />
         </el-tooltip>
       </div>

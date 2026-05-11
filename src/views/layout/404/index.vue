@@ -3,12 +3,12 @@
     <div class="flex flex-col items-center justify-center">
       <CoreSvg name="layout-404" size="360" />
       <div class="mb-10 text-center">
-        <h1 class="mb-4 text-3xl font-semibold tracking-wide">哎呀！未找到页面</h1>
-        <p class="text-text-regular text-base leading-relaxed">抱歉，我们无法找到您要找的页面。</p>
+        <h1 class="mb-4 text-3xl font-semibold tracking-wide">{{ $t('ui.fallback.pageNotFound') }}</h1>
+        <p class="text-text-regular text-base leading-relaxed">{{ $t('ui.fallback.pageNotFoundDesc') }}</p>
       </div>
       <el-button type="primary" @click="goHome">
         <template #icon><i-ep-back /></template>
-        返回首页
+        {{ $t('common.backToHome') }}
       </el-button>
     </div>
   </div>

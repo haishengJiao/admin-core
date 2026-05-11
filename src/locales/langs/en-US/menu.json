@@ -1,0 +1,13 @@
+{
+  "workspace": "Workspace",
+  "themeEditor": "Theme Editor",
+  "demos": "Demos",
+  "menuBadge": "Menu Badge",
+  "dotBadge": "Dot Badge",
+  "textBadge": "Text Badge",
+  "colorBadge": "Color Badge",
+  "external": "External Page",
+  "inline": "Inline",
+  "outlink": "Outlink",
+  "examples": "Examples"
+}

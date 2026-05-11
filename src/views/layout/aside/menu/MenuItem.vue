@@ -1,7 +1,7 @@
 <template>
   <el-menu-item :index="menu.path">
     <MenuIcon class="menu-icon" :icon="icon" />
-    <span class="truncate">{{ menu.meta?.title }}</span>
+    <span class="truncate leading-6">{{ menu.meta?.title }}</span>
   </el-menu-item>
 </template>
 

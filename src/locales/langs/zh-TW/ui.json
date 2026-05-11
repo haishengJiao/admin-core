@@ -1,0 +1,8 @@
+{
+  "fallback": {
+    "componentNotFound": "哎呀！未找到組件",
+    "componentNotFoundDesc": "抱歉，我們無法找到您要找的組件。",
+    "pageNotFound": "哎呀！未找到頁面",
+    "pageNotFoundDesc": "抱歉，我們無法找到您要找的頁面。"
+  }
+}
