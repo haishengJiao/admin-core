@@ -31,29 +31,31 @@ const handleOpenDrawer = () => {
 @reference "tailwindcss";
 @reference "@/style/tailwind/theme/index.css";
 
-.preferences-drawer .el-drawer__header {
-  @apply mb-0 p-0;
-}
+.preferences-drawer {
+  .el-drawer__header {
+    @apply mb-0 p-0;
+  }
 
-.preferences-drawer .el-drawer__body {
-  @apply p-0;
-}
+  .el-drawer__body {
+    @apply p-0;
+  }
 
-.preferences-drawer .outline {
-  @apply outline-border relative flex w-full items-center justify-center rounded-md p-1 outline-1;
-}
+  .outline {
+    @apply outline-border relative flex w-full items-center justify-center rounded-md p-1 outline-1;
 
-.preferences-drawer .outline::after {
-  @apply outline-primary pointer-events-none absolute h-0 w-0 rounded-[inherit] opacity-0 outline-2 transition-all duration-300 ease-in-out;
+    &::after {
+      @apply outline-primary pointer-events-none absolute h-0 w-0 rounded-[inherit] opacity-0 outline-2 transition-all duration-300 ease-in-out;
 
-  content: ' ';
-}
+      content: ' ';
+    }
 
-.preferences-drawer .outline.is-active {
-  @apply outline-primary outline-2 after:hidden;
-}
+    &.is-active {
+      @apply outline-primary outline-2 after:hidden;
+    }
 
-.preferences-drawer .outline:hover:not(.is-active)::after {
-  @apply h-full w-full opacity-100;
+    &:hover:not(.is-active)::after {
+      @apply h-full w-full opacity-100;
+    }
+  }
 }
 </style>

@@ -1,29 +1,30 @@
 #nprogress {
   @apply pointer-events-none;
-}
 
-#nprogress .bar {
-  @apply bg-primary fixed top-0 left-0 z-1031 h-0.5 w-full;
-}
+  .bar {
+    @apply bg-primary fixed top-0 left-0 z-1031 h-0.5 w-full;
+  }
 
-#nprogress .peg {
-  @apply shadow-primary absolute right-0 block h-full w-25 -translate-y-1 rotate-3 opacity-100 shadow-[0_0_10px,0_0_5px];
-}
+  .peg {
+    @apply shadow-primary absolute right-0 block h-full w-25 -translate-y-1 rotate-3 opacity-100 shadow-[0_0_10px,0_0_5px];
+  }
 
-#nprogress .spinner {
-  @apply fixed top-4 right-4 z-1031 block;
-}
+  .spinner {
+    @apply fixed top-4 right-4 z-1031 block;
+  }
 
-#nprogress .spinner-icon {
-  @apply border-t-primary border-l-primary size-4.5 rounded-full border-2 border-transparent;
-  @apply animate-[nprogress-spinner_400ms_linear_infinite];
+  .spinner-icon {
+    @apply border-t-primary border-l-primary size-4.5 animate-[nprogress-spinner_400ms_linear_infinite] rounded-full border-2 border-transparent;
+  }
 }
 
 .nprogress-custom-parent {
   @apply relative overflow-hidden;
-}
 
-.nprogress-custom-parent #nprogress .spinner,
-.nprogress-custom-parent #nprogress .bar {
-  @apply absolute;
+  #nprogress {
+    .spinner,
+    .bar {
+      @apply absolute;
+    }
+  }
 }

@@ -32,15 +32,17 @@
 <style scoped>
 @reference "tailwindcss";
 
-.el-carousel__item h3 {
-  @apply m-0 text-center leading-50 text-[#475669] opacity-75;
-}
+.el-carousel__item {
+  h3 {
+    @apply m-0 text-center leading-50 text-[#475669] opacity-75;
+  }
 
-.el-carousel__item:nth-child(2n) {
-  @apply bg-[#99a9bf];
-}
+  &:nth-child(2n) {
+    @apply bg-[#99a9bf];
+  }
 
-.el-carousel__item:nth-child(2n + 1) {
-  @apply bg-[#d3dce6];
+  &:nth-child(2n + 1) {
+    @apply bg-[#d3dce6];
+  }
 }
 </style>
