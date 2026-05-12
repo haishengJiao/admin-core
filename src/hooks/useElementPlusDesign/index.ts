@@ -2,7 +2,7 @@ import { useStyleTag } from '@vueuse/core';
 import { watch } from 'vue';
 
 import { usePreferencesStore } from '@/store';
-import { mixColor } from '@/utils/colors';
+import { mixColor } from '@/utils';
 
 const injectStyleVariables = (variables: Record<string, string>, id: string) => {
   let cssText = ':root:root{';

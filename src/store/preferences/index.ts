@@ -8,7 +8,7 @@ import { storeId } from './types';
 
 import type { PreferencesState } from './types';
 
-import { STORAGE_KEYS } from '@/utils/localStorage-keys';
+import { STORAGE_KEYS } from '@/utils';
 
 export const basePreferencesState = (): PreferencesState => {
   return {

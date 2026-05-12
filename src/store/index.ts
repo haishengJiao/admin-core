@@ -2,6 +2,7 @@ import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 
 export * from './preferences';
+export * from './preferences/types';
 
 const store = createPinia();
 store.use(piniaPluginPersistedstate);

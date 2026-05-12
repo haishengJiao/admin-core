@@ -4,7 +4,7 @@ import { watchEffect } from 'vue';
 import type { AppearanceState, PreferencesState, PreferencesActions } from './types';
 import type { _GettersTree } from 'pinia';
 
-import { THEME_KEY } from '@/utils/localStorage-keys';
+import { THEME_KEY } from '@/utils';
 
 export const appearanceState = (): AppearanceState => ({
   theme: {

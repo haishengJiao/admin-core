@@ -10,7 +10,7 @@ import { computed, useAttrs } from 'vue';
 
 import type { RouteMeta } from 'vue-router';
 
-import { isFunction, isHttpUrl, isObject, isString } from '@/utils/is';
+import { isFunction, isHttpUrl, isObject, isString } from '@/utils';
 
 type Props = {
   icon: RouteMeta['icon'];

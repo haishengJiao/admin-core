@@ -90,8 +90,7 @@ import type { CssVarItem, DataItem } from './types';
 import type { Ref } from 'vue';
 
 import { usePreferencesStore } from '@/store';
-import { mixColor } from '@/utils/colors';
-import { downloadCssFile } from '@/utils/file';
+import { mixColor, downloadCssFile } from '@/utils';
 
 const ElementPlusComponents = defineAsyncComponent({
   loader: () => import('./element/index.vue'),

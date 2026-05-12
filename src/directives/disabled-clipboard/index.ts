@@ -1,6 +1,12 @@
 import { DisabledClipboardArgEnum, DisabledClipboardModifiersEnum } from './types';
 
-import type { DisabledClipboardDirective, DisabledClipboardValue, DisabledClipboardModifiersWithoutAll } from './types';
+import type {
+  DisabledClipboardValue,
+  DisabledClipboardModifiers,
+  DisabledClipboardModifiersWithoutAll,
+  DisabledClipboardArg,
+  DisabledClipboardDirective,
+} from './types';
 
 const elementHandlersMap = new WeakMap<
   HTMLElement,
@@ -53,7 +59,7 @@ const addEventListener = (
   handlers && handlers.set(type, handler);
 };
 
-export const disabledClipboard: DisabledClipboardDirective = {
+const disabledClipboard: DisabledClipboardDirective = {
   mounted(el, { value, modifiers, arg }) {
     const mode =
       arg === DisabledClipboardArgEnum.LOOSE ? DisabledClipboardArgEnum.LOOSE : DisabledClipboardArgEnum.STRICT;
@@ -88,4 +94,15 @@ export const disabledClipboard: DisabledClipboardDirective = {
     handlers.clear();
     elementHandlersMap.delete(el);
   },
+};
+
+export {
+  disabledClipboard,
+  DisabledClipboardModifiersEnum,
+  DisabledClipboardArgEnum,
+  type DisabledClipboardValue,
+  type DisabledClipboardModifiers,
+  type DisabledClipboardModifiersWithoutAll,
+  type DisabledClipboardArg,
+  type DisabledClipboardDirective,
 };

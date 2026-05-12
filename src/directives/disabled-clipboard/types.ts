@@ -12,8 +12,6 @@ export enum DisabledClipboardArgEnum {
   LOOSE = 'loose',
 }
 
-export type DisabledClipboardHostElement = HTMLElement;
-
 /**
  * 允许复制/剪切/粘贴的文本内容数组
  * 当指令值为字符串数组时，只有数组中包含的文本内容允许被复制或剪切或粘贴，
@@ -82,7 +80,7 @@ export type DisabledClipboardArg = `${DisabledClipboardArgEnum}`;
  * @see {@link DisabledClipboardArg} 了解参数的详细说明
  */
 export type DisabledClipboardDirective = Directive<
-  DisabledClipboardHostElement,
+  HTMLElement,
   DisabledClipboardValue,
   DisabledClipboardModifiers,
   DisabledClipboardArg

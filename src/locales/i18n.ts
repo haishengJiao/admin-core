@@ -7,7 +7,7 @@ import type { Locale, JsonModule, GlobModules, LocaleRawMap, LocaleMessagesMap, 
 import type { Language } from 'element-plus/es/locale';
 import type { App } from 'vue';
 
-import { LOCALE_FILE_PATTERN } from '@/utils/regexp';
+import { LOCALE_FILE_PATTERN } from '@/utils';
 
 const i18n = createI18n({
   legacy: false,
