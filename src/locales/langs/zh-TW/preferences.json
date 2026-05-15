@@ -44,6 +44,27 @@
   },
   "layout": {
     "title": "佈局",
+    "layout": {
+      "vertical": "垂直",
+      "verticalTip": "側邊垂直選單模式",
+      "twoColumn": "雙列選單",
+      "twoColumnTip": "垂直雙列選單模式",
+      "horizontal": "水平",
+      "horizontalTip": "水平選單模式，選單全部顯示在頂部",
+      "headerSidebarNav": "側邊導航",
+      "headerSidebarNavTip": "頂部通欄，側邊導航模式",
+      "mixedMenu": "混合垂直",
+      "mixedMenuTip": "垂直水平選單共存",
+      "headerTwoColumn": "混合雙列",
+      "headerTwoColumnTip": "雙列、水平選單共存模式",
+      "fullContent": "內容全屏",
+      "fullContentTip": "不顯示任何選單，只顯示內容主體"
+    },
+    "content": {
+      "title": "內容",
+      "wide": "流式",
+      "compact": "定寬"
+    },
     "navigationMenu": {
       "title": "導航選單",
       "accordion": "側邊導航選單手風琴模式"

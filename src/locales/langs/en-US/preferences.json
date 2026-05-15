@@ -44,6 +44,27 @@
   },
   "layout": {
     "title": "Layout",
+    "layout": {
+      "vertical": "Vertical",
+      "verticalTip": "Side vertical menu mode",
+      "twoColumn": "Two Column",
+      "twoColumnTip": "Vertical Two Column Menu Mode",
+      "horizontal": "Horizontal",
+      "horizontalTip": "Horizontal menu mode, all menus displayed at the top",
+      "headerSidebarNav": "Header Vertical",
+      "headerSidebarNavTip": "Header Full Width, Sidebar Navigation Mode",
+      "mixedMenu": "Mixed Menu",
+      "mixedMenuTip": "Vertical & Horizontal Menu Co-exists",
+      "headerTwoColumn": "Header Two Column",
+      "headerTwoColumnTip": "Header Navigation & Sidebar Two Column co-exists",
+      "fullContent": "Full Content",
+      "fullContentTip": "Only display content body, hide all menus"
+    },
+    "content": {
+      "title": "Content",
+      "wide": "Wide",
+      "compact": "Fixed"
+    },
     "navigationMenu": {
       "title": "Navigation Menu",
       "accordion": "Sidebar Accordion Menu"

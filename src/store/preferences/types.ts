@@ -64,9 +64,24 @@ type AppearanceActions = {
   initAppearance(): void;
 };
 
+export type LayoutType =
+  | 'full-content'
+  | 'header-mixed-nav'
+  | 'header-nav'
+  | 'header-sidebar-nav'
+  | 'mixed-nav'
+  | 'sidebar-mixed-nav'
+  | 'sidebar-nav';
+
+export type ContentType = 'wide' | 'compact';
+
 export interface LayoutState {
+  /** 布局 */
+  layout: LayoutType;
+  /** 内容 */
+  content: ContentType;
   navigation: {
-    // 是否开启侧边导航菜单手风琴模式
+    /** 是否开启侧边导航菜单手风琴模式 */
     accordion: boolean;
   };
 }
