@@ -66,8 +66,6 @@ const loadLocaleMessages = async (lang: Locale) => {
 
   const message = await localesMap[lang]?.();
 
-  // console.log(localesMap[lang], message);
-
   const [elLocale] = await loadThirdPartyMessage(lang);
   elementLocale.value = elLocale;
 

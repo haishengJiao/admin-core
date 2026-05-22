@@ -13,7 +13,7 @@ const injectStyleVariables = (variables: Record<string, string>, id: string) => 
   useStyleTag(cssText, { id });
 };
 
-export const useElementPlusDesign = () => {
+export function useElementPlusDesign() {
   const preferences = usePreferencesStore();
 
   const generateColorVariants = (colorName: string, colorValue: string, isLight: boolean) => {
@@ -99,6 +99,6 @@ export const useElementPlusDesign = () => {
 
       injectStyleVariables(variables, 'element-plus-theme-variables');
     },
-    { immediate: true, deep: true },
+    { immediate: true, deep: true, flush: 'post' },
   );
-};
+}

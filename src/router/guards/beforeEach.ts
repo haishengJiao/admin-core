@@ -8,7 +8,7 @@ import { usePreferencesStore } from '@/store';
 
 export default (router: Router) => {
   router.beforeEach((_to, from) => {
-    const { initAppearance, general } = usePreferencesStore();
+    const { general } = usePreferencesStore();
     const { progress } = general.animation;
 
     if (progress) {
@@ -16,7 +16,6 @@ export default (router: Router) => {
     }
 
     if (!from.name && from.path === '/') {
-      initAppearance();
       removeAppLoading();
     }
   });

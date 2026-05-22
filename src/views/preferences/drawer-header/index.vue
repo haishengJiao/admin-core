@@ -9,10 +9,10 @@
     <div class="flex items-center gap-1">
       <div
         class="hover:text-text-heading text-text-body/80 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full font-medium transition-colors duration-150 ease-in-out"
-        :class="[!isDirty && 'text-text-disabled! cursor-not-allowed!', isDirty && 'hover:bg-fill']"
+        :class="[!isModified && 'text-text-disabled! cursor-not-allowed!', isModified && 'hover:bg-fill']"
         @click="handleReset"
       >
-        <CoreSvg v-if="!isDirty" name="preferences-reset" />
+        <CoreSvg v-if="!isModified" name="preferences-reset" />
         <el-tooltip v-else :content="$t('preferences.resetTip')" effect="light" :offset="10">
           <el-badge class="flex! h-full w-full! items-center justify-center" is-dot :offset="[-4, 4]" type="primary">
             <CoreSvg name="preferences-reset" />
@@ -51,24 +51,19 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { storeToRefs } from 'pinia';
 
 import type { DrawerHeaderEmits } from '../types';
 
-import { basePreferencesState, usePreferencesStore } from '@/store';
+import { usePreferencesStore } from '@/store';
 
 const emits = defineEmits<DrawerHeaderEmits>();
 
 const preferences = usePreferencesStore();
-
-const baseStateStr = JSON.stringify(basePreferencesState());
-
-const isDirty = computed(() => {
-  return JSON.stringify(preferences.$state) !== baseStateStr;
-});
+const { isModified } = storeToRefs(preferences);
 
 const handleReset = () => {
-  if (!isDirty.value) return;
+  if (!isModified.value) return;
   preferences.$reset();
 };
 

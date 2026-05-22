@@ -16,8 +16,8 @@ const init = async () => {
   const app = createApp(App);
   await setupI18n(app);
   app.use(directives);
-  app.use(router);
   app.use(store);
+  app.use(router);
   app.mount('#app');
 };
 

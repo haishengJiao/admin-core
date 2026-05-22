@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router';
 import { $t } from '@/locales';
 import { usePreferencesStore } from '@/store';
 
-export const useDocumentTitle = () => {
+export function useDocumentTitle() {
   const router = useRouter();
   const preferences = usePreferencesStore();
   const title = useTitle();
@@ -23,4 +23,4 @@ export const useDocumentTitle = () => {
   watchEffect(() => {
     title.value = computedTitle.value;
   });
-};
+}

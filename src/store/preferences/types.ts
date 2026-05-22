@@ -1,9 +1,6 @@
 import type { Locale } from '@/locales';
-import type { _GettersTree, Store } from 'pinia';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
-
-export type EffectiveThemeMode = Exclude<ThemeMode, 'system'>;
 
 export type ColorPrimaryType =
   | 'default'
@@ -60,10 +57,6 @@ export interface AppearanceState {
   };
 }
 
-type AppearanceActions = {
-  initAppearance(): void;
-};
-
 export type LayoutType =
   | 'full-content'
   | 'header-mixed-nav'
@@ -112,8 +105,3 @@ export interface PreferencesState {
   general: GeneralState;
   app: AppState;
 }
-
-export const storeId = 'preferences';
-export type MergeActions = AppearanceActions;
-export type PreferencesStore<G> = Store<typeof storeId, PreferencesState, G, MergeActions>;
-export type PreferencesActions<G> = MergeActions & ThisType<PreferencesStore<G>>;
