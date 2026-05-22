@@ -6,11 +6,12 @@
 </template>
 
 <script lang="ts" setup>
+import { isString, isFunction, isObject } from 'lodash-es';
 import { computed, useAttrs } from 'vue';
 
 import type { RouteMeta } from 'vue-router';
 
-import { isFunction, isHttpUrl, isObject, isString } from '@/utils';
+import { isHttpUrl } from '@/utils';
 
 type Props = {
   icon: RouteMeta['icon'];
