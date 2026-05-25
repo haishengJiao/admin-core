@@ -47,9 +47,9 @@ const PRESET = computed((): PresetItem[] => [
     name: t('preferences.layout.content.wide'),
     type: 'wide',
   },
-  {
-    name: t('preferences.layout.content.compact'),
-    type: 'compact',
-  },
+  // {
+  //   name: t('preferences.layout.content.compact'),
+  //   type: 'compact',
+  // },
 ]);
 </script>

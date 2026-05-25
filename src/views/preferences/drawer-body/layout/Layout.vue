@@ -64,35 +64,35 @@ const PRESET = computed((): PresetItem[] => [
     tip: t('preferences.layout.layout.verticalTip'),
     type: 'sidebar-nav',
   },
-  {
-    name: t('preferences.layout.layout.twoColumn'),
-    tip: t('preferences.layout.layout.twoColumnTip'),
-    type: 'sidebar-mixed-nav',
-  },
-  {
-    name: t('preferences.layout.layout.horizontal'),
-    tip: t('preferences.layout.layout.horizontalTip'),
-    type: 'header-nav',
-  },
-  {
-    name: t('preferences.layout.layout.headerSidebarNav'),
-    tip: t('preferences.layout.layout.headerSidebarNavTip'),
-    type: 'header-sidebar-nav',
-  },
-  {
-    name: t('preferences.layout.layout.mixedMenu'),
-    tip: t('preferences.layout.layout.mixedMenuTip'),
-    type: 'mixed-nav',
-  },
-  {
-    name: t('preferences.layout.layout.headerTwoColumn'),
-    tip: t('preferences.layout.layout.headerTwoColumnTip'),
-    type: 'header-mixed-nav',
-  },
-  {
-    name: t('preferences.layout.layout.fullContent'),
-    tip: t('preferences.layout.layout.fullContentTip'),
-    type: 'full-content',
-  },
+  // {
+  //   name: t('preferences.layout.layout.twoColumn'),
+  //   tip: t('preferences.layout.layout.twoColumnTip'),
+  //   type: 'sidebar-mixed-nav',
+  // },
+  // {
+  //   name: t('preferences.layout.layout.horizontal'),
+  //   tip: t('preferences.layout.layout.horizontalTip'),
+  //   type: 'header-nav',
+  // },
+  // {
+  //   name: t('preferences.layout.layout.headerSidebarNav'),
+  //   tip: t('preferences.layout.layout.headerSidebarNavTip'),
+  //   type: 'header-sidebar-nav',
+  // },
+  // {
+  //   name: t('preferences.layout.layout.mixedMenu'),
+  //   tip: t('preferences.layout.layout.mixedMenuTip'),
+  //   type: 'mixed-nav',
+  // },
+  // {
+  //   name: t('preferences.layout.layout.headerTwoColumn'),
+  //   tip: t('preferences.layout.layout.headerTwoColumnTip'),
+  //   type: 'header-mixed-nav',
+  // },
+  // {
+  //   name: t('preferences.layout.layout.fullContent'),
+  //   tip: t('preferences.layout.layout.fullContentTip'),
+  //   type: 'full-content',
+  // },
 ]);
 </script>
