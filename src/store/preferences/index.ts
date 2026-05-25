@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash-es';
+import { cloneDeep, isEqual } from 'lodash-es';
 import { defineStore } from 'pinia';
 import { ref, toRaw, watchEffect } from 'vue';
 
@@ -21,15 +21,16 @@ export const usePreferencesStore = defineStore(
 
     const originSnapshot = cloneDeep(toRaw({ appearance, general, layout, app }));
     function $reset() {
-      Object.assign(appearance, originSnapshot.appearance);
-      Object.assign(general, originSnapshot.general);
-      Object.assign(layout, originSnapshot.layout);
-      Object.assign(app, originSnapshot.app);
+      const resetData = cloneDeep(originSnapshot);
+      Object.assign(appearance, resetData.appearance);
+      Object.assign(general, resetData.general);
+      Object.assign(layout, resetData.layout);
+      Object.assign(app, resetData.app);
     }
     const isModified = ref(false);
     watchEffect(() => {
       const current = cloneDeep(toRaw({ appearance, general, layout, app }));
-      isModified.value = current !== originSnapshot;
+      isModified.value = !isEqual(current, originSnapshot);
     });
 
     return { appearance, general, layout, app, effectiveTheme, isDark, isLight, isModified, $reset };
