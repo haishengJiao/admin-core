@@ -33,15 +33,16 @@ export function createAppearanceState() {
 }
 
 export function createAppearanceComputed(appearance: AppearanceState) {
-  const { theme } = appearance;
-
   const effectiveTheme = computed(() => {
+    const { theme } = appearance;
     if (theme.mode === 'system') {
       return theme.systemPrefersDark ? 'dark' : 'light';
     }
     return theme.mode;
   });
   const isDark = computed(() => {
+    const { theme } = appearance;
+
     if (theme.mode === 'system') return theme.systemPrefersDark;
     return theme.mode === 'dark';
   });
