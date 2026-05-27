@@ -4,17 +4,11 @@ import { watch } from 'vue';
 import { usePreferencesStore } from '@/store';
 import { mixColor } from '@/utils';
 
-const injectStyleVariables = (variables: Record<string, string>, id: string) => {
-  let cssText = ':root:root{';
-  for (const [key, value] of Object.entries(variables)) {
-    cssText += `${key}:${value};`;
-  }
-  cssText += '}';
-  useStyleTag(cssText, { id });
-};
-
 export function useElementPlusDesign() {
   const preferences = usePreferencesStore();
+
+  const styleId = 'element-plus-theme-variables';
+  const { css } = useStyleTag('', { id: styleId });
 
   const generateColorVariants = (colorName: string, colorValue: string, isLight: boolean) => {
     const lightBase = isLight ? '#ffffff' : '#141414';
@@ -67,37 +61,65 @@ export function useElementPlusDesign() {
     '--el-font-family': '--font-family',
   };
 
+  const buildVariables = (isLightMode: boolean) => {
+    const { appearance } = preferences;
+    const { primaryColor, secondaryColor, radius, fontSize } = appearance;
+    const { success, warning, danger, error, info } = secondaryColor;
+
+    const rootStyles = getComputedStyle(document.documentElement);
+    const getCssVar = (varName: string) => rootStyles.getPropertyValue(varName);
+
+    const mappedVariables = Object.entries(varMapping).reduce(
+      (acc, [elVar, customVar]) => {
+        acc[elVar] = getCssVar(customVar);
+        return acc;
+      },
+      {} as Record<string, string>,
+    );
+
+    return {
+      ...generateColorVariants('primary', primaryColor.color, isLightMode),
+      ...generateColorVariants('success', success, isLightMode),
+      ...generateColorVariants('warning', warning, isLightMode),
+      ...generateColorVariants('danger', danger, isLightMode),
+      ...generateColorVariants('error', error, isLightMode),
+      ...generateColorVariants('info', info, isLightMode),
+      ...generateFontSizes(fontSize),
+      ...mappedVariables,
+      '--el-border-radius-base': `${radius}rem`,
+    };
+  };
+
+  const buildCssText = (selector: string, variables: Record<string, string>) => {
+    let cssText = `${selector}{`;
+    for (const [key, value] of Object.entries(variables)) {
+      cssText += `${key}:${value};`;
+    }
+    cssText += '}';
+    return cssText;
+  };
+
   watch(
     () => preferences.appearance,
     () => {
-      const { isLight, appearance } = preferences;
-      const { primaryColor, secondaryColor, radius, fontSize } = appearance;
-      const { success, warning, danger, error, info } = secondaryColor;
+      const { appearance, effectiveTheme } = preferences;
+      const { darkSidebar, darkHeader } = appearance.theme;
 
-      const rootStyles = getComputedStyle(document.documentElement);
-      const getCssVar = (varName: string) => rootStyles.getPropertyValue(varName);
+      let finalCss = '';
+      if (effectiveTheme === 'dark') {
+        const darkVars = buildVariables(false);
+        finalCss = buildCssText(':root:root.dark, :root:root .dark', darkVars);
+      } else {
+        const lightVars = buildVariables(true);
+        finalCss = buildCssText(':root:root', lightVars);
+        const needDarkTheme = darkHeader || darkSidebar;
+        if (needDarkTheme) {
+          const darkVars = buildVariables(false);
+          finalCss += buildCssText(':root:root.dark, :root:root .dark', darkVars);
+        }
+      }
 
-      const mappedVariables = Object.entries(varMapping).reduce(
-        (acc, [elVar, customVar]) => {
-          acc[elVar] = getCssVar(customVar);
-          return acc;
-        },
-        {} as Record<string, string>,
-      );
-
-      const variables: Record<string, string> = {
-        ...generateColorVariants('primary', primaryColor.color, isLight),
-        ...generateColorVariants('success', success, isLight),
-        ...generateColorVariants('warning', warning, isLight),
-        ...generateColorVariants('danger', danger, isLight),
-        ...generateColorVariants('error', error, isLight),
-        ...generateColorVariants('info', info, isLight),
-        ...generateFontSizes(fontSize),
-        ...mappedVariables,
-        '--el-border-radius-base': `${radius}rem`,
-      };
-
-      injectStyleVariables(variables, 'element-plus-theme-variables');
+      css.value = finalCss;
     },
     { immediate: true, deep: true, flush: 'post' },
   );

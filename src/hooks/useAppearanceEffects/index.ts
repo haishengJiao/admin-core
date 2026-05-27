@@ -1,6 +1,6 @@
-import { useCssVar } from '@vueuse/core';
+import { useStyleTag } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
-import { watchEffect } from 'vue';
+import { computed, watchEffect } from 'vue';
 
 import { usePreferencesStore } from '@/store';
 import { THEME_KEY } from '@/utils';
@@ -9,14 +9,7 @@ export function useAppearanceEffects() {
   const preferences = usePreferencesStore();
   const { isDark, appearance } = storeToRefs(preferences);
 
-  const radiusVar = useCssVar('--radius');
-  const fontSizeVar = useCssVar('--font-size-base');
-  const primaryVar = useCssVar('--primary');
-  const successVar = useCssVar('--success');
-  const warningVar = useCssVar('--warning');
-  const dangerVar = useCssVar('--danger');
-  const errorVar = useCssVar('--error');
-  const infoVar = useCssVar('--info');
+  const { css } = useStyleTag('', { id: 'app-global-styles' });
 
   watchEffect(() => {
     const isDarkVal = isDark.value;
@@ -24,18 +17,23 @@ export function useAppearanceEffects() {
     localStorage.setItem(THEME_KEY, isDarkVal ? 'dark' : 'light');
   });
 
-  watchEffect(() => {
+  const styleContent = computed(() => {
     const { radius, fontSize, primaryColor, secondaryColor } = appearance.value;
-    const { success, warning, danger, error, info } = secondaryColor;
-
-    radiusVar.value = `${radius}rem`;
-    fontSizeVar.value = `${fontSize}px`;
-    primaryVar.value = primaryColor.color;
-    successVar.value = success;
-    warningVar.value = warning;
-    dangerVar.value = danger;
-    errorVar.value = error;
-    infoVar.value = info;
+    return `
+      :root:root, :root:root .dark {
+        --radius: ${radius}rem;
+        --font-size-base: ${fontSize}px;
+        --primary: ${primaryColor.color};
+        --success: ${secondaryColor.success};
+        --warning: ${secondaryColor.warning};
+        --danger: ${secondaryColor.danger};
+        --error: ${secondaryColor.error};
+        --info: ${secondaryColor.info};
+      }
+    `;
+  });
+  watchEffect(() => {
+    css.value = styleContent.value;
   });
 
   watchEffect(() => {
