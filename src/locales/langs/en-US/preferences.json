@@ -68,6 +68,11 @@
     "navigationMenu": {
       "title": "Navigation Menu",
       "accordion": "Sidebar Accordion Menu"
+    },
+    "widget": {
+      "title": "Widget",
+      "themeToggle": "Enable Theme Toggle",
+      "languageToggle": "Enable Language Toggle"
     }
   },
   "shortcutKeys": {

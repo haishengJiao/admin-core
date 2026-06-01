@@ -77,6 +77,12 @@ export interface LayoutState {
     /** 是否开启侧边导航菜单手风琴模式 */
     accordion: boolean;
   };
+  widget: {
+    /** 是否开启快捷主题切换 */
+    themeToggle: boolean;
+    /** 是否开启快捷语言切换 */
+    languageToggle: boolean;
+  };
 }
 
 export interface GeneralState {

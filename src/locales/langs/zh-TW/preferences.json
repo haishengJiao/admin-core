@@ -68,6 +68,11 @@
     "navigationMenu": {
       "title": "導航選單",
       "accordion": "側邊導航選單手風琴模式"
+    },
+    "widget": {
+      "title": "小工具",
+      "themeToggle": "啟用主題切換",
+      "languageToggle": "啟用語言切換"
     }
   },
   "shortcutKeys": {

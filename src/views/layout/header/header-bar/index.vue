@@ -7,8 +7,8 @@
     <div></div>
     <div class="flex items-center gap-1">
       <PreferencesSet />
-      <ThemeSwitcher v-model="appearance.theme.mode" :is-dark="isDark" />
-      <LanguagePopover v-model="general.general.locale" />
+      <ThemeSwitcher v-if="themeToggle" v-model="appearance.theme.mode" :is-dark="isDark" />
+      <LanguagePopover v-if="languageToggle" v-model="general.general.locale" />
     </div>
   </header>
 </template>
@@ -22,7 +22,9 @@ import ThemeSwitcher from '@/views/preferences/drawer-body/appearance/ThemeToggl
 import LanguagePopover from '@/views/preferences/drawer-body/general/LanguagePopover.vue';
 import PreferencesSet from '@/views/preferences/index.vue';
 
-const { appearance, isLight, isDark, general } = storeToRefs(usePreferencesStore());
+const { appearance, isLight, isDark, general, layout } = storeToRefs(usePreferencesStore());
 
 const darkHeader = computed(() => appearance.value.theme.darkHeader);
+const themeToggle = computed(() => layout.value.widget.themeToggle);
+const languageToggle = computed(() => layout.value.widget.languageToggle);
 </script>

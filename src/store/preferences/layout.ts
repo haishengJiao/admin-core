@@ -9,6 +9,10 @@ export function createLayoutState() {
     navigation: {
       accordion: true,
     },
+    widget: {
+      themeToggle: true,
+      languageToggle: true,
+    },
   });
 
   return layout;
