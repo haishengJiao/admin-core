@@ -73,6 +73,10 @@ export interface LayoutState {
   layout: LayoutType;
   /** 内容 */
   content: ContentType;
+  sidebar: {
+    /** 是否显示侧边栏 */
+    enable: boolean;
+  };
   navigation: {
     /** 是否开启侧边导航菜单手风琴模式 */
     accordion: boolean;
@@ -82,6 +86,8 @@ export interface LayoutState {
     themeToggle: boolean;
     /** 是否开启快捷语言切换 */
     languageToggle: boolean;
+    /** 是否开启快捷侧边栏切换 */
+    sidebarToggle: boolean;
   };
 }
 

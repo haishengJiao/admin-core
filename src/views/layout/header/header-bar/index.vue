@@ -4,7 +4,9 @@
     :class="{ dark: darkHeader && isLight }"
     style="height: 50px"
   >
-    <div></div>
+    <div>
+      <Quick />
+    </div>
     <div class="flex items-center gap-1">
       <PreferencesSet />
       <ThemeSwitcher v-if="themeToggle" v-model="appearance.theme.mode" :is-dark="isDark" />
@@ -16,6 +18,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
 import { computed } from 'vue';
+
+import Quick from './Quick.vue';
 
 import { usePreferencesStore } from '@/store';
 import ThemeSwitcher from '@/views/preferences/drawer-body/appearance/ThemeToggle.vue';

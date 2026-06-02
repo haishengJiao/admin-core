@@ -6,12 +6,16 @@ export function createLayoutState() {
   const layout: LayoutState = reactive({
     layout: 'sidebar-nav',
     content: 'wide',
+    sidebar: {
+      enable: true,
+    },
     navigation: {
       accordion: true,
     },
     widget: {
       themeToggle: true,
       languageToggle: true,
+      sidebarToggle: true,
     },
   });
 

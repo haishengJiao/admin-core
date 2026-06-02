@@ -65,6 +65,10 @@
       "wide": "流式",
       "compact": "定寬"
     },
+    "sidebar": {
+      "title": "側邊欄",
+      "enable": "顯示側邊欄"
+    },
     "navigationMenu": {
       "title": "導航選單",
       "accordion": "側邊導航選單手風琴模式"
@@ -72,7 +76,8 @@
     "widget": {
       "title": "小工具",
       "themeToggle": "啟用主題切換",
-      "languageToggle": "啟用語言切換"
+      "languageToggle": "啟用語言切換",
+      "sidebarToggle": "啟用側邊欄切換"
     }
   },
   "shortcutKeys": {

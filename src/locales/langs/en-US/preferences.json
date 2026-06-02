@@ -65,6 +65,10 @@
       "wide": "Wide",
       "compact": "Fixed"
     },
+    "sidebar": {
+      "title": "Sidebar",
+      "enable": "Show Sidebar"
+    },
     "navigationMenu": {
       "title": "Navigation Menu",
       "accordion": "Sidebar Accordion Menu"
@@ -72,7 +76,8 @@
     "widget": {
       "title": "Widget",
       "themeToggle": "Enable Theme Toggle",
-      "languageToggle": "Enable Language Toggle"
+      "languageToggle": "Enable Language Toggle",
+      "sidebarToggle": "Enable Sidebar Toggle"
     }
   },
   "shortcutKeys": {
