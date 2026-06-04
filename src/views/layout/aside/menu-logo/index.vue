@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-12.5 px-3 text-lg">
+  <div class="flex h-12.25 px-3 text-lg">
     <div class="flex cursor-pointer items-center gap-2 overflow-hidden" @click="handleGoHome">
       <div class="shrink-0">
         <img class="w-8" src="@/assets/images/layout/logo.png" />
