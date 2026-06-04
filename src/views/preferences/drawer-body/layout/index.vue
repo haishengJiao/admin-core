@@ -7,7 +7,11 @@
       <Content v-model="layout.content" />
     </Block>
     <Block :title="$t('preferences.layout.sidebar.title')">
-      <Sidebar v-model:enable="layout.sidebar.enable" />
+      <Sidebar
+        v-model:collapsed="layout.sidebar.collapsed"
+        v-model:enable="layout.sidebar.enable"
+        v-model:width="layout.sidebar.width"
+      />
     </Block>
     <Block :title="$t('preferences.layout.navigationMenu.title')">
       <Navigation v-model:accordion="layout.navigation.accordion" />

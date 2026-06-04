@@ -76,6 +76,10 @@ export interface LayoutState {
   sidebar: {
     /** 是否显示侧边栏 */
     enable: boolean;
+    /** 是否折叠菜单 */
+    collapsed: boolean;
+    /** 侧边栏宽度 */
+    width: number;
   };
   navigation: {
     /** 是否开启侧边导航菜单手风琴模式 */

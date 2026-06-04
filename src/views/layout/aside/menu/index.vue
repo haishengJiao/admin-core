@@ -2,7 +2,11 @@
   <el-menu
     ref="menuRef"
     class="custom-menu"
+    :collapse="collapsed"
+    :collapse-transition="false"
     :default-active="defaultActive"
+    popper-class="custom-popper-menu"
+    :popper-offset="16"
     :unique-opened="accordion"
     @select="handleSelect"
   >
@@ -30,6 +34,7 @@ const router = useRouter();
 const { layout } = storeToRefs(usePreferencesStore());
 
 const accordion = computed(() => layout.value.navigation.accordion);
+const collapsed = computed(() => layout.value.sidebar.collapsed);
 
 const findActivePath = (path: string, menuList: RouteRecordRaw[] = []): string[] => {
   for (const item of menuList) {
@@ -106,11 +111,13 @@ watch(
 @reference "tailwindcss";
 @reference "@/style/tailwind/theme/index.css";
 
-.custom-menu {
+.custom-menu.el-menu--vertical,
+.custom-popper-menu.el-menu--vertical .el-menu {
   --el-menu-text-color: var(--text-heading);
-  --el-menu-item-height: 42px;
-  --el-menu-sub-item-height: 42px;
-  --el-menu-base-level-padding: 12px;
+  --el-menu-icon-width: calc(var(--spacing) * 4.5);
+  --el-menu-item-height: calc(var(--spacing) * 10.5);
+  --el-menu-sub-item-height: calc(var(--spacing) * 10.5);
+  --el-menu-base-level-padding: calc(var(--spacing) * 3);
   --el-menu-bg-color: var(--bg);
 
   @apply border-r-0! transition-colors! duration-300!;
@@ -151,5 +158,35 @@ watch(
   .el-sub-menu__title {
     @apply mb-0.5;
   }
+
+  &.el-menu--collapse {
+    --el-menu-item-height: calc(var(--spacing) * 10.5);
+    --el-menu-sub-item-height: calc(var(--spacing) * 10.5);
+
+    .el-sub-menu.is-active .el-sub-menu__title {
+      @apply bg-(--el-color-primary-light-8);
+    }
+
+    .el-menu-item,
+    .el-sub-menu__title {
+      @apply justify-center;
+    }
+
+    .el-menu-item,
+    .el-sub-menu {
+      .menu-icon {
+        @apply mr-0;
+      }
+    }
+  }
+}
+
+.el-popper.custom-popper-menu,
+.custom-popper-menu.el-menu--vertical .el-menu {
+  @apply rounded-md;
+}
+
+.custom-popper-menu.el-menu--vertical .el-menu {
+  @apply px-2 py-2.5;
 }
 </style>

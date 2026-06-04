@@ -1,10 +1,10 @@
 <template>
-  <div class="flex px-3 text-lg" style="height: 50px">
+  <div class="flex h-12.5 px-3 text-lg">
     <div class="flex cursor-pointer items-center gap-2 overflow-hidden" @click="handleGoHome">
       <div class="shrink-0">
-        <img src="@/assets/images/layout/logo.png" width="32" />
+        <img class="w-8" src="@/assets/images/layout/logo.png" />
       </div>
-      <h1 class="truncate font-semibold" :title="appName">{{ appName }}</h1>
+      <h1 v-if="!collapsed" class="truncate font-semibold" :title="appName">{{ appName }}</h1>
     </div>
   </div>
 </template>
@@ -19,6 +19,7 @@ const router = useRouter();
 const preferences = usePreferencesStore();
 
 const appName = computed(() => preferences.app.name);
+const collapsed = computed(() => preferences.layout.sidebar.collapsed);
 
 const handleGoHome = () => {
   router.push('/');

@@ -26,6 +26,12 @@ export type SelectItemProps = {
   items?: SelectOptions[];
 };
 
+export type InputNumberItemProps = {
+  tip?: string;
+  disabled?: boolean;
+  placeholder?: string;
+};
+
 export type ColorPickerItemProps = {
   tip?: string;
   disabled?: boolean;

@@ -27,6 +27,13 @@ import { usePreferencesStore } from '@/store';
 const { layout } = storeToRefs(usePreferencesStore());
 
 const showSidebar = computed(() => layout.value.sidebar.enable);
+const sidebarwidth = computed(() => {
+  const { width, collapsed } = layout.value.sidebar;
+  if (collapsed) {
+    return 'calc(var(--spacing) * 15)';
+  }
+  return `${width}px`;
+});
 </script>
 
 <style scoped>
@@ -42,6 +49,6 @@ const showSidebar = computed(() => layout.value.sidebar.enable);
 
 .sidebar-fade-enter-to,
 .sidebar-fade-leave-from {
-  width: 224px;
+  width: v-bind(sidebarwidth);
 }
 </style>

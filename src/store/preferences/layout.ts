@@ -8,6 +8,8 @@ export function createLayoutState() {
     content: 'wide',
     sidebar: {
       enable: true,
+      collapsed: false,
+      width: 226,
     },
     navigation: {
       accordion: true,

@@ -67,7 +67,9 @@
     },
     "sidebar": {
       "title": "侧边栏",
-      "enable": "显示侧边栏"
+      "enable": "显示侧边栏",
+      "collapsed": "折叠菜单",
+      "width": "宽度"
     },
     "navigationMenu": {
       "title": "导航菜单",

@@ -67,7 +67,9 @@
     },
     "sidebar": {
       "title": "Sidebar",
-      "enable": "Show Sidebar"
+      "enable": "Show Sidebar",
+      "collapsed": "Collpase Menu",
+      "width": "Width"
     },
     "navigationMenu": {
       "title": "Navigation Menu",
