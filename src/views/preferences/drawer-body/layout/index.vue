@@ -9,6 +9,7 @@
     <Block :title="$t('preferences.layout.sidebar.title')">
       <Sidebar
         v-model:collapsed="layout.sidebar.collapsed"
+        v-model:draggable="layout.sidebar.draggable"
         v-model:enable="layout.sidebar.enable"
         v-model:width="layout.sidebar.width"
       />

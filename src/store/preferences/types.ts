@@ -76,6 +76,8 @@ export interface LayoutState {
   sidebar: {
     /** 是否显示侧边栏 */
     enable: boolean;
+    /** 是否开启侧边栏拖拽 */
+    draggable: boolean;
     /** 是否折叠菜单 */
     collapsed: boolean;
     /** 侧边栏宽度 */

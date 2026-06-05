@@ -1,9 +1,7 @@
 <template>
   <div class="flex h-full w-full overflow-hidden">
     <Transition name="sidebar-fade">
-      <div v-if="showSidebar" class="overflow-hidden">
-        <LayoutAside />
-      </div>
+      <LayoutAside v-if="showSidebar" :style="{ width: sidebarwidth }" />
     </Transition>
     <div class="flex flex-1 flex-col overflow-hidden">
       <LayoutHeader />
@@ -39,16 +37,17 @@ const sidebarwidth = computed(() => {
 <style scoped>
 .sidebar-fade-enter-from,
 .sidebar-fade-leave-to {
-  width: 0;
+  width: 0 !important;
 }
 
 .sidebar-fade-enter-active,
 .sidebar-fade-leave-active {
-  transition: width 0.3s ease;
+  overflow: hidden;
+  transition: width 0.3s ease !important;
 }
 
 .sidebar-fade-enter-to,
 .sidebar-fade-leave-from {
-  width: v-bind(sidebarwidth);
+  width: v-bind(sidebarwidth) !important;
 }
 </style>

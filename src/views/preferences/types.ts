@@ -29,7 +29,6 @@ export type SelectItemProps = {
 export type InputNumberItemProps = {
   tip?: string;
   disabled?: boolean;
-  placeholder?: string;
 };
 
 export type ColorPickerItemProps = {

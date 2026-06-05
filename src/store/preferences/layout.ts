@@ -8,6 +8,7 @@ export function createLayoutState() {
     content: 'wide',
     sidebar: {
       enable: true,
+      draggable: true,
       collapsed: false,
       width: 226,
     },

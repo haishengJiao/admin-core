@@ -12,16 +12,7 @@
       </el-tooltip>
     </div>
     <div class="flex">
-      <el-input-number
-        class="w-41.25"
-        :disabled="disabled"
-        :max="320"
-        :min="160"
-        :model-value="modelValue"
-        :placeholder="placeholder"
-        :precision="0"
-        @change="handleChange"
-      />
+      <el-input-number class="w-41.25" :model-value="modelValue" v-bind="$attrs" @change="handleChange" />
     </div>
   </div>
 </template>
@@ -29,7 +20,7 @@
 <script lang="ts" setup>
 import type { InputNumberItemProps } from '@/views/preferences/types';
 
-const { tip = '', disabled = false, placeholder = '' } = defineProps<InputNumberItemProps>();
+const { tip = '', disabled = false } = defineProps<InputNumberItemProps>();
 const emits = defineEmits(['update:modelValue']);
 
 const modelValue = defineModel<number>();
@@ -40,4 +31,6 @@ const handleChange = (currentValue: number | undefined, oldValue: number | undef
   }
   emits('update:modelValue', currentValue || oldValue || 226);
 };
+
+defineExpose({} as InstanceType<typeof ElInputNumber>);
 </script>
