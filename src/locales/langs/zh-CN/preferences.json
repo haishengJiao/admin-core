@@ -81,6 +81,11 @@
       "themeToggle": "启用主题切换",
       "languageToggle": "启用语言切换",
       "sidebarToggle": "启用侧边栏切换"
+    },
+    "footer": {
+      "title": "底栏",
+      "enable": "显示底栏",
+      "fixed": "固定在底部"
     }
   },
   "shortcutKeys": {

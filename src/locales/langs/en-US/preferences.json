@@ -81,6 +81,11 @@
       "themeToggle": "Enable Theme Toggle",
       "languageToggle": "Enable Language Toggle",
       "sidebarToggle": "Enable Sidebar Toggle"
+    },
+    "footer": {
+      "title": "Footer",
+      "enable": "Show Footer",
+      "fixed": "Fixed at Bottom"
     }
   },
   "shortcutKeys": {

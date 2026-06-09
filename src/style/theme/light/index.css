@@ -37,6 +37,9 @@
     -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, 'Noto Sans', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-size-base: 16px;
+  --header-height: calc(var(--spacing) * 12.5);
+  --tabbar-height: calc(var(--spacing) * 9.5);
+  --footer-height: calc(var(--spacing) * 8);
 
   color-scheme: light;
 }

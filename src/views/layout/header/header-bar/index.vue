@@ -1,8 +1,7 @@
 <template>
   <header
-    class="bg-header border-border text-text-body flex items-center justify-between border-b px-2 transition-all duration-300"
+    class="bg-header border-border text-text-body flex h-(--header-height) items-center justify-between border-b px-2 transition-all duration-300"
     :class="{ dark: darkHeader && isLight }"
-    style="height: 50px"
   >
     <div>
       <Quick />

@@ -95,6 +95,12 @@ export interface LayoutState {
     /** 是否开启快捷侧边栏切换 */
     sidebarToggle: boolean;
   };
+  footer: {
+    /** 是否显示底栏 */
+    enable: boolean;
+    /** 是否固定在底部 */
+    fixed: boolean;
+  };
 }
 
 export interface GeneralState {

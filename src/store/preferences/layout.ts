@@ -20,6 +20,10 @@ export function createLayoutState() {
       languageToggle: true,
       sidebarToggle: true,
     },
+    footer: {
+      enable: false,
+      fixed: false,
+    },
   });
 
   return layout;

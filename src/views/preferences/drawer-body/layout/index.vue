@@ -24,6 +24,9 @@
         v-model:theme-toggle="layout.widget.themeToggle"
       />
     </Block>
+    <Block :title="$t('preferences.layout.footer.title')">
+      <Footer v-model:enable="layout.footer.enable" v-model:fixed="layout.footer.fixed" />
+    </Block>
   </div>
 </template>
 
@@ -32,6 +35,7 @@ import { storeToRefs } from 'pinia';
 
 import Block from '../Block.vue';
 import Content from './Content.vue';
+import Footer from './Footer.vue';
 import Layout from './Layout.vue';
 import Navigation from './Navigation.vue';
 import Sidebar from './Sidebar.vue';
