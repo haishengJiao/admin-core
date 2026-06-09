@@ -235,9 +235,6 @@ const handleAllReset = () => {
 };
 
 onMounted(() => {
-  const mainScrollbarView = document.querySelector('.main-scrollbar-wrap .el-scrollbar__view') as HTMLElement;
-  mainScrollbarView.style.height = '100%';
-
   handleAllReset();
 });
 </script>

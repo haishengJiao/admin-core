@@ -66,8 +66,8 @@ const viewportHeight = computed(() => {
   return height;
 });
 const isFixedHeight = computed(() => {
-  const { iframeSrc } = route.meta;
-  return !!iframeSrc;
+  const { iframeSrc, selfScroll } = route.meta;
+  return !!iframeSrc || !!selfScroll;
 });
 const mainStyle = computed<CSSProperties>(() => {
   const height = viewportHeight.value;

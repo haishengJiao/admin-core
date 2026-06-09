@@ -32,6 +32,7 @@ const routes: RouteRecordRaw[] = [
           title: $t('menu.themeEditor'),
           icon: '#svg-layout-css',
           activeIcon: '#svg-layout-active-css',
+          selfScroll: true,
         },
       },
       {
