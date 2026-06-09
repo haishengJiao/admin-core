@@ -24,7 +24,7 @@ import { shallowRef, useTemplateRef, inject, computed } from 'vue';
 import type { UseIntersectionObserverOptions } from '@vueuse/core';
 import type { Component } from 'vue';
 
-import { SCROLLBAR_KEY } from '@/types/injection-keys';
+import { SCROLLBAR_KEY } from '@/types';
 
 type Props = {
   loader: () => Promise<{ default: Component }>;

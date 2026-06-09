@@ -34,7 +34,7 @@ import type { ScrollbarInstance } from 'element-plus';
 import type { CSSProperties } from 'vue';
 
 import { usePreferencesStore } from '@/store';
-import { SCROLLBAR_KEY } from '@/types/injection-keys';
+import { SCROLLBAR_KEY } from '@/types';
 
 const route = useRoute();
 const { layout } = storeToRefs(usePreferencesStore());
