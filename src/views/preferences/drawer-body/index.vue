@@ -1,8 +1,8 @@
 <template>
   <div class="h-full">
-    <el-scrollbar>
-      <div class="bg-bg z-10 w-full p-3" :class="{ 'sticky top-0': enableStickyPreferencesNavigationBar }">
-        <el-segmented v-model="segmentedValue" block :options="segmentedOptions" />
+    <el-scrollbar ref="scrollbarRef">
+      <div class="bg-bg z-1 w-full p-3" :class="{ 'sticky top-0': enableStickyPreferencesNavigationBar }">
+        <el-segmented v-model="segmentedValue" block :options="segmentedOptions" @change="handleSegmentedChange" />
       </div>
       <div class="p-3 pt-0">
         <component :is="component" />
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import { markRaw, ref, computed } from 'vue';
+import { markRaw, ref, computed, useTemplateRef } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import Appearance from './appearance/index.vue';
@@ -56,4 +56,9 @@ const segmentedOptions = computed(() => {
 const component = computed(() => {
   return segmentedOptions.value.find(item => item.value === segmentedValue.value)?.component;
 });
+
+const scrollbar = useTemplateRef('scrollbarRef');
+const handleSegmentedChange = () => {
+  scrollbar.value?.setScrollTop(0);
+};
 </script>
