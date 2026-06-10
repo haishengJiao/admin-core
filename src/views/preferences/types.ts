@@ -31,6 +31,11 @@ export type InputNumberItemProps = {
   disabled?: boolean;
 };
 
+export type InputItemProps = {
+  tip?: string;
+  disabled?: boolean;
+};
+
 export type ColorPickerItemProps = {
   tip?: string;
   disabled?: boolean;

@@ -101,6 +101,20 @@ export interface LayoutState {
     /** 是否固定在底部 */
     fixed: boolean;
   };
+  copyright: {
+    /** 是否显示版权 */
+    enable: true;
+    /** 公司名称 */
+    companyName: string;
+    /** 公司主页 */
+    companySiteLink: string;
+    /** 日期 */
+    date: string;
+    /** ICP */
+    icp: string;
+    /** ICP 网站链接 */
+    icpLink: string;
+  };
 }
 
 export interface GeneralState {

@@ -27,6 +27,17 @@
     <Block :title="$t('preferences.layout.footer.title')">
       <Footer v-model:enable="layout.footer.enable" v-model:fixed="layout.footer.fixed" />
     </Block>
+    <Block :title="$t('preferences.layout.copyright.title')">
+      <Copyright
+        v-model:company-name="layout.copyright.companyName"
+        v-model:company-site-link="layout.copyright.companySiteLink"
+        v-model:date="layout.copyright.date"
+        v-model:enable="layout.copyright.enable"
+        v-model:icp="layout.copyright.icp"
+        v-model:icp-link="layout.copyright.icpLink"
+        :disabled="!layout.footer.enable"
+      />
+    </Block>
   </div>
 </template>
 
@@ -35,6 +46,7 @@ import { storeToRefs } from 'pinia';
 
 import Block from '../Block.vue';
 import Content from './Content.vue';
+import Copyright from './Copyright.vue';
 import Footer from './Footer.vue';
 import Layout from './Layout.vue';
 import Navigation from './Navigation.vue';

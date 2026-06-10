@@ -86,6 +86,15 @@
       "title": "底栏",
       "enable": "显示底栏",
       "fixed": "固定在底部"
+    },
+    "copyright": {
+      "title": "版权",
+      "enable": "启用版权",
+      "companyName": "公司名",
+      "companySiteLink": "公司主页",
+      "date": "日期",
+      "icp": "ICP 备案号",
+      "icpLink": "ICP 网站链接"
     }
   },
   "shortcutKeys": {
