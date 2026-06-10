@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import './tailwind/index.css';
 @import './animate/index.css';
+@import './transition/index.css';
 @import './theme/index.css';
 @import './nprogress/index.css';
 

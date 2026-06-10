@@ -106,7 +106,8 @@
     "dynamicTitle": "Dynamic Title",
     "animation": {
       "title": "Animation",
-      "progress": "Page Progress"
+      "progress": "Page Progress",
+      "transition": "Page Transition"
     }
   }
 }

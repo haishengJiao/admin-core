@@ -117,6 +117,8 @@ export interface LayoutState {
   };
 }
 
+export type PageTransitionType = 'fade' | 'fade-down' | 'fade-slide' | 'fade-up';
+
 export interface GeneralState {
   general: {
     /** 语言 */
@@ -127,6 +129,10 @@ export interface GeneralState {
   animation: {
     /** 是否开启页面切换进度条 */
     progress: boolean;
+    /** 是否开启页面切换动画 */
+    enable: boolean;
+    /** 页面切换动画 */
+    name: PageTransitionType;
   };
 }
 

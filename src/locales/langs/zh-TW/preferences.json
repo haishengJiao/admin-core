@@ -106,7 +106,8 @@
     "dynamicTitle": "動態標題",
     "animation": {
       "title": "動畫",
-      "progress": "頁面切換進度條"
+      "progress": "頁面切換進度條",
+      "transition": "頁面切換動畫"
     }
   }
 }

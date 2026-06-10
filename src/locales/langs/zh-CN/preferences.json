@@ -106,7 +106,8 @@
     "dynamicTitle": "动态标题",
     "animation": {
       "title": "动画",
-      "progress": "页面切换进度条"
+      "progress": "页面切换进度条",
+      "transition": "页面切换动画"
     }
   }
 }

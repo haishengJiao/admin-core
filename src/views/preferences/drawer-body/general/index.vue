@@ -4,7 +4,11 @@
       <General v-model:dynamic-title="general.general.dynamicTitle" v-model:locale="general.general.locale" />
     </Block>
     <Block :title="$t('preferences.general.animation.title')">
-      <Animation v-model:animation="general.animation.progress" />
+      <Animation
+        v-model:enable="general.animation.enable"
+        v-model:name="general.animation.name"
+        v-model:progress="general.animation.progress"
+      />
     </Block>
   </div>
 </template>

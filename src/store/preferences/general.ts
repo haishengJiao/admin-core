@@ -10,6 +10,8 @@ export function createGeneralState() {
     },
     animation: {
       progress: true,
+      enable: true,
+      name: 'fade-slide',
     },
   });
 
