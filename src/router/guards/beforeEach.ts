@@ -6,12 +6,14 @@ import type { Router } from 'vue-router';
 
 import { usePreferencesStore } from '@/store';
 
-export default (router: Router) => {
-  router.beforeEach((_to, from) => {
+export default (router: Router, loadedPaths: Set<string>) => {
+  router.beforeEach((to, from) => {
     const { general } = usePreferencesStore();
     const { progress } = general.animation;
 
-    if (progress) {
+    to.meta.loaded = loadedPaths.has(to.path);
+
+    if (!to.meta.loaded && progress) {
       startProgress();
     }
 

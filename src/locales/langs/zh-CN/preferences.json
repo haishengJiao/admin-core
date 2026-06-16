@@ -107,6 +107,7 @@
     "animation": {
       "title": "动画",
       "progress": "页面切换进度条",
+      "loading": "页面切换 Loading",
       "transition": "页面切换动画"
     }
   }

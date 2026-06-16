@@ -129,6 +129,8 @@ export interface GeneralState {
   animation: {
     /** 是否开启页面切换进度条 */
     progress: boolean;
+    /** 是否开启页面切换 Loading */
+    loading: boolean;
     /** 是否开启页面切换动画 */
     enable: boolean;
     /** 页面切换动画 */

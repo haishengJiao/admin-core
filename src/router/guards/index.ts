@@ -4,6 +4,8 @@ import beforeEach from './beforeEach';
 import type { Router } from 'vue-router';
 
 export default (router: Router) => {
-  beforeEach(router);
-  afterEach(router);
+  const loadedPaths = new Set<string>();
+
+  beforeEach(router, loadedPaths);
+  afterEach(router, loadedPaths);
 };

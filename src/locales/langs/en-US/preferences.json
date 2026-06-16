@@ -107,6 +107,7 @@
     "animation": {
       "title": "Animation",
       "progress": "Page Progress",
+      "loading": "Page Loading",
       "transition": "Page Transition"
     }
   }

@@ -107,6 +107,7 @@
     "animation": {
       "title": "動畫",
       "progress": "頁面切換進度條",
+      "loading": "頁面切換載入中",
       "transition": "頁面切換動畫"
     }
   }

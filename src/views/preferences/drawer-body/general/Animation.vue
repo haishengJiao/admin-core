@@ -1,5 +1,6 @@
 <template>
   <SwitchItem v-model="progress">{{ $t('preferences.general.animation.progress') }}</SwitchItem>
+  <SwitchItem v-model="loading">{{ $t('preferences.general.animation.loading') }}</SwitchItem>
   <SwitchItem v-model="enable">{{ $t('preferences.general.animation.transition') }}</SwitchItem>
   <div v-if="enable" class="mt-3 mb-2 flex justify-between px-2">
     <div v-for="item in transitionPreset" :key="item">
@@ -16,6 +17,7 @@ import SwitchItem from '../SwitchItem.vue';
 import type { PageTransitionType } from '@/store';
 
 const progress = defineModel<boolean>('progress');
+const loading = defineModel<boolean>('loading');
 const enable = defineModel<boolean>('enable');
 const name = defineModel<PageTransitionType>('name');
 

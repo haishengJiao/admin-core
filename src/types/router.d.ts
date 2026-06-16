@@ -37,10 +37,14 @@ declare module 'vue-router' {
      * 新窗口打开页面
      */
     openInNewWindow?: boolean;
-
     /**
      * 是否固定内容区域高度，滚动由内部组件处理
      */
     selfScroll?: boolean;
+
+    /**
+     * 路由是否已经加载过
+     */
+    loaded?: boolean;
   }
 }

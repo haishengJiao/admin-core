@@ -1,9 +1,12 @@
 <template>
-  <div v-if="isAllowed" v-loading="isLoading" class="relative size-full">
-    <iframe ref="iframeRef" class="size-full" frameborder="0" :src="src" @load="handleLoad"></iframe>
-  </div>
-  <div v-else class="flex size-full items-center justify-center">
-    <el-result icon="error" title="禁止加载" />
+  <div class="relative size-full">
+    <div v-if="isAllowed" class="relative size-full">
+      <iframe ref="iframeRef" class="size-full" frameborder="0" :src="src" @load="handleLoad"></iframe>
+    </div>
+    <div v-else class="flex size-full items-center justify-center">
+      <el-result icon="error" title="禁止加载" />
+    </div>
+    <Spinner :spinning="spinning" />
   </div>
 </template>
 
@@ -35,7 +38,7 @@ useMutationObserver(
         const newSrc = (mutation.target as HTMLIFrameElement).src;
         const isNewSrcAllowed = isUrlInWhitelist(newSrc);
         if (isNewSrcAllowed) {
-          isLoading.value = true;
+          spinning.value = true;
           isAllowed.value = true;
         } else {
           isAllowed.value = false;
@@ -50,8 +53,8 @@ useMutationObserver(
   },
 );
 
-const isLoading = ref(true);
+const spinning = ref(true);
 const handleLoad = () => {
-  isLoading.value = false;
+  spinning.value = false;
 };
 </script>

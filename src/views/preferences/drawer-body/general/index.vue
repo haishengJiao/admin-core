@@ -6,6 +6,7 @@
     <Block :title="$t('preferences.general.animation.title')">
       <Animation
         v-model:enable="general.animation.enable"
+        v-model:loading="general.animation.loading"
         v-model:name="general.animation.name"
         v-model:progress="general.animation.progress"
       />
