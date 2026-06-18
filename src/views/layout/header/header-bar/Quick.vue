@@ -6,7 +6,7 @@
 import { storeToRefs } from 'pinia';
 
 import { usePreferencesStore } from '@/store';
-import SidebarToggle from '@/views/preferences/drawer-body/layout/SidebarToggle.vue';
+import { SidebarToggle } from '@/views/preferences/widgets';
 
 interface Props {
   showSidebarToggle?: boolean;

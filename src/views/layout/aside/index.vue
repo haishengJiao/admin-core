@@ -33,11 +33,11 @@ import { computed, ref, useTemplateRef } from 'vue';
 
 import Menu from './menu/index.vue';
 import MenuLogo from './menu-logo/index.vue';
-import { SidebarCollapse, SidebarResizer } from './widgets';
 
 import type { ScrollbarInstance } from 'element-plus';
 
 import { usePreferencesStore } from '@/store';
+import { SidebarCollapse, SidebarResizer } from '@/views/preferences/widgets';
 
 const { appearance, isLight, layout } = storeToRefs(usePreferencesStore());
 
