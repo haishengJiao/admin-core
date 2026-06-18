@@ -1,17 +1,18 @@
 <template>
-  <div>
-    <SidebarToggle v-if="sidebarToggle" v-model="layout.sidebar.enable" />
-  </div>
+  <SidebarToggle v-if="showSidebarToggle" v-model="layout.sidebar.enable" />
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { computed } from 'vue';
 
 import { usePreferencesStore } from '@/store';
 import SidebarToggle from '@/views/preferences/drawer-body/layout/SidebarToggle.vue';
 
-const { layout } = storeToRefs(usePreferencesStore());
+interface Props {
+  showSidebarToggle?: boolean;
+}
 
-const sidebarToggle = computed(() => layout.value.widget.sidebarToggle);
+const { showSidebarToggle = false } = defineProps<Props>();
+
+const { layout } = storeToRefs(usePreferencesStore());
 </script>
