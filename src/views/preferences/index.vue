@@ -1,10 +1,12 @@
 <template>
-  <div
-    class="text-text-body/80 hover:bg-fill hover:text-text-heading flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-all duration-150 ease-in-out hover:animate-[shrink_0.3s_ease-in-out]"
-    @click="handleOpenDrawer"
-  >
-    <CoreSvg name="preferences-set" />
-  </div>
+  <slot name="trigger" :open="handleOpenDrawer">
+    <div
+      class="text-text-body/80 hover:bg-fill hover:text-text-heading flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-all duration-150 ease-in-out hover:animate-[shrink_0.3s_ease-in-out]"
+      @click="handleOpenDrawer"
+    >
+      <CoreSvg name="preferences-set" />
+    </div>
+  </slot>
 
   <el-drawer v-model="drawerVisible" append-to-body class="preferences-drawer w-130! max-w-sm" :show-close="false">
     <template #header>

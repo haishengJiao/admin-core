@@ -68,6 +68,8 @@ export type LayoutType =
 
 export type ContentType = 'wide' | 'compact';
 
+export type PreferencesButtonPositionType = 'auto' | 'header' | 'fixed' | 'user-dropdown';
+
 export interface LayoutState {
   /** 布局 */
   layout: LayoutType;
@@ -94,6 +96,8 @@ export interface LayoutState {
     languageToggle: boolean;
     /** 是否开启快捷侧边栏切换 */
     sidebarToggle: boolean;
+    /** 偏好设置按钮位置 */
+    preferencesButtonPosition: PreferencesButtonPositionType;
   };
   footer: {
     /** 是否显示底栏 */

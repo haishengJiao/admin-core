@@ -45,6 +45,23 @@
           <div>问题 & 帮助</div>
         </div>
       </div>
+
+      <template v-if="userDropdown">
+        <div class="bg-border my-1 h-px"></div>
+        <div>
+          <Preferences>
+            <template #trigger="{ open }">
+              <div
+                class="hover:bg-fill hover:text-text-heading text-text-body mx-1 flex h-10 cursor-pointer items-center gap-2 rounded-sm px-2 py-1 text-sm select-none"
+                @click="open"
+              >
+                <CoreSvg class="mr-2 size-4!" name="preferences-set" />
+                <div>{{ $t('preferences.title') }}</div>
+              </div>
+            </template>
+          </Preferences>
+        </div>
+      </template>
     </div>
   </el-popover>
 </template>
@@ -53,6 +70,9 @@
 import { storeToRefs } from 'pinia';
 
 import { useUserStore } from '@/store';
+import { usePreferencesPosition } from '@/views/preferences/composables';
+import Preferences from '@/views/preferences/index.vue';
 
 const { user } = storeToRefs(useUserStore());
+const { userDropdown } = usePreferencesPosition();
 </script>

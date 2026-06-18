@@ -1,5 +1,5 @@
 <template>
-  <PreferencesSet />
+  <Preferences v-if="header" />
   <ThemeToggle v-if="showThemeToggle" v-model="appearance.theme.mode" :is-dark="isDark" />
   <LanguagePopover v-if="showLanguageToggle" v-model="general.general.locale" />
 </template>
@@ -8,7 +8,8 @@
 import { storeToRefs } from 'pinia';
 
 import { usePreferencesStore } from '@/store';
-import PreferencesSet from '@/views/preferences/index.vue';
+import { usePreferencesPosition } from '@/views/preferences/composables';
+import Preferences from '@/views/preferences/index.vue';
 import { ThemeToggle, LanguagePopover } from '@/views/preferences/widgets';
 
 interface Props {
@@ -19,4 +20,5 @@ interface Props {
 const { showThemeToggle = false, showLanguageToggle = false } = defineProps<Props>();
 
 const { appearance, isDark, general } = storeToRefs(usePreferencesStore());
+const { header } = usePreferencesPosition();
 </script>

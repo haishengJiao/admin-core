@@ -20,8 +20,10 @@
     <Block :title="$t('preferences.layout.widget.title')">
       <Widget
         v-model:language-toggle="layout.widget.languageToggle"
+        v-model:preferences-button-position="layout.widget.preferencesButtonPosition"
         v-model:sidebar-toggle="layout.widget.sidebarToggle"
         v-model:theme-toggle="layout.widget.themeToggle"
+        :layout="layout.layout"
       />
     </Block>
     <Block :title="$t('preferences.layout.footer.title')">

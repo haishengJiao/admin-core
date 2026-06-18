@@ -80,7 +80,14 @@
       "title": "Widget",
       "themeToggle": "Enable Theme Toggle",
       "languageToggle": "Enable Language Toggle",
-      "sidebarToggle": "Enable Sidebar Toggle"
+      "sidebarToggle": "Enable Sidebar Toggle",
+      "position": {
+        "title": "Preferences Postion",
+        "auto": "Auto",
+        "header": "Header",
+        "fixed": "Fixed",
+        "userDropdown": "User Dropdown"
+      }
     },
     "footer": {
       "title": "Footer",

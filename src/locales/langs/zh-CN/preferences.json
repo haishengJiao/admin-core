@@ -80,7 +80,14 @@
       "title": "小部件",
       "themeToggle": "启用主题切换",
       "languageToggle": "启用语言切换",
-      "sidebarToggle": "启用侧边栏切换"
+      "sidebarToggle": "启用侧边栏切换",
+      "position": {
+        "title": "偏好设置位置",
+        "auto": "自动",
+        "header": "顶栏",
+        "fixed": "固定",
+        "userDropdown": "用户下拉窗"
+      }
     },
     "footer": {
       "title": "底栏",

@@ -80,7 +80,14 @@
       "title": "小工具",
       "themeToggle": "啟用主題切換",
       "languageToggle": "啟用語言切換",
-      "sidebarToggle": "啟用側邊欄切換"
+      "sidebarToggle": "啟用側邊欄切換",
+      "position": {
+        "title": "偏好設定位置",
+        "auto": "自動",
+        "header": "頂欄",
+        "fixed": "固定",
+        "userDropdown": "使用者下拉視窗"
+      }
     },
     "footer": {
       "title": "底欄",

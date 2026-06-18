@@ -17,6 +17,14 @@
         <LayoutFooter v-if="showFooter" :class="footerClass" />
       </el-scrollbar>
     </div>
+
+    <Preferences v-if="fixed">
+      <template #trigger="{ open }">
+        <el-button class="fixed top-[50%] right-0 h-10! rounded-r-none! p-2.25!" type="primary" @click="open">
+          <CoreSvg class="size-5!" name="preferences-set" />
+        </el-button>
+      </template>
+    </Preferences>
   </div>
 </template>
 
@@ -35,6 +43,10 @@ import type { CSSProperties } from 'vue';
 
 import { usePreferencesStore } from '@/store';
 import { SCROLLBAR_KEY } from '@/types';
+import { usePreferencesPosition } from '@/views/preferences/composables';
+import Preferences from '@/views/preferences/index.vue';
+
+const { fixed } = usePreferencesPosition();
 
 const route = useRoute();
 const { layout } = storeToRefs(usePreferencesStore());

@@ -1,4 +1,4 @@
-import { reactive } from 'vue';
+import { reactive, watch } from 'vue';
 
 import type { LayoutState } from './types';
 
@@ -19,6 +19,7 @@ export function createLayoutState() {
       themeToggle: true,
       languageToggle: true,
       sidebarToggle: true,
+      preferencesButtonPosition: 'auto',
     },
     footer: {
       enable: false,
@@ -33,6 +34,16 @@ export function createLayoutState() {
       icpLink: '',
     },
   });
+
+  watch(
+    () => layout.layout,
+    newVal => {
+      if (newVal === 'full-content') {
+        layout.widget.preferencesButtonPosition = 'auto';
+      }
+    },
+    { immediate: true },
+  );
 
   return layout;
 }
