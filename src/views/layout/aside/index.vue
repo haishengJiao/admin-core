@@ -23,7 +23,7 @@
       <SidebarCollapse v-model="layout.sidebar.collapsed" />
     </div>
 
-    <SidebarResizer v-if="sidebarDraggable" v-model="layout.sidebar.width" />
+    <SidebarResizer v-if="sidebarDraggable && !collapsed" v-model="layout.sidebar.width" />
   </aside>
 </template>
 
@@ -43,6 +43,7 @@ const { appearance, isLight, layout } = storeToRefs(usePreferencesStore());
 
 const darkSidebar = computed(() => appearance.value.theme.darkSidebar);
 const sidebarDraggable = computed(() => layout.value.sidebar.draggable);
+const collapsed = computed(() => layout.value.sidebar.collapsed);
 
 const scrollbar = useTemplateRef('scrollbarRef');
 const isAtTop = ref(true);
