@@ -80,6 +80,10 @@
       "title": "导航菜单",
       "accordion": "侧边导航菜单手风琴模式"
     },
+    "tabbar": {
+      "title": "标签栏",
+      "enable": "启用标签栏"
+    },
     "widget": {
       "title": "小部件",
       "themeToggle": "启用主题切换",

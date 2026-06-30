@@ -4,7 +4,7 @@
       <LayoutAside v-if="showSidebar" :style="{ width: sidebarWidth }" />
     </Transition>
     <div class="flex flex-1 flex-col overflow-hidden">
-      <LayoutHeader :show-header="showHeader" />
+      <LayoutHeader :show-header="showHeader" :show-tab-bar="showTabBar" />
       <el-scrollbar
         ref="mainScrollbar"
         height="100%"
@@ -59,7 +59,7 @@ const viewStyle: CSSProperties = {
 };
 const viewportHeight = computed(() => {
   let height = '100vh';
-  const subtractItems: string[] = ['var(--tabbar-height)'];
+  const subtractItems: string[] = [];
 
   if (showFooter.value || (isFixedHeight.value && showFooter.value)) {
     subtractItems.push('var(--footer-height)');
@@ -67,6 +67,10 @@ const viewportHeight = computed(() => {
 
   if (showHeader.value) {
     subtractItems.push('var(--header-height)');
+  }
+
+  if (showTabBar.value) {
+    subtractItems.push('var(--tabbar-height)');
   }
 
   if (subtractItems.length > 0) {
@@ -123,6 +127,7 @@ watch(
 );
 
 const showHeader = computed(() => layout.value.header.enable);
+const showTabBar = computed(() => layout.value.tabbar.enable);
 
 const showFooter = computed(() => layout.value.footer.enable);
 const fixedFooter = computed(() => layout.value.footer.fixed);

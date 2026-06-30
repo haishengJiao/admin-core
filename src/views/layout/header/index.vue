@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <HeaderBar v-if="showHeader" />
-    <TabBar />
+    <TabBar v-if="showTabBar" />
   </div>
 </template>
 
@@ -11,7 +11,8 @@ import TabBar from './tab-bar/index.vue';
 
 interface Props {
   showHeader?: boolean;
+  showTabBar?: boolean;
 }
 
-const { showHeader = true } = defineProps<Props>();
+const { showHeader = true, showTabBar = true } = defineProps<Props>();
 </script>

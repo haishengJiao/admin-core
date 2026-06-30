@@ -35,13 +35,18 @@ const transitionEnable = computed(() => general.value.animation.enable);
 const transitionName = computed(() => general.value.animation.name);
 const enableLoading = computed(() => general.value.animation.loading);
 const showHeader = computed(() => layout.value.header.enable);
+const showTabBar = computed(() => layout.value.tabbar.enable);
 
 const spinnerHeight = computed(() => {
   let height = '100vh';
-  const subtractItems: string[] = ['var(--tabbar-height)'];
+  const subtractItems: string[] = [];
 
   if (showHeader.value) {
     subtractItems.push('var(--header-height)');
+  }
+
+  if (showTabBar.value) {
+    subtractItems.push('var(--tabbar-height)');
   }
 
   if (subtractItems.length > 0) {

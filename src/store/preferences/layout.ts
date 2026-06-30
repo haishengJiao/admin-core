@@ -18,6 +18,9 @@ export function createLayoutState() {
     navigation: {
       accordion: true,
     },
+    tabbar: {
+      enable: true,
+    },
     widget: {
       themeToggle: true,
       languageToggle: true,

@@ -51,10 +51,12 @@ export function useDraggableTrigger(target: DraggableTarget, option?: UseDraggab
     }
 
     if (layout.value.header.enable) {
-      topOffset = headerHeight;
+      topOffset += headerHeight;
     }
 
-    topOffset += tabBarHeight;
+    if (layout.value.tabbar.enable) {
+      topOffset += tabBarHeight;
+    }
 
     if (layout.value.layout === 'full-content') {
       topOffset = 0;
@@ -73,6 +75,7 @@ export function useDraggableTrigger(target: DraggableTarget, option?: UseDraggab
       () => layout.value.layout,
       () => layout.value.footer.enable,
       () => layout.value.header.enable,
+      () => layout.value.tabbar.enable,
     ],
     () => calcBoundary(),
     { flush: 'post' },

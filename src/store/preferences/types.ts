@@ -93,6 +93,10 @@ export interface LayoutState {
     /** 是否开启侧边导航菜单手风琴模式 */
     accordion: boolean;
   };
+  tabbar: {
+    /** 是否启用标签栏 */
+    enable: boolean;
+  };
   widget: {
     /** 是否开启快捷主题切换 */
     themeToggle: boolean;

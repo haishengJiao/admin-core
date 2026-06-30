@@ -80,6 +80,10 @@
       "title": "Navigation Menu",
       "accordion": "Sidebar Accordion Menu"
     },
+    "tabbar": {
+      "title": "Tabbar",
+      "enable": "Enable Tab Bar"
+    },
     "widget": {
       "title": "Widget",
       "themeToggle": "Enable Theme Toggle",

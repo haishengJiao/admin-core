@@ -20,6 +20,9 @@
     <Block :title="$t('preferences.layout.navigationMenu.title')">
       <Navigation v-model:accordion="layout.navigation.accordion" />
     </Block>
+    <Block :title="$t('preferences.layout.tabbar.title')">
+      <TabBar v-model:enable="layout.tabbar.enable" />
+    </Block>
     <Block :title="$t('preferences.layout.widget.title')">
       <Widget
         v-model:language-toggle="layout.widget.languageToggle"
@@ -58,6 +61,7 @@ import Header from './Header.vue';
 import Layout from './Layout.vue';
 import Navigation from './Navigation.vue';
 import Sidebar from './Sidebar.vue';
+import TabBar from './TabBar.vue';
 import Widget from './Widget.vue';
 
 import { usePreferencesStore } from '@/store';
