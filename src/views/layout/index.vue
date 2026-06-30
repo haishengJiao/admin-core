@@ -3,17 +3,25 @@
     <Transition name="sidebar-fade">
       <LayoutAside v-if="showSidebar" :style="{ width: sidebarWidth }" />
     </Transition>
+
     <div class="flex flex-1 flex-col overflow-hidden">
-      <LayoutHeader :show-header="showHeader" :show-tab-bar="showTabBar" />
       <el-scrollbar
         ref="mainScrollbar"
+        class="[&_.el-scrollbar\_\_bar]:z-10!"
         height="100%"
         :view-style="viewStyle"
         wrap-class="main-scrollbar-wrap"
         @end-reached="handleEndReached"
         @scroll="handleScroll"
       >
+        <div class="sticky top-0 z-2 w-full">
+          <LayoutHeader v-if="showHeader" />
+
+          <LayoutTabBar v-if="showTabBar" />
+        </div>
+
         <LayoutMain :style="mainStyle" />
+
         <LayoutFooter v-if="showFooter" :class="footerClass" />
       </el-scrollbar>
     </div>
@@ -31,6 +39,7 @@ import LayoutAside from './aside/index.vue';
 import LayoutFooter from './footer/index.vue';
 import LayoutHeader from './header/index.vue';
 import LayoutMain from './main/index.vue';
+import LayoutTabBar from './tabbar/index.vue';
 
 import type { ScrollbarInstance } from 'element-plus';
 import type { CSSProperties } from 'vue';
