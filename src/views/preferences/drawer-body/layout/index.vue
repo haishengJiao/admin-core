@@ -14,6 +14,9 @@
         v-model:width="layout.sidebar.width"
       />
     </Block>
+    <Block :title="$t('preferences.layout.header.title')">
+      <Header v-model:enable="layout.header.enable" />
+    </Block>
     <Block :title="$t('preferences.layout.navigationMenu.title')">
       <Navigation v-model:accordion="layout.navigation.accordion" />
     </Block>
@@ -24,6 +27,7 @@
         v-model:sidebar-toggle="layout.widget.sidebarToggle"
         v-model:theme-toggle="layout.widget.themeToggle"
         :layout="layout.layout"
+        :show-header="layout.header.enable"
       />
     </Block>
     <Block :title="$t('preferences.layout.footer.title')">
@@ -50,6 +54,7 @@ import Block from '../Block.vue';
 import Content from './Content.vue';
 import Copyright from './Copyright.vue';
 import Footer from './Footer.vue';
+import Header from './Header.vue';
 import Layout from './Layout.vue';
 import Navigation from './Navigation.vue';
 import Sidebar from './Sidebar.vue';

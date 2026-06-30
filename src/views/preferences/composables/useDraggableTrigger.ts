@@ -50,7 +50,11 @@ export function useDraggableTrigger(target: DraggableTarget, option?: UseDraggab
       bottomOffset = footerHeight;
     }
 
-    topOffset = headerHeight + tabBarHeight;
+    if (layout.value.header.enable) {
+      topOffset = headerHeight;
+    }
+
+    topOffset += tabBarHeight;
 
     if (layout.value.layout === 'full-content') {
       topOffset = 0;
@@ -64,7 +68,12 @@ export function useDraggableTrigger(target: DraggableTarget, option?: UseDraggab
   };
 
   watch(
-    [() => appearance.value.fontSize, () => layout.value.layout, () => layout.value.footer.enable],
+    [
+      () => appearance.value.fontSize,
+      () => layout.value.layout,
+      () => layout.value.footer.enable,
+      () => layout.value.header.enable,
+    ],
     () => calcBoundary(),
     { flush: 'post' },
   );

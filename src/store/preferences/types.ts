@@ -85,6 +85,10 @@ export interface LayoutState {
     /** 侧边栏宽度 */
     width: number;
   };
+  header: {
+    /** 是否显示顶栏 */
+    enable: boolean;
+  };
   navigation: {
     /** 是否开启侧边导航菜单手风琴模式 */
     accordion: boolean;

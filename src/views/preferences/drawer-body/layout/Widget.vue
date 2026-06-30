@@ -18,6 +18,7 @@ import type { LayoutType, PreferencesButtonPositionType } from '@/store';
 
 interface Props {
   layout: LayoutType;
+  showHeader: boolean;
 }
 
 const props = defineProps<Props>();
@@ -29,13 +30,15 @@ const sidebarToggle = defineModel<boolean>('sidebarToggle');
 const preferencesButtonPosition = defineModel<PreferencesButtonPositionType>('preferencesButtonPosition');
 
 const positionItems = computed(() => {
-  const isFullContent = props.layout === 'full-content';
+  const { layout, showHeader } = props;
+  const isFullContent = layout === 'full-content';
+  const disabled = isFullContent || !showHeader;
 
   return [
     { label: t('preferences.layout.widget.position.auto'), value: 'auto' },
-    { label: t('preferences.layout.widget.position.header'), value: 'header', disabled: isFullContent },
+    { label: t('preferences.layout.widget.position.header'), value: 'header', disabled },
     { label: t('preferences.layout.widget.position.fixed'), value: 'fixed' },
-    { label: t('preferences.layout.widget.position.userDropdown'), value: 'user-dropdown', disabled: isFullContent },
+    { label: t('preferences.layout.widget.position.userDropdown'), value: 'user-dropdown', disabled },
   ];
 });
 </script>

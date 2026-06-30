@@ -72,6 +72,10 @@
       "collapsed": "折叠菜单",
       "width": "宽度"
     },
+    "header": {
+      "title": "顶栏",
+      "enable": "显示顶栏"
+    },
     "navigationMenu": {
       "title": "导航菜单",
       "accordion": "侧边导航菜单手风琴模式"

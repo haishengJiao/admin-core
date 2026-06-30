@@ -1,7 +1,7 @@
 <template>
   <div class="h-full">
-    <el-scrollbar ref="scrollbarRef">
-      <div class="bg-bg z-1 w-full p-3" :class="{ 'sticky top-0': enableStickyPreferencesNavigationBar }">
+    <el-scrollbar ref="scrollbarRef" class="[&_.el-scrollbar\_\_bar]:z-2!">
+      <div class="bg-bg z-2 w-full p-3" :class="{ 'sticky top-0': enableStickyPreferencesNavigationBar }">
         <el-segmented v-model="segmentedValue" block :options="segmentedOptions" @change="handleSegmentedChange" />
       </div>
       <div class="p-3 pt-0">

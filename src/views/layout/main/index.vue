@@ -29,15 +29,20 @@ import { usePreferencesStore } from '@/store';
 const route = useRoute();
 const { spinning } = useMainSpinner();
 
-const { general } = storeToRefs(usePreferencesStore());
+const { general, layout } = storeToRefs(usePreferencesStore());
 
 const transitionEnable = computed(() => general.value.animation.enable);
 const transitionName = computed(() => general.value.animation.name);
 const enableLoading = computed(() => general.value.animation.loading);
+const showHeader = computed(() => layout.value.header.enable);
 
 const spinnerHeight = computed(() => {
   let height = '100vh';
-  const subtractItems: string[] = ['var(--header-height)', 'var(--tabbar-height)'];
+  const subtractItems: string[] = ['var(--tabbar-height)'];
+
+  if (showHeader.value) {
+    subtractItems.push('var(--header-height)');
+  }
 
   if (subtractItems.length > 0) {
     height = `calc(100vh - ${subtractItems.join(' - ')})`;

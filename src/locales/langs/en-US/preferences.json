@@ -72,6 +72,10 @@
       "collapsed": "Collpase Menu",
       "width": "Width"
     },
+    "header": {
+      "title": "Header",
+      "enable": "Show Header"
+    },
     "navigationMenu": {
       "title": "Navigation Menu",
       "accordion": "Sidebar Accordion Menu"

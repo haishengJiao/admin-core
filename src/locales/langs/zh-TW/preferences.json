@@ -72,6 +72,10 @@
       "collapsed": "折疊選單",
       "width": "寬度"
     },
+    "header": {
+      "title": "頂欄",
+      "enable": "顯示頂欄"
+    },
     "navigationMenu": {
       "title": "導航選單",
       "accordion": "側邊導航選單手風琴模式"

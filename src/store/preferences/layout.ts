@@ -12,6 +12,9 @@ export function createLayoutState() {
       collapsed: false,
       width: 226,
     },
+    header: {
+      enable: true,
+    },
     navigation: {
       accordion: true,
     },
@@ -40,6 +43,18 @@ export function createLayoutState() {
     newVal => {
       if (newVal === 'full-content') {
         layout.widget.preferencesButtonPosition = 'auto';
+      }
+    },
+    { immediate: true },
+  );
+
+  watch(
+    () => layout.header.enable,
+    newVal => {
+      if (!newVal) {
+        const { preferencesButtonPosition } = layout.widget;
+        if (preferencesButtonPosition === 'header' || preferencesButtonPosition === 'user-dropdown')
+          layout.widget.preferencesButtonPosition = 'auto';
       }
     },
     { immediate: true },
