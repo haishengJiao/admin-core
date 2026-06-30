@@ -1,44 +1,38 @@
 import { storeToRefs } from 'pinia';
-import { ref, watch, readonly } from 'vue';
+import { readonly, computed } from 'vue';
 
 import { usePreferencesStore } from '@/store';
 
 export function usePreferencesPosition() {
   const { layout } = storeToRefs(usePreferencesStore());
 
-  const header = ref(false);
-  const fixed = ref(false);
-  const userDropdown = ref(false);
+  const currentPosition = computed(() => {
+    const position = layout.value.widget.preferencesButtonPosition;
+    const headerEnabled = layout.value.header.enable;
+    const isFullContent = layout.value.layout === 'full-content';
 
-  watch(
-    [() => layout.value.layout, () => layout.value.widget.preferencesButtonPosition],
-    () => {
-      header.value = false;
-      fixed.value = false;
-      userDropdown.value = false;
+    if (isFullContent) {
+      return 'fixed';
+    }
 
-      const position = layout.value.widget.preferencesButtonPosition;
+    if (!headerEnabled) {
+      return 'fixed';
+    }
 
-      if (position === 'header') {
-        header.value = true;
-        return;
-      }
-      if (position === 'fixed') {
-        fixed.value = true;
-        return;
-      }
-      if (position === 'user-dropdown') {
-        userDropdown.value = true;
-        return;
-      }
+    if (position === 'header' || position === 'user-dropdown') {
+      return position;
+    }
 
-      if (position === 'auto') {
-        fixed.value = layout.value.layout === 'full-content';
-        header.value = layout.value.layout !== 'full-content';
-      }
-    },
-    { immediate: true },
-  );
+    if (position === 'auto') {
+      return headerEnabled ? 'header' : 'fixed';
+    }
+
+    return 'fixed';
+  });
+
+  const header = computed(() => currentPosition.value === 'header');
+  const fixed = computed(() => currentPosition.value === 'fixed');
+  const userDropdown = computed(() => currentPosition.value === 'user-dropdown');
 
   return { header: readonly(header), fixed: readonly(fixed), userDropdown: readonly(userDropdown) };
 }
