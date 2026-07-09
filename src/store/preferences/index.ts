@@ -5,7 +5,7 @@ import { ref, toRaw, watchEffect } from 'vue';
 import { createAppState } from './app';
 import { createAppearanceComputed, createAppearanceState } from './appearance';
 import { createGeneralState } from './general';
-import { createLayoutState } from './layout';
+import { createLayoutComputed, createLayoutState } from './layout';
 
 import { STORAGE_KEYS } from '@/utils';
 
@@ -18,6 +18,7 @@ export const usePreferencesStore = defineStore(
     const app = createAppState();
 
     const { effectiveTheme, isDark, isLight } = createAppearanceComputed(appearance);
+    const { isFullContent } = createLayoutComputed(layout);
 
     const originSnapshot = cloneDeep(toRaw({ appearance, general, layout, app }));
     function $reset() {
@@ -33,7 +34,7 @@ export const usePreferencesStore = defineStore(
       isModified.value = !isEqual(current, originSnapshot);
     });
 
-    return { appearance, general, layout, app, effectiveTheme, isDark, isLight, isModified, $reset };
+    return { appearance, general, layout, app, effectiveTheme, isDark, isLight, isFullContent, isModified, $reset };
   },
   {
     persist: { key: STORAGE_KEYS.PREFERENCES },

@@ -50,10 +50,10 @@ import { usePreferencesPosition } from '@/views/preferences/composables';
 import { FixedPreferencesButton } from '@/views/preferences/widgets';
 
 const route = useRoute();
-const { layout } = storeToRefs(usePreferencesStore());
+const { layout, isFullContent } = storeToRefs(usePreferencesStore());
 const { fixed } = usePreferencesPosition();
 
-const showSidebar = computed(() => layout.value.sidebar.enable);
+const showSidebar = computed(() => layout.value.sidebar.enable && !isFullContent.value);
 const sidebarWidth = computed(() => {
   const { width, collapsed } = layout.value.sidebar;
   if (collapsed) {
@@ -135,10 +135,10 @@ watch(
   },
 );
 
-const showHeader = computed(() => layout.value.header.enable);
-const showTabBar = computed(() => layout.value.tabbar.enable);
+const showHeader = computed(() => layout.value.header.enable && !isFullContent.value);
+const showTabBar = computed(() => layout.value.tabbar.enable && !isFullContent.value);
 
-const showFooter = computed(() => layout.value.footer.enable);
+const showFooter = computed(() => layout.value.footer.enable && !isFullContent.value);
 const fixedFooter = computed(() => layout.value.footer.fixed);
 const footerClass = computed(() => {
   return {

@@ -15,12 +15,16 @@
   <SwitchItem
     v-model="darkSidebar"
     class="mt-4"
-    :disabled="modelValue === 'dark'"
+    :disabled="modelValue === 'dark' || disabled"
     :tip="$t('preferences.appearance.darkSidebarTip')"
   >
     {{ $t('preferences.appearance.darkSidebar') }}
   </SwitchItem>
-  <SwitchItem v-model="darkHeader" :disabled="modelValue === 'dark'" :tip="$t('preferences.appearance.darkHeaderTip')">
+  <SwitchItem
+    v-model="darkHeader"
+    :disabled="modelValue === 'dark' || disabled"
+    :tip="$t('preferences.appearance.darkHeaderTip')"
+  >
     {{ $t('preferences.appearance.darkHeader') }}
   </SwitchItem>
 </template>
@@ -34,6 +38,12 @@ import SwitchItem from '../SwitchItem.vue';
 import type { ThemeMode } from '@/store/preferences/types';
 import type { ThemeListItem } from '@/views/preferences/types';
 import type { ComputedRef } from 'vue';
+
+interface Props {
+  disabled?: boolean;
+}
+
+defineProps<Props>();
 
 const modelValue = defineModel<ThemeMode>({ default: 'system' });
 const darkSidebar = defineModel<boolean>('darkSidebar', { default: false });

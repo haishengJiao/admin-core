@@ -5,6 +5,7 @@
         v-model="appearance.theme.mode"
         v-model:dark-header="appearance.theme.darkHeader"
         v-model:dark-sidebar="appearance.theme.darkSidebar"
+        :disabled="isFullContent"
       />
     </Block>
     <Block :title="$t('preferences.appearance.primaryColor.title')">
@@ -44,5 +45,5 @@ import ThemePanel from './ThemePanel.vue';
 
 import { usePreferencesStore } from '@/store';
 
-const { appearance } = storeToRefs(usePreferencesStore());
+const { appearance, isFullContent } = storeToRefs(usePreferencesStore());
 </script>

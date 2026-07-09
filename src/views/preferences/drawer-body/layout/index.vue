@@ -12,16 +12,17 @@
         v-model:draggable="layout.sidebar.draggable"
         v-model:enable="layout.sidebar.enable"
         v-model:width="layout.sidebar.width"
+        :disabled="isFullContent"
       />
     </Block>
     <Block :title="$t('preferences.layout.header.title')">
-      <Header v-model:enable="layout.header.enable" />
+      <Header v-model:enable="layout.header.enable" :disabled="isFullContent" />
     </Block>
     <Block :title="$t('preferences.layout.navigationMenu.title')">
-      <Navigation v-model:accordion="layout.navigation.accordion" />
+      <Navigation v-model:accordion="layout.navigation.accordion" :disabled="isFullContent" />
     </Block>
     <Block :title="$t('preferences.layout.tabbar.title')">
-      <TabBar v-model:enable="layout.tabbar.enable" />
+      <TabBar v-model:enable="layout.tabbar.enable" :disabled="isFullContent" />
     </Block>
     <Block :title="$t('preferences.layout.widget.title')">
       <Widget
@@ -29,7 +30,7 @@
         v-model:preferences-button-position="layout.widget.preferencesButtonPosition"
         v-model:sidebar-toggle="layout.widget.sidebarToggle"
         v-model:theme-toggle="layout.widget.themeToggle"
-        :layout="layout.layout"
+        :is-full-content="isFullContent"
         :show-header="layout.header.enable"
       />
     </Block>
@@ -66,5 +67,5 @@ import Widget from './Widget.vue';
 
 import { usePreferencesStore } from '@/store';
 
-const { layout } = storeToRefs(usePreferencesStore());
+const { layout, isFullContent } = storeToRefs(usePreferencesStore());
 </script>

@@ -27,13 +27,7 @@ export function useDraggableTrigger(target: DraggableTarget, option?: UseDraggab
   const isDragging = ref(false);
   const min = ref(0);
   const max = ref(window.innerHeight);
-  const { appearance, layout } = storeToRefs(usePreferencesStore());
-
-  // 全局字体大小变化 appearance.value.fontSize
-  // 全屏模式 layout.value.layout === 'full-content'
-  // 不显示 layout.value.footer.enable
-  // 尺寸发生变化
-  // 后续可能增加 header 和tabBar 不显示
+  const { appearance, layout, isFullContent } = storeToRefs(usePreferencesStore());
 
   const calcBoundary = async () => {
     await nextTick();
@@ -58,8 +52,9 @@ export function useDraggableTrigger(target: DraggableTarget, option?: UseDraggab
       topOffset += tabBarHeight;
     }
 
-    if (layout.value.layout === 'full-content') {
+    if (isFullContent.value) {
       topOffset = 0;
+      bottomOffset = 0;
     }
 
     min.value = topOffset;

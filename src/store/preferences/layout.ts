@@ -1,4 +1,4 @@
-import { reactive, watch } from 'vue';
+import { computed, reactive, watch } from 'vue';
 
 import type { LayoutState } from './types';
 
@@ -64,4 +64,14 @@ export function createLayoutState() {
   );
 
   return layout;
+}
+
+export function createLayoutComputed(layout: LayoutState) {
+  const isFullContent = computed(() => {
+    return layout.layout === 'full-content';
+  });
+
+  return {
+    isFullContent,
+  };
 }

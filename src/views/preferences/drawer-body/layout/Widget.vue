@@ -14,10 +14,10 @@ import { useI18n } from 'vue-i18n';
 import SelectItem from '../SelectItem.vue';
 import SwitchItem from '../SwitchItem.vue';
 
-import type { LayoutType, PreferencesButtonPositionType } from '@/store';
+import type { PreferencesButtonPositionType } from '@/store';
 
 interface Props {
-  layout: LayoutType;
+  isFullContent: boolean;
   showHeader: boolean;
 }
 
@@ -30,8 +30,7 @@ const sidebarToggle = defineModel<boolean>('sidebarToggle');
 const preferencesButtonPosition = defineModel<PreferencesButtonPositionType>('preferencesButtonPosition');
 
 const positionItems = computed(() => {
-  const { layout, showHeader } = props;
-  const isFullContent = layout === 'full-content';
+  const { showHeader, isFullContent } = props;
   const disabled = isFullContent || !showHeader;
 
   return [

@@ -4,14 +4,13 @@ import { readonly, computed } from 'vue';
 import { usePreferencesStore } from '@/store';
 
 export function usePreferencesPosition() {
-  const { layout } = storeToRefs(usePreferencesStore());
+  const { layout, isFullContent } = storeToRefs(usePreferencesStore());
 
   const currentPosition = computed(() => {
     const position = layout.value.widget.preferencesButtonPosition;
     const headerEnabled = layout.value.header.enable;
-    const isFullContent = layout.value.layout === 'full-content';
 
-    if (isFullContent) {
+    if (isFullContent.value) {
       return 'fixed';
     }
 

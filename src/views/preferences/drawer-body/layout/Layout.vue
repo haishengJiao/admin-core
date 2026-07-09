@@ -89,10 +89,10 @@ const PRESET = computed((): PresetItem[] => [
   //   tip: t('preferences.layout.layout.headerTwoColumnTip'),
   //   type: 'header-mixed-nav',
   // },
-  // {
-  //   name: t('preferences.layout.layout.fullContent'),
-  //   tip: t('preferences.layout.layout.fullContentTip'),
-  //   type: 'full-content',
-  // },
+  {
+    name: t('preferences.layout.layout.fullContent'),
+    tip: t('preferences.layout.layout.fullContentTip'),
+    type: 'full-content',
+  },
 ]);
 </script>
