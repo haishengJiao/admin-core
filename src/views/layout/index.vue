@@ -93,7 +93,18 @@ const isFixedHeight = computed(() => {
 });
 const mainStyle = computed<CSSProperties>(() => {
   const height = viewportHeight.value;
-  return isFixedHeight.value ? { height } : { minHeight: height };
+  const isCompact = layout.value.content === 'compact';
+
+  const style: CSSProperties = {
+    ...(isFixedHeight.value ? { height } : { minHeight: height }),
+  };
+
+  if (isCompact) {
+    style.maxWidth = '1200px';
+    style.margin = '0 auto';
+  }
+
+  return style;
 });
 const mainScrollbar = useTemplateRef('mainScrollbar');
 const scrollHandlers = new Set<ScrollbarInstance['onScroll']>();
