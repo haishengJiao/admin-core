@@ -119,6 +119,8 @@
     "title": "General",
     "language": "Language",
     "dynamicTitle": "Dynamic Title",
+    "watermark": "Watermark",
+    "watermarkContent": "Please input Watermark content",
     "animation": {
       "title": "Animation",
       "progress": "Page Progress",

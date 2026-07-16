@@ -119,6 +119,8 @@
     "title": "通用",
     "language": "語言",
     "dynamicTitle": "動態標題",
+    "watermark": "浮水印",
+    "watermarkContent": "請輸入浮水印文案",
     "animation": {
       "title": "動畫",
       "progress": "頁面切換進度條",

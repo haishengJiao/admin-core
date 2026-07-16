@@ -137,6 +137,10 @@ export interface GeneralState {
     locale: Locale;
     /** 是否开启动态标题 */
     dynamicTitle: boolean;
+    /** 是否开启水印 */
+    watermark: boolean;
+    /** 水印内容 */
+    watermarkContent: string;
   };
   animation: {
     /** 是否开启页面切换进度条 */

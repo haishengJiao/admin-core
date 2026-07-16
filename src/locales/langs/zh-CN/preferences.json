@@ -119,6 +119,8 @@
     "title": "通用",
     "language": "语言",
     "dynamicTitle": "动态标题",
+    "watermark": "水印",
+    "watermarkContent": "请输入水印文案",
     "animation": {
       "title": "动画",
       "progress": "页面切换进度条",

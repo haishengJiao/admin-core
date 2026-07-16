@@ -7,6 +7,8 @@ export function createGeneralState() {
     general: {
       locale: 'zh-CN',
       dynamicTitle: true,
+      watermark: true,
+      watermarkContent: '',
     },
     animation: {
       progress: true,

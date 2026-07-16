@@ -5,11 +5,18 @@
 </template>
 
 <script setup lang="ts">
-import { useElementPlusDesign, useDocumentTitle, useLocaleLoader, useAppearanceEffects } from './hooks';
+import {
+  useElementPlusDesign,
+  useDocumentTitle,
+  useLocaleLoader,
+  useAppearanceEffects,
+  useAppWatermark,
+} from './hooks';
 import { elementLocale } from './locales';
 
 useAppearanceEffects();
 useElementPlusDesign();
 useDocumentTitle();
 useLocaleLoader();
+useAppWatermark();
 </script>
