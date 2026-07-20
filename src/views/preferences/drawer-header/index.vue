@@ -29,7 +29,7 @@
           effect="light"
           :offset="10"
         >
-          <CoreSvg name="preferences-pin" />
+          <CoreSvg class="stroke-current" name="preferences-pin" />
         </el-tooltip>
         <el-tooltip
           v-else
@@ -37,7 +37,7 @@
           effect="light"
           :offset="10"
         >
-          <CoreSvg name="preferences-unpin" />
+          <CoreSvg class="stroke-current" name="preferences-unpin" />
         </el-tooltip>
       </div>
       <div

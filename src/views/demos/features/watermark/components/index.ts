@@ -1,0 +1,10 @@
+export { default as WatermarkImageUpload } from './WatermarkImageUpload.vue';
+export { default as WatermarkBasic } from './WatermarkBasic.vue';
+export { default as WatermarkContent } from './WatermarkContent.vue';
+export { default as WatermarkPosition } from './WatermarkPosition.vue';
+export { default as WatermarkRichText } from './WatermarkRichText.vue';
+export { default as WatermarkImage } from './WatermarkImage.vue';
+export { default as WatermarkStyle } from './WatermarkStyle.vue';
+export { default as WatermarkShadow } from './WatermarkShadow.vue';
+export { default as WatermarkAdvanced } from './WatermarkAdvanced.vue';
+export { default as WatermarkExtra } from './WatermarkExtra.vue';

@@ -2,6 +2,8 @@
   "workspace": "Workspace",
   "themeEditor": "Theme Editor",
   "demos": "Demos",
+  "features": "Features",
+  "watermark": "Watermark",
   "menuBadge": "Menu Badge",
   "dotBadge": "Dot Badge",
   "textBadge": "Text Badge",

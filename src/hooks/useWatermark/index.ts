@@ -4,37 +4,30 @@ import type { Watermark as WatermarkType, WatermarkOptions } from 'watermark-js-
 
 export type PartialWatermarkOptions = Partial<WatermarkOptions>;
 
+const WATERMARK_DEFAULT: PartialWatermarkOptions = {
+  content: 'Hello World!',
+  width: 200,
+  height: 160,
+  rotate: 33,
+  fontColor: 'gray',
+  contentType: 'multi-line-text',
+  globalAlpha: 0.5,
+};
+
 export function useWatermark() {
   const watermark = ref<WatermarkType>();
-  const cachedOptions = ref<PartialWatermarkOptions>({
-    content: 'Hello World!',
-    width: 200,
-    height: 160,
-    rotate: 33,
-    fontColor: 'gray',
-    contentType: 'multi-line-text',
-    globalAlpha: 0.5,
-  });
 
   async function initWatermark(options?: PartialWatermarkOptions) {
     const { Watermark } = await import('watermark-js-plus');
 
-    cachedOptions.value = {
-      ...cachedOptions.value,
-      ...options,
-    };
-
-    watermark.value = new Watermark(cachedOptions.value);
+    watermark.value = new Watermark({ ...WATERMARK_DEFAULT, ...options });
     await watermark.value.create();
   }
 
   async function updateWatermark(options?: PartialWatermarkOptions) {
     if (watermark.value) {
       await nextTick();
-      await watermark.value.changeOptions({
-        ...cachedOptions.value,
-        ...options,
-      });
+      await watermark.value.changeOptions({ ...WATERMARK_DEFAULT, ...options });
     } else {
       await initWatermark(options);
     }

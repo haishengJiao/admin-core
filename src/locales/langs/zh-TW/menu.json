@@ -2,6 +2,8 @@
   "workspace": "工作台",
   "themeEditor": "主題編輯器",
   "demos": "演示",
+  "features": "功能",
+  "watermark": "浮水印",
   "menuBadge": "選單徽標",
   "dotBadge": "點徽標",
   "textBadge": "文本徽標",

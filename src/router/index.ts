@@ -44,6 +44,25 @@ const routes: RouteRecordRaw[] = [
         },
         children: [
           {
+            name: 'FeaturesDemos',
+            path: '/demos/features',
+            meta: {
+              title: $t('menu.features'),
+              icon: '#svg-layout-features',
+            },
+            children: [
+              {
+                name: 'WatermarkDemo',
+                path: '/demos/features/watermark',
+                component: () => import('@/views/demos/features/watermark/index.vue'),
+                meta: {
+                  title: $t('menu.watermark'),
+                  icon: '#svg-layout-watermark',
+                },
+              },
+            ],
+          },
+          {
             name: 'BadgeDemos',
             path: '/demos/badge',
             meta: {
