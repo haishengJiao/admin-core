@@ -57,7 +57,7 @@ import LayoutTabBar from './tabbar/index.vue';
 
 import type { ScrollbarInstance } from 'element-plus';
 
-import { useMainSpinner } from '@/hooks';
+import { useMainSpinner } from '@/composables';
 import { usePreferencesStore } from '@/store';
 import { SCROLLBAR_KEY } from '@/types';
 import { usePreferencesPosition } from '@/views/preferences/composables';

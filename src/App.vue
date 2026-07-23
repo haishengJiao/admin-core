@@ -11,7 +11,7 @@ import {
   useLocaleLoader,
   useAppearanceEffects,
   useAppWatermark,
-} from './hooks';
+} from './composables';
 import { elementLocale } from './locales';
 
 useAppearanceEffects();

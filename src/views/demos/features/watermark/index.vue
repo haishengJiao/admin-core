@@ -90,7 +90,7 @@ import { useWatermarkConfig, useImageUpload, usePatternImageUpload } from './com
 
 import type { AdvancedStyleType } from 'watermark-js-plus';
 
-import { useWatermark } from '@/hooks';
+import { useWatermark } from '@/composables';
 
 const { watermark, updateWatermark, destroyWatermark } = useWatermark();
 const { base, content, position, richText, image, style, filter, filterComputed, shadow, advanced, extra } =
