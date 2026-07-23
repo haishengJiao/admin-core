@@ -1,57 +1,42 @@
 <template>
   <main class="bg-bg-page relative overflow-hidden transition-colors duration-300">
     <template v-if="route.meta.iframeSrc">
-      <IFrameView :key="route.path" :src="route.meta.iframeSrc" />
+      <IFrameView :key="route.fullPath" :src="route.meta.iframeSrc" />
     </template>
     <template v-else>
       <RouterView v-slot="{ Component }">
-        <Transition v-if="transitionEnable" mode="out-in" :name="transitionName">
+        <Transition v-if="transitionEnable" mode="out-in" :name="transitionName" @enter="handleEnter">
           <component :is="Component" />
         </Transition>
         <component :is="Component" v-else />
       </RouterView>
     </template>
-
-    <Spinner v-if="enableLoading" :spinning="spinning" :style="{ height: spinnerHeight }" />
   </main>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
 import { useRoute } from 'vue-router';
 
 import IFrameView from '../iframe/index.vue';
 
-import { useMainSpinner } from '@/hooks/index.ts';
+import type { BaseTransitionProps } from 'vue';
+
 import { usePreferencesStore } from '@/store';
+import { SCROLLBAR_KEY } from '@/types/injection-keys';
 
 const route = useRoute();
-const { spinning } = useMainSpinner();
 
-const { general, layout } = storeToRefs(usePreferencesStore());
+const { general } = storeToRefs(usePreferencesStore());
 
 const transitionEnable = computed(() => general.value.animation.enable);
 const transitionName = computed(() => general.value.animation.name);
-const enableLoading = computed(() => general.value.animation.loading);
-const showHeader = computed(() => layout.value.header.enable);
-const showTabBar = computed(() => layout.value.tabbar.enable);
 
-const spinnerHeight = computed(() => {
-  let height = '100vh';
-  const subtractItems: string[] = [];
-
-  if (showHeader.value) {
-    subtractItems.push('var(--header-height)');
-  }
-
-  if (showTabBar.value) {
-    subtractItems.push('var(--tabbar-height)');
-  }
-
-  if (subtractItems.length > 0) {
-    height = `calc(100vh - ${subtractItems.join(' - ')})`;
-  }
-  return height;
-});
+const scrollbar = inject(SCROLLBAR_KEY);
+const handleEnter: BaseTransitionProps['onEnter'] = (_el, done) => {
+  scrollbar?.scrollbarRef.value?.update();
+  scrollbar?.scrollbarRef.value?.scrollTo(0, 0);
+  done();
+};
 </script>

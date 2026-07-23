@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Base } from '../types/index.ts';
+import type { Base } from '../types';
 
 const base = defineModel<Base>('base', { required: true });
 </script>

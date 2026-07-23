@@ -71,7 +71,12 @@ export function createLayoutComputed(layout: LayoutState) {
     return layout.layout === 'full-content';
   });
 
+  const isCompact = computed(() => {
+    return layout.content === 'compact';
+  });
+
   return {
     isFullContent,
+    isCompact,
   };
 }

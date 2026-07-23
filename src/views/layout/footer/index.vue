@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-bg-page z-2 h-(--footer-height) transition-colors duration-300">
+  <footer class="bg-bg-page z-2 h-(--footer-height) shrink-0 transition-colors duration-300">
     <div v-if="enable" class="flex h-full items-center justify-center text-xs">
       <el-link
         v-if="icp"

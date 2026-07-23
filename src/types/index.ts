@@ -1,1 +1,1 @@
-export * from './injection-keys.ts';
+export * from './injection-keys';

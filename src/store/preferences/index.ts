@@ -18,7 +18,7 @@ export const usePreferencesStore = defineStore(
     const app = createAppState();
 
     const { effectiveTheme, isDark, isLight } = createAppearanceComputed(appearance);
-    const { isFullContent } = createLayoutComputed(layout);
+    const { isFullContent, isCompact } = createLayoutComputed(layout);
 
     const originSnapshot = cloneDeep(toRaw({ appearance, general, layout, app }));
     function $reset() {
@@ -34,7 +34,19 @@ export const usePreferencesStore = defineStore(
       isModified.value = !isEqual(current, originSnapshot);
     });
 
-    return { appearance, general, layout, app, effectiveTheme, isDark, isLight, isFullContent, isModified, $reset };
+    return {
+      appearance,
+      general,
+      layout,
+      app,
+      effectiveTheme,
+      isDark,
+      isLight,
+      isFullContent,
+      isCompact,
+      isModified,
+      $reset,
+    };
   },
   {
     persist: { key: STORAGE_KEYS.PREFERENCES },
