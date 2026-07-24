@@ -14,7 +14,7 @@
         @scroll="handleScroll"
       >
         <div class="flex h-full flex-col">
-          <div class="absolute top-0 z-2 w-full">
+          <div class="absolute top-0 z-2 w-full" :class="{ 'shadow-[0_16px_24px_var(--bg)]': scrollY > 20 }">
             <Transition name="header-fade">
               <LayoutHeader v-if="showHeader" />
             </Transition>
@@ -46,7 +46,7 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { computed, useTemplateRef, nextTick, provide, onUnmounted } from 'vue';
+import { computed, useTemplateRef, nextTick, provide, onUnmounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import LayoutAside from './aside/index.vue';
@@ -111,10 +111,12 @@ const spinnerHeight = computed(() => {
   return parts.length ? `calc(100vh - ${parts.join(' - ')})` : '100vh';
 });
 
+const scrollY = ref(0);
 const mainScrollbar = useTemplateRef('mainScrollbar');
 const scrollHandlers = new Set<ScrollbarInstance['onScroll']>();
 const endReachedHandlers = new Set<ScrollbarInstance['onEnd-reached']>();
 const handleScroll: ScrollbarInstance['onScroll'] = params => {
+  scrollY.value = params.scrollTop;
   scrollHandlers.forEach(handler => handler?.(params));
 };
 const handleEndReached: ScrollbarInstance['onEnd-reached'] = direction => {
