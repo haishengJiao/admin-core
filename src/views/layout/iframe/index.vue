@@ -22,7 +22,7 @@ type Props = {
 
 const { src } = defineProps<Props>();
 
-const whitelist = ['https://vueuse.org/', 'https://v7.vite.dev/'];
+const whitelist = ['https://vue-i18n.intlify.dev/guide/introduction.html', 'https://www.typescriptlang.org/'];
 
 const isUrlInWhitelist = (url: string) => {
   return whitelist.some(domain => url.startsWith(domain));
@@ -53,7 +53,7 @@ useMutationObserver(
   },
 );
 
-const spinning = ref(true);
+const spinning = ref(isUrlInWhitelist(src));
 const handleLoad = () => {
   spinning.value = false;
 };
