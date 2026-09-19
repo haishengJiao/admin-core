@@ -74,7 +74,14 @@
     },
     "header": {
       "title": "Header",
-      "enable": "Show Header"
+      "enable": "Show Header",
+      "mode": {
+        "title": "Mode",
+        "static": "Static",
+        "fixed": "Fixed",
+        "auto": "Auto hide & Show",
+        "scroll": "Scroll to Hide & Show"
+      }
     },
     "navigationMenu": {
       "title": "Navigation Menu",

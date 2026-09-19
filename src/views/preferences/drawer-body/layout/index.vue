@@ -16,7 +16,7 @@
       />
     </Block>
     <Block :title="$t('preferences.layout.header.title')">
-      <Header v-model:enable="layout.header.enable" :disabled="isFullContent" />
+      <Header v-model:enable="layout.header.enable" v-model:mode="layout.header.mode" :disabled="isFullContent" />
     </Block>
     <Block :title="$t('preferences.layout.navigationMenu.title')">
       <Navigation v-model:accordion="layout.navigation.accordion" :disabled="isFullContent" />

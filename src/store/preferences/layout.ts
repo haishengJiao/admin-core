@@ -14,6 +14,7 @@ export function createLayoutState() {
     },
     header: {
       enable: true,
+      mode: 'fixed',
     },
     navigation: {
       accordion: true,
@@ -75,8 +76,23 @@ export function createLayoutComputed(layout: LayoutState) {
     return layout.content === 'compact';
   });
 
+  const isHeaderFixed = computed(() => {
+    return layout.header.mode === 'fixed';
+  });
+
+  const isHeaderAuto = computed(() => {
+    return layout.header.mode === 'auto';
+  });
+
+  const isHeaderScroll = computed(() => {
+    return layout.header.mode === 'scroll';
+  });
+
   return {
     isFullContent,
     isCompact,
+    isHeaderFixed,
+    isHeaderAuto,
+    isHeaderScroll,
   };
 }

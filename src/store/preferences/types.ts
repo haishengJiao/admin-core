@@ -70,6 +70,8 @@ export type ContentType = 'wide' | 'compact';
 
 export type PreferencesButtonPositionType = 'auto' | 'header' | 'fixed' | 'user-dropdown';
 
+export type LayoutHeaderModeType = 'fixed' | 'static' | 'auto' | 'scroll';
+
 export interface LayoutState {
   /** 布局 */
   layout: LayoutType;
@@ -88,6 +90,8 @@ export interface LayoutState {
   header: {
     /** 是否显示顶栏 */
     enable: boolean;
+    /** 模式  */
+    mode: LayoutHeaderModeType;
   };
   navigation: {
     /** 是否开启侧边导航菜单手风琴模式 */

@@ -18,7 +18,7 @@ export const usePreferencesStore = defineStore(
     const app = createAppState();
 
     const { effectiveTheme, isDark, isLight } = createAppearanceComputed(appearance);
-    const { isFullContent, isCompact } = createLayoutComputed(layout);
+    const { isFullContent, isCompact, isHeaderFixed, isHeaderAuto, isHeaderScroll } = createLayoutComputed(layout);
 
     const originSnapshot = cloneDeep(toRaw({ appearance, general, layout, app }));
     function $reset() {
@@ -44,6 +44,9 @@ export const usePreferencesStore = defineStore(
       isLight,
       isFullContent,
       isCompact,
+      isHeaderFixed,
+      isHeaderAuto,
+      isHeaderScroll,
       isModified,
       $reset,
     };

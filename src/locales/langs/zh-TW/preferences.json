@@ -74,7 +74,14 @@
     },
     "header": {
       "title": "頂欄",
-      "enable": "顯示頂欄"
+      "enable": "顯示頂欄",
+      "mode": {
+        "title": "模式",
+        "static": "靜止",
+        "fixed": "固定",
+        "auto": "自動隱藏和顯示",
+        "scroll": "滾動隱藏和顯示"
+      }
     },
     "navigationMenu": {
       "title": "導航選單",

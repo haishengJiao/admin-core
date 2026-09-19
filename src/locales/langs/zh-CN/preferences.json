@@ -74,7 +74,14 @@
     },
     "header": {
       "title": "顶栏",
-      "enable": "显示顶栏"
+      "enable": "显示顶栏",
+      "mode": {
+        "title": "模式",
+        "static": "静止",
+        "fixed": "固定",
+        "auto": "自动隐藏和显示",
+        "scroll": "滚动隐藏和显示"
+      }
     },
     "navigationMenu": {
       "title": "导航菜单",

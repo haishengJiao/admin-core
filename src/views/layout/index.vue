@@ -1,9 +1,9 @@
 <template>
   <div class="flex h-full w-full">
     <Transition name="sidebar-fade">
-      <LayoutAside v-if="showSidebar" :style="{ width: sidebarWidth }" />
+      <LayoutAside v-if="showSidebar" v-show="!isFullContent" :style="{ width: sidebarWidth }" />
     </Transition>
-    <div class="relative flex flex-1 flex-col">
+    <div class="relative flex flex-1 flex-col" @mousemove="handleMainMouseMove">
       <el-scrollbar
         ref="mainScrollbar"
         class="flex-1 [&_.el-scrollbar\_\_bar]:z-10!"
@@ -14,7 +14,14 @@
         @scroll="handleScroll"
       >
         <div class="flex h-full flex-col">
-          <div class="absolute top-0 z-2 w-full" :class="{ 'shadow-[0_16px_24px_var(--bg)]': scrollY > 20 }">
+          <div
+            ref="headerWrapRef"
+            class="z-2 w-full transition-all duration-300"
+            :class="{
+              'shadow-[0_16px_24px_var(--bg)]': scrollY > SCROLL_SHADOW_THRESHOLD,
+            }"
+            :style="headerStyle"
+          >
             <Transition name="header-fade">
               <LayoutHeader v-if="showHeader" />
             </Transition>
@@ -26,18 +33,18 @@
           <div
             class="bg-bg-page flex-1 transition-[margin-top] duration-300"
             :class="{ 'overflow-hidden': isFixedHeight }"
-            :style="{ marginTop: topOffset }"
+            :style="mainStyle"
           >
             <LayoutMain class="h-full" :class="{ 'mx-auto my-0 max-w-300': isCompact }" />
           </div>
 
           <Transition name="footer-fade">
-            <LayoutFooter v-if="showFooter" :class="{ 'sticky bottom-0': fixedFooter }" />
+            <LayoutFooter v-if="showFooter" v-show="!isFullContent" :class="{ 'sticky bottom-0': fixedFooter }" />
           </Transition>
         </div>
       </el-scrollbar>
 
-      <Spinner v-if="enableLoading" :spinning="spinning" :style="{ height: spinnerHeight, top: topOffset }" />
+      <Spinner v-if="enableLoading" :spinning="spinning" :style="spinnerStyle" />
     </div>
 
     <FixedPreferencesButton v-if="fixed" />
@@ -46,35 +53,104 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { computed, useTemplateRef, nextTick, provide, onUnmounted, ref } from 'vue';
+import { computed, useTemplateRef, nextTick, onUnmounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import LayoutAside from './aside/index.vue';
+import { useLayoutScroll } from './composables/useLayoutScroll.ts';
 import LayoutFooter from './footer/index.vue';
 import LayoutHeader from './header/index.vue';
 import LayoutMain from './main/index.vue';
 import LayoutTabBar from './tabbar/index.vue';
 
-import type { ScrollbarInstance } from 'element-plus';
+import type { CSSProperties } from 'vue';
 
 import { useMainSpinner } from '@/composables';
 import { usePreferencesStore } from '@/store';
-import { SCROLLBAR_KEY } from '@/types';
 import { usePreferencesPosition } from '@/views/preferences/composables';
 import { FixedPreferencesButton } from '@/views/preferences/widgets';
 
+const SCROLL_SHADOW_THRESHOLD = 20;
+
 const route = useRoute();
 const router = useRouter();
-const { layout, isFullContent, isCompact, general } = storeToRefs(usePreferencesStore());
+const { layout, isFullContent, isCompact, general, isHeaderFixed, isHeaderAuto, isHeaderScroll } =
+  storeToRefs(usePreferencesStore());
 const { fixed } = usePreferencesPosition();
 const { spinning } = useMainSpinner();
+const mainScrollbar = useTemplateRef('mainScrollbar');
+const { y: scrollY, handleEndReached, handleScroll, lockScroll, unlockScroll } = useLayoutScroll(mainScrollbar);
 
-const showSidebar = computed(() => layout.value.sidebar.enable && !isFullContent.value);
-const showHeader = computed(() => layout.value.header.enable && !isFullContent.value);
-const showTabBar = computed(() => layout.value.tabbar.enable && !isFullContent.value);
-const showFooter = computed(() => layout.value.footer.enable && !isFullContent.value);
+const showSidebar = computed(() => layout.value.sidebar.enable);
+const showHeader = computed(() => layout.value.header.enable);
+const showTabBar = computed(() => layout.value.tabbar.enable);
+const showFooter = computed(() => layout.value.footer.enable);
 const fixedFooter = computed(() => layout.value.footer.fixed);
 const enableLoading = computed(() => general.value.animation.loading);
+const isHeaderOverlay = computed(() => isHeaderFixed.value || isHeaderAuto.value || isHeaderScroll.value);
+
+const headerWrapRef = useTemplateRef('headerWrapRef');
+const headerScrollVisible = ref(true);
+
+const headerHeight = computed(() => {
+  const parts: string[] = [];
+  if (showHeader.value) parts.push('var(--header-height)');
+
+  if (showTabBar.value) parts.push('var(--tabbar-height)');
+
+  return parts.length ? parts.join(' + ') : '0px';
+});
+const headerStyle = computed((): CSSProperties => {
+  return {
+    position: isHeaderOverlay.value || isFullContent.value ? 'absolute' : 'static',
+    top: !headerScrollVisible.value || isFullContent.value ? `calc(-1 * (${headerHeight.value}))` : '0px',
+  };
+});
+
+const mainStyle = computed((): CSSProperties => {
+  return {
+    marginTop: isHeaderFixed.value && !isFullContent.value ? `calc(${headerHeight.value})` : '0px',
+  };
+});
+
+const spinnerStyle = computed((): CSSProperties => {
+  if (isFullContent.value) {
+    return {
+      height: '100vh',
+      top: '0px',
+    };
+  }
+
+  const h = `calc(${headerHeight.value})`;
+
+  if (isHeaderFixed.value) {
+    return {
+      height: `calc(100vh - ${h})`,
+      top: `${h}`,
+    };
+  }
+
+  if (isHeaderAuto.value) {
+    if (headerScrollVisible.value) {
+      return {
+        height: `calc(100vh - ${h})`,
+        top: `${h}`,
+      };
+    }
+    return {
+      height: '100vh',
+      top: '0px',
+    };
+  }
+
+  const topOffset = `max(0px, calc(${h} - ${scrollY.value}px))`;
+  const contentHeight = `min(100vh, calc(100vh - ${h} + ${scrollY.value}px))`;
+
+  return {
+    top: topOffset,
+    height: contentHeight,
+  };
+});
 
 const isFixedHeight = computed(() => {
   const { iframeSrc, selfScroll } = route.meta;
@@ -89,64 +165,14 @@ const sidebarWidth = computed(() => {
   return `${width}px`;
 });
 
-const topHeightParts = computed(() => {
-  const parts: string[] = [];
-
-  if (showHeader.value) parts.push('var(--header-height)');
-
-  if (showTabBar.value) parts.push('var(--tabbar-height)');
-
-  return parts;
-});
-
-const topOffset = computed(() => {
-  const parts = topHeightParts.value;
-
-  return parts.length ? `calc(${parts.join(' + ')})` : '0px';
-});
-
-const spinnerHeight = computed(() => {
-  const parts = topHeightParts.value;
-
-  return parts.length ? `calc(100vh - ${parts.join(' - ')})` : '100vh';
-});
-
-const scrollY = ref(0);
-const mainScrollbar = useTemplateRef('mainScrollbar');
-const scrollHandlers = new Set<ScrollbarInstance['onScroll']>();
-const endReachedHandlers = new Set<ScrollbarInstance['onEnd-reached']>();
-const handleScroll: ScrollbarInstance['onScroll'] = params => {
-  scrollY.value = params.scrollTop;
-  scrollHandlers.forEach(handler => handler?.(params));
-};
-const handleEndReached: ScrollbarInstance['onEnd-reached'] = direction => {
-  endReachedHandlers.forEach(handler => handler?.(direction));
-};
-const onScroll = (handler: ScrollbarInstance['onScroll']) => {
-  scrollHandlers.add(handler);
-  return () => scrollHandlers.delete(handler);
-};
-const onEndReached = (handler: ScrollbarInstance['onEnd-reached']) => {
-  endReachedHandlers.add(handler);
-  return () => endReachedHandlers.delete(handler);
-};
-provide(SCROLLBAR_KEY, {
-  scrollbarRef: mainScrollbar,
-  onScroll,
-  onEndReached,
-});
-
 const transitionEnable = computed(() => general.value.animation.enable);
 const removeBeforeEach = router.beforeEach(() => {
-  if (mainScrollbar.value && mainScrollbar.value.wrapRef) {
-    mainScrollbar.value.wrapRef.style.overflow = 'hidden';
-  }
+  lockScroll();
 });
 const removeAfterEach = router.afterEach(() => {
   nextTick(() => {
-    if (mainScrollbar.value && mainScrollbar.value.wrapRef) {
-      mainScrollbar.value.wrapRef.style.overflow = 'auto';
-    }
+    unlockScroll();
+    headerScrollVisible.value = false;
 
     if (!transitionEnable.value) {
       mainScrollbar.value?.scrollTo(0, 0);
@@ -154,6 +180,18 @@ const removeAfterEach = router.afterEach(() => {
     }
   });
 });
+
+const handleMainMouseMove = (e: MouseEvent) => {
+  if (!isHeaderAuto.value) return;
+  if (headerScrollVisible.value) {
+    const threshold = headerWrapRef.value?.offsetHeight ?? 0;
+    headerScrollVisible.value = e.clientY <= threshold;
+  } else {
+    headerScrollVisible.value = e.clientY <= SCROLL_SHADOW_THRESHOLD;
+  }
+};
+
+const scroll = inject(SCROLLBAR_KEY);
 
 onUnmounted(() => {
   removeBeforeEach();
